@@ -1,4 +1,4 @@
 appcan-docs
 ===========
 
-AppCan
+AppCan文档中心
