@@ -1,4 +1,4 @@
 appcan-docs
 ===========
 
-appcan-docs
+AppCan
