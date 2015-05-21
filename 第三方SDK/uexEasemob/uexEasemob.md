@@ -1,4 +1,10 @@
+
+
 #uexEasemob插件接口文档
+
+
+
+
 
 ##简介：
 ***
@@ -12,17 +18,41 @@
 
 
 
+
 ##changelog
 ***
-2015-04-17  初稿
+2015-04-17 
+ 
+* 初稿
 
-2015-04-20	新增[2.12][2.13]方法;
-			修改了[2.1]的回调值的结构;
-			统一了Android和iOS返回的json对象的结构，对附录做了大量修订。
+2015-04-20	
+
+* 新增[2.12][2.13]方法;
+* 修改了[2.1]的回调值的结构;
+* 统一了Android和iOS返回的json对象的结构，对附录做了大量修订。
 			
-2015-04-28 新增方法[3.15]获取聊天对象信息及其回调[3.16];
-			[4.6][5.14]改用异步方法获得回调。
-			
+2015-04-28 
+
+* 新增方法[3.15]获取聊天对象信息及其回调[3.16];
+* [4.6][5.14]改用异步方法获得回调。
+
+2015-05-04 
+
+* 新增方法[1.12]设置是否自动登录;
+* 现在iOS也支持回调 [1.10]onConnected 了。
+		    
+2015-05-05
+
+* 更新环信iOS SDK版本至V2.1.6(2015-04-30版)，部分代码做了优化以支持此新版本;
+* 现在所有的回调函数都会返回给进行 [1.1]初始化 操作的那个网页了。
+* [1.9]现在也会返回 是否开启自动登录 的信息了。
+
+2015-05-06
+
+* 删去方法 [1.12]设置是否自动登录 ，改为在 [1.1]初始化 中添加相关参数
+
+
+		
 ##API		
 ###[1]Initialization
 ***
@@ -30,12 +60,16 @@
 
   var param{
   
-	appKey:,//区别app的标识       
-	apnsCertName:,//iOS中推送证书名称
-    
-	//Android 中此参数需要在AndroidManifest.xml中配置
+	appKey:,//区别app的标识（仅iOS）     
+	apnsCertName:,//iOS中推送证书名称（仅iOS）
+	isAutoLoginEnabled:,//可选参数 是否开启自动登录功能 1-开启 2-关闭
+     
+	
 }
 
+	注：Android中 初始化需要在AndroidManifest.xml中配置；
+	   自动登录功能Android SDK 默认开启，iOS SDK默认关闭。
+	
 #####[1.2]login(param) //登陆
 
 var param = {
@@ -85,12 +119,13 @@ var param = {
 #####[1.9]cbGetLoginInfo(param)//获取当前登陆信息的回调（仅iOS）
 
  var param={
- 
+ 	
 	userInfo://当前登陆用户信息
 	isLoggedIn://当前是否已有登录用户  1-是 2-否
 	isConnected://是否连上聊天服务器   1-是 2-否
+	isAutoLoginEnabled://是否自动登录  1-是 2-否
 }
-#####[1.10]onConnected();//已连接上（仅Android可用）
+#####[1.10]onConnected();//已连接上
 #####[1.11]onDisconnected(param)//链接断开
 var param = {
 
@@ -285,7 +320,7 @@ var param = {
 ##### [3.15]getChatterInfo();//获取聊天对象信息
 
 ##### [3.16]cbGetChatterInfo(param);//获取聊天对象信息回调
-	param为list<chatteInfo>,一个由chatterInfo结构组成的数组。
+	param为list<chatterInfo>,一个由chatterInfo结构组成的数组。
 		
 var chatterInfo = {
 
@@ -739,3 +774,4 @@ membersOnly|需要申请和验证才能加入
 -keep class * implements java.io.Serializable {*;}
 ##---------------End: proguard configuration for Gson  ----------
 ~~~
+

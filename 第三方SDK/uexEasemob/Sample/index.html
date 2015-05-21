@@ -1,943 +1,945 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-        <meta name="viewport"
-            content="width=device-width, initial-scale=1, user-scalable=no,minimum-scale=1.0, maximum-scale=1.0">
-            <link rel="stylesheet" type="text/css" href="css/index.css">
-                <script type="text/javascript">
-                    window.uexOnload = function(type){
-                        //[1.10]
-                        uexEasemob.onConnected= function(type){
-                            document.getElementById('TestCallBack1').innerHTML="onConnected";
-                            document.getElementById('TestData1').innerHTML=data;
-                            //alert('onConnected:'+data);
-                        };
-                        
-                        //[1.11]
-                        uexEasemob.onDisconnected= function(type){
-                            document.getElementById('TestCallBack1').innerHTML="onDisconnected";
-                            document.getElementById('TestData1').innerHTML=data;
-                            //alert('onDisconnected:'+data);
-                        };
-                        
-                        //[1.3]
-                        uexEasemob.cbLogin= function(type){
-                            document.getElementById('TestCallBack1').innerHTML="cbLogin";
-                            document.getElementById('TestData1').innerHTML=data;
-                            //alert('cbLogin:'+data);
-                        };
-                        
-                        //[1.6]
-                        uexEasemob.cbRegisterUser= function(type){
-                            document.getElementById('TestCallBack1').innerHTML="cbRegisterUser";
-                            document.getElementById('TestData1').innerHTML=data;
-                            //alert('cbRegisterUser:'+data);
-                        };
-                        
-                        //[1.9]
-                        uexEasemob.cbGetLoginInfo= function(type){
-                            document.getElementById('TestCallBack1').innerHTML="cbGetLoginInfo";
-                            document.getElementById('TestData1').innerHTML=data;
-                            //alert('cbGetLoginInfo:'+data);
-                        };
-                        
-                        //[2.1]
-                        uexEasemob.onNewMessage= function(type){
-                            document.getElementById('TestCallBack2').innerHTML="onNewMessage";
-                            document.getElementById('TestData2').innerHTML=data;
-                            //alert('onNewMessage:'+data);
-                        };
-                        
-                        //[2.2]
-                        uexEasemob.onCmdMessageReceive= function(type){
-                            document.getElementById('TestCallBack2').innerHTML="onCmdMessageReceive";
-                            document.getElementById('TestData2').innerHTML=data;
-                            //alert('onCmdMessageReceive:'+data);
-                        };
-                        
-                        //[2.3]
-                        uexEasemob.onAckMessage= function(type){
-                            document.getElementById('TestCallBack2').innerHTML="onAckMessage";
-                            document.getElementById('TestData2').innerHTML=data;
-                            //alert('onAckMessage:'+data);
-                        };
-                        
-                        //[2.4]
-                        uexEasemob.onDeliveryMessage= function(type){
-                            document.getElementById('TestCallBack2').innerHTML="onDeliveryMessage";
-                            document.getElementById('TestData2').innerHTML=data;
-                            //alert('onDeliveryMessage:'+data);
-                        };
-                        
-                        //[2.13]
-                        uexEasemob.cbGetMessageById= function(type){
-                            document.getElementById('TestCallBack2').innerHTML="cbGetMessageById";
-                            document.getElementById('TestData2').innerHTML=data;
-                            //alert('cbGetMessageById:'+data);
-                        };
-                        
-                        //[3.2]
-                        uexEasemob.cbGetConversationByName= function(type){
-                            document.getElementById('TestCallBack3').innerHTML="cbGetConversationByName";
-                            document.getElementById('TestData3').innerHTML=data;
-                            //alert('cbGetConversationByName:'+data);
-                        };
-                        
-                        //[3.4]
-                        uexEasemob.cbGetMessageHistory= function(type){
-                            document.getElementById('TestCallBack3').innerHTML="cbGetMessageHistory";
-                            document.getElementById('TestData3').innerHTML=data;
-                            //alert('cbGetMessageHistory:'+data);
-                        };
-                        
-                        //[3.6]
-                        uexEasemob.cbGetUnReadMsgCount= function(type){
-                            document.getElementById('TestCallBack3').innerHTML="cbGetUnReadMsgCount";
-                            document.getElementById('TestData3').innerHTML=data;
-                            //alert('cbGetUnReadMsgCount:'+data);
-                        };
-                        
-                        //[3.10]
-                        uexEasemob.cbGetMsgCount= function(type){
-                            document.getElementById('TestCallBack3').innerHTML="cbGetMsgCount";
-                            document.getElementById('TestData3').innerHTML=data;
-                            //alert('cbGetMsgCount:'+data);
-                        };
-                        
-                        //[3.16]
-                        uexEasemob.cbGetChatterInfo= function(type){
-                            document.getElementById('TestCallBack3').innerHTML="cbGetChatterInfo";
-                            document.getElementById('TestData3').innerHTML=data;
-                            //alert('cbGetChatterInfo:'+data);
-                        };
-                        
-                        //[4.1]
-                        uexEasemob.onContactAdded= function(type){
-                            document.getElementById('TestCallBack4').innerHTML="onContactAdded";
-                            document.getElementById('TestData4').innerHTML=data;
-                            //alert('onContactAdded:'+data);
-                        };
-                        
-                        //[4.2]
-                        uexEasemob.onContactDeleted= function(type){
-                            document.getElementById('TestCallBack4').innerHTML="onContactDeleted";
-                            document.getElementById('TestData4').innerHTML=data;
-                            //alert('onContactDeleted:'+data);
-                        };
-                        
-                        //[4.3]
-                        uexEasemob.onContactInvited= function(type){
-                            document.getElementById('TestCallBack4').innerHTML="onContactInvited";
-                            document.getElementById('TestData4').innerHTML=data;
-                            //alert('onContactInvited:'+data);
-                        };
-                        
-                        //[4.4]
-                        uexEasemob.onContactAgreed= function(type){
-                            document.getElementById('TestCallBack4').innerHTML="onContactAgreed";
-                            document.getElementById('TestData4').innerHTML=data;
-                            //alert('onContactAgreed:'+data);
-                        };
-                        
-                        //[4.5]
-                        uexEasemob.onContactRefused= function(type){
-                            document.getElementById('TestCallBack4').innerHTML="onContactRefused";
-                            document.getElementById('TestData4').innerHTML=data;
-                            //alert('onContactRefused:'+data);
-                        };
-                        
-                        //[4.7]
-                        uexEasemob.cbGetContactUserNames	= function(type){
-                            document.getElementById('TestCallBack4').innerHTML="cbGetContactUserNames	";
-                            document.getElementById('TestData4').innerHTML=data;
-                            //alert('cbGetContactUserNames	:'+data);
-                        };
-                        
-                        //[4.13]
-                        uexEasemob.cbGetBlackListUsernames= function(type){
-                            document.getElementById('TestCallBack4').innerHTML="cbGetBlackListUsernames";
-                            document.getElementById('TestData4').innerHTML=data;
-                            //alert('cbGetBlackListUsernames:'+data);
-                        };
-                        
-                        //[5.1]
-                        uexEasemob.onInvitationDeclined= function(type){
-                            document.getElementById('TestCallBack5').innerHTML="onInvitationDeclined";
-                            document.getElementById('TestData5').innerHTML=data;
-                            //alert('onInvitationDeclined:'+data);
-                        };
-                        
-                        //[5.2]
-                        uexEasemob.onUserRemoved= function(type){
-                            document.getElementById('TestCallBack5').innerHTML="onUserRemoved";
-                            document.getElementById('TestData5').innerHTML=data;
-                            //alert('onUserRemoved:'+data);
-                        };
-                        
-                        //[5.3]
-                        uexEasemob.onGroupDestroy= function(type){
-                            document.getElementById('TestCallBack5').innerHTML="onGroupDestroy";
-                            document.getElementById('TestData5').innerHTML=data;
-                            //alert('onGroupDestroy:'+data);
-                        };
-                        
-                        //[5.4]
-                        uexEasemob.onApplicationReceived= function(type){
-                            document.getElementById('TestCallBack5').innerHTML="onApplicationReceived";
-                            document.getElementById('TestData5').innerHTML=data;
-                            //alert('onApplicationReceived:'+data);
-                        };
-                        
-                        //[5.5]
-                        uexEasemob.onApplicationAccept= function(type){
-                            document.getElementById('TestCallBack5').innerHTML="onApplicationAccept";
-                            document.getElementById('TestData5').innerHTML=data;
-                            //alert('onApplicationAccept:'+data);
-                        };
-                        
-                        //[5.6]
-                        uexEasemob.onApplicationDeclined= function(type){
-                            document.getElementById('TestCallBack5').innerHTML="onApplicationDeclined";
-                            document.getElementById('TestData5').innerHTML=data;
-                            //alert('onApplicationDeclined:'+data);
-                        };
-                        
-                        //[5.28]
-                        uexEasemob.onGroupUpdateInfo= function(type){
-                            document.getElementById('TestCallBack5').innerHTML="onGroupUpdateInfo";
-                            document.getElementById('TestData5').innerHTML=data;
-                            //alert('onGroupUpdateInfo:'+data);
-                        };
-                        
-                        //[5.15]
-                        uexEasemob.cbGetGroupsFromServer= function(type){
-                            document.getElementById('TestCallBack5').innerHTML="cbGetGroupsFromServer";
-                            document.getElementById('TestData5').innerHTML=data;
-                            //alert('cbGetGroupsFromServer:'+data);
-                        };
-                        
-                        //[5.17]
-                        uexEasemob.cbGetAllPublicGroupsFromServer= function(type){
-                            document.getElementById('TestCallBack5').innerHTML="cbGetAllPublicGroupsFromServer";
-                            document.getElementById('TestData5').innerHTML=data;
-                            //alert('cbGetAllPublicGroupsFromServer:'+data);
-                        };
-                        
-                        //[5.19]
-                        uexEasemob.cbGetGroup= function(type){
-                            document.getElementById('TestCallBack5').innerHTML="cbGetGroup";
-                            document.getElementById('TestData5').innerHTML=data;
-                            //alert('cbGetGroup:'+data);
-                        };
-                        
-                        //[5.27]
-                        uexEasemob.cbGetBlockedUsers= function(type){
-                            document.getElementById('TestCallBack5').innerHTML="cbGetBlockedUsers";
-                            document.getElementById('TestData5').innerHTML=data;
-                            //alert('cbGetBlockedUsers:'+data);
-                        };
-                        
-                        //[6.1]
-                        uexEasemob.onCallReceive= function(type){
-                            document.getElementById('TestCallBack6').innerHTML="onCallReceive";
-                            document.getElementById('TestData6').innerHTML=data;
-                            //alert('onCallReceive:'+data);
-                        };
-                        
-                        //[6.2]
-                        uexEasemob.onCallStateChanged= function(type){
-                            document.getElementById('TestCallBack6').innerHTML="onCallStateChanged";
-                            document.getElementById('TestData6').innerHTML=data;
-                            //alert('onCallStateChanged:'+data);
-                        };
-                        
-                    }
-                
-                //[1.1]
-                function initEasemob(){
-                    var appKey = document.getElementById("initEasemobappKey").value;
-                    var apnsCertName = document.getElementById("initEasemobapnsCertName").value;
-                    uexEasemob.initEasemob('{"appKey":"'+appKey+'","apnsCertName":"'+apnsCertName+'"}');
-                }
-                
-                //[1.2]
-                function login(){
-                    var username = document.getElementById("loginusername").value;
-                    var password = document.getElementById("loginpassword").value;
-                    uexEasemob.login('{"username":"'+username+'","password":"'+password+'"}');
-                }
-                
-                //[1.4]
-                function logout(){
-                    uexEasemob.logout('');
-                }
-                
-                //[1.5]
-                function registerUser(){
-                    var username = document.getElementById("registerUserusername").value;
-                    var password = document.getElementById("registerUserpassword").value;
-                    uexEasemob.registerUser('{"username":"'+username+'","password":"'+password+'"}');
-                }
-                
-                //[1.7]
-                function updateCurrentUserNickname(){
-                    var nickname = document.getElementById("updateCurrentUserNicknamenickname").value;
-                    uexEasemob.updateCurrentUserNickname('{"nickname":"'+nickname+'"}');
-                }
-                
-                //[1.8]
-                function getLoginInfo(){
-                    uexEasemob.getLoginInfo('');
-                }
-                
-                //[2.5]
-                function sendText(){
-                    var username = document.getElementById("sendTextusername").value;
-                    var chatType = document.getElementById("sendTextchatType").value;
-                    var content = document.getElementById("sendTextcontent").value;
-                    uexEasemob.sendText('{"username":"'+username+'","chatType":"'+chatType+'","content":"'+content+'"}');
-                }
-                
-                //[2.6]
-                function sendVoice(){
-                    var username = document.getElementById("sendVoiceusername").value;
-                    var chatType = document.getElementById("sendVoicechatType").value;
-                    var filePath = document.getElementById("sendVoicefilePath").value;
-                    var length = document.getElementById("sendVoicelength").value;
-                    var displayName = document.getElementById("sendVoicedisplayName").value;
-                    uexEasemob.sendVoice('{"username":"'+username+'","chatType":"'+chatType+'","filePath":"'+filePath+'","length":"'+length+'","displayName":"'+displayName+'"}');
-                }
-                
-                //[2.7]
-                function sendPicture(){
-                    var username = document.getElementById("sendPictureusername").value;
-                    var chatType = document.getElementById("sendPicturechatType").value;
-                    var filePath = document.getElementById("sendPicturefilePath").value;
-                    var displayName = document.getElementById("sendPicturedisplayName").value;
-                    uexEasemob.sendPicture('{"username":"'+username+'","chatType":"'+chatType+'","filePath":"'+filePath+'","displayName":"'+displayName+'"}');
-                }
-                
-                //[2.8]
-                function sendLocationMsg(){
-                    var username = document.getElementById("sendLocationMsgusername").value;
-                    var chatType = document.getElementById("sendLocationMsgchatType").value;
-                    var locationAddress = document.getElementById("sendLocationMsglocationAddress").value;
-                    var latitude = document.getElementById("sendLocationMsglatitude").value;
-                    var longitude = document.getElementById("sendLocationMsglongitude").value;
-                    uexEasemob.sendLocationMsg('{"username":"'+username+'","chatType":"'+chatType+'","locationAddress":"'+locationAddress+'","latitude":"'+latitude+'","longitude":"'+longitude+'"}');
-                }
-                
-                //[2.9]
-                function sendFile(){
-                    var username = document.getElementById("sendFileusername").value;
-                    var chatType = document.getElementById("sendFilechatType").value;
-                    var filePath = document.getElementById("sendFilefilePath").value;
-                    var displayName = document.getElementById("sendFiledisplayName").value;
-                    uexEasemob.sendFile('{"username":"'+username+'","chatType":"'+chatType+'","filePath":"'+filePath+'","displayName":"'+displayName+'"}');
-                }
-                
-                //[2.10]
-                function sendCmdMessage(){
-                    var chatType = document.getElementById("sendCmdMessagechatType").value;
-                    var action = document.getElementById("sendCmdMessageaction").value;
-                    var toUsername = document.getElementById("sendCmdMessagetoUsername").value;
-                    uexEasemob.sendCmdMessage('{"chatType":"'+chatType+'","action":"'+action+'","toUsername":"'+toUsername+'"}');
-                }
-                
-                //[2.11]
-                function setNotifyBySoundAndVibrate(){
-                    var enable = document.getElementById("setNotifyBySoundAndVibrateenable").value;
-                    var soundEnable = document.getElementById("setNotifyBySoundAndVibratesoundEnable").value;
-                    var vibrateEnable = document.getElementById("setNotifyBySoundAndVibratevibrateEnable").value;
-                    var userSpeaker = document.getElementById("setNotifyBySoundAndVibrateuserSpeaker").value;
-                    var showNotificationInBackgroud = document.getElementById("setNotifyBySoundAndVibrateshowNotificationInBackgroud").value;
-                    var acceptInvitationAlways = document.getElementById("setNotifyBySoundAndVibrateacceptInvitationAlways").value;
-                    var deliveryNotification = document.getElementById("setNotifyBySoundAndVibratedeliveryNotification").value;
-                    uexEasemob.setNotifyBySoundAndVibrate('{"enable":"'+enable+'","soundEnable":"'+soundEnable+'","vibrateEnable":"'+vibrateEnable+'","userSpeaker":"'+userSpeaker+'","showNotificationInBackgroud":"'+showNotificationInBackgroud+'","acceptInvitationAlways":"'+acceptInvitationAlways+'","deliveryNotification":"'+deliveryNotification+'"}');
-                }
-                
-                //[2.12]
-                function getMessageById(){
-                    var msgId = document.getElementById("getMessageByIdmsgId").value;
-                    uexEasemob.getMessageById('{"msgId":"'+msgId+'"}');
-                }
-                
-                //[3.1]
-                function getConversationByName(){
-                    var username = document.getElementById("getConversationByNameusername").value;
-                    var isGroup = document.getElementById("getConversationByNameisGroup").value;
-                    uexEasemob.getConversationByName('{"username":"'+username+'","isGroup":"'+isGroup+'"}');
-                }
-                
-                //[3.3]
-                function getMessageHistory(){
-                    var username = document.getElementById("getMessageHistoryusername").value;
-                    var chatType = document.getElementById("getMessageHistorychatType").value;
-                    var startMsgId = document.getElementById("getMessageHistorystartMsgId").value;
-                    var pagesize = document.getElementById("getMessageHistorypagesize").value;
-                    uexEasemob.getMessageHistory('{"username":"'+username+'","chatType":"'+chatType+'","startMsgId":"'+startMsgId+'","pagesize":"'+pagesize+'"}');
-                }
-                
-                //[3.5]
-                function getUnreadMsgCount(){
-                    var username = document.getElementById("getUnreadMsgCountusername").value;
-                    var isGroup = document.getElementById("getUnreadMsgCountisGroup").value;
-                    uexEasemob.getUnreadMsgCount('{"username":"'+username+'","isGroup":"'+isGroup+'"}');
-                }
-                
-                //[3.7]
-                function resetUnreadMsgCount(){
-                    var username = document.getElementById("resetUnreadMsgCountusername").value;
-                    var isGroup = document.getElementById("resetUnreadMsgCountisGroup").value;
-                    uexEasemob.resetUnreadMsgCount('{"username":"'+username+'","isGroup":"'+isGroup+'"}');
-                }
-                
-                //[3.8]
-                function resetAllUnreadMsgCount(){
-                    uexEasemob.resetAllUnreadMsgCount('');
-                }
-                
-                //[3.9]
-                function getMsgCount(){
-                    var username = document.getElementById("getMsgCountusername").value;
-                    uexEasemob.getMsgCount('{"username":"'+username+'"}');
-                }
-                
-                //[3.11]
-                function clearConversation(){
-                    var username = document.getElementById("clearConversationusername").value;
-                    uexEasemob.clearConversation('{"username":"'+username+'"}');
-                }
-                
-                //[3.12]
-                function deleteConversation(){
-                    var username = document.getElementById("deleteConversationusername").value;
-                    var isGroup = document.getElementById("deleteConversationisGroup").value;
-                    uexEasemob.deleteConversation('{"username":"'+username+'","isGroup":"'+isGroup+'"}');
-                }
-                
-                //[3.13]
-                function removeMessage(){
-                    var username = document.getElementById("removeMessageusername").value;
-                    var msgId = document.getElementById("removeMessagemsgId").value;
-                    var isGroup = document.getElementById("removeMessageisGroup").value;
-                    uexEasemob.removeMessage('{"username":"'+username+'","msgId":"'+msgId+'","isGroup":"'+isGroup+'"}');
-                }
-                
-                //[3.14]
-                function deleteAllConversation(){
-                    uexEasemob.deleteAllConversation('');
-                }
-                
-                //[3.15]
-                function getChatterInfo(){
-                    uexEasemob.getChatterInfo('');
-                }
-                
-                //[4.6]
-                function getContactUserNames(){
-                    uexEasemob.getContactUserNames('');
-                }
-                
-                //[4.8]
-                function addContact(){
-                    var toAddUsername = document.getElementById("addContacttoAddUsername").value;
-                    var reason = document.getElementById("addContactreason").value;
-                    uexEasemob.addContact('{"toAddUsername":"'+toAddUsername+'","reason":"'+reason+'"}');
-                }
-                
-                //[4.9]
-                function deleteContact(){
-                    var username = document.getElementById("deleteContactusername").value;
-                    uexEasemob.deleteContact('{"username":"'+username+'"}');
-                }
-                
-                //[4.10]
-                function acceptInvitation(){
-                    var username = document.getElementById("acceptInvitationusername").value;
-                    uexEasemob.acceptInvitation('{"username":"'+username+'"}');
-                }
-                
-                //[4.11]
-                function refuseInvitation(){
-                    var username = document.getElementById("refuseInvitationusername").value;
-                    var reason = document.getElementById("refuseInvitationreason").value;
-                    uexEasemob.refuseInvitation('{"username":"'+username+'","reason":"'+reason+'"}');
-                }
-                
-                //[4.12]
-                function getBlackListUsernames(){
-                    uexEasemob.getBlackListUsernames('');
-                }
-                
-                //[4.14]
-                function addUserToBlackList(){
-                    var username = document.getElementById("addUserToBlackListusername").value;
-                    uexEasemob.addUserToBlackList('{"username":"'+username+'"}');
-                }
-                
-                //[4.15]
-                function deleteUserFromBlackList(){
-                    var username = document.getElementById("deleteUserFromBlackListusername").value;
-                    uexEasemob.deleteUserFromBlackList('{"username":"'+username+'"}');
-                }
-                
-                //[5.7]
-                function createPrivateGroup(){
-                    var groupName = document.getElementById("createPrivateGroupgroupName").value;
-                    var desc = document.getElementById("createPrivateGroupdesc").value;
-                    var members = document.getElementById("createPrivateGroupmembers").value;
-                    var allowInvite = document.getElementById("createPrivateGroupallowInvite").value;
-                    var maxUsers = document.getElementById("createPrivateGroupmaxUsers").value;
-                    var initialWelcomeMessage = document.getElementById("createPrivateGroupinitialWelcomeMessage").value;
-                    uexEasemob.createPrivateGroup('{"groupName":"'+groupName+'","desc":"'+desc+'","members":"'+members+'","allowInvite":"'+allowInvite+'","maxUsers":"'+maxUsers+'","initialWelcomeMessage":"'+initialWelcomeMessage+'"}');
-                }
-                
-                //[5.8]
-                function createPublicGroup(){
-                    var groupName = document.getElementById("createPublicGroupgroupName").value;
-                    var desc = document.getElementById("createPublicGroupdesc").value;
-                    var members = document.getElementById("createPublicGroupmembers").value;
-                    var needApprovalRequired = document.getElementById("createPublicGroupneedApprovalRequired").value;
-                    var maxUsers = document.getElementById("createPublicGroupmaxUsers").value;
-                    var initialWelcomeMessage = document.getElementById("createPublicGroupinitialWelcomeMessage").value;
-                    uexEasemob.createPublicGroup('{"groupName":"'+groupName+'","desc":"'+desc+'","members":"'+members+'","needApprovalRequired":"'+needApprovalRequired+'","maxUsers":"'+maxUsers+'","initialWelcomeMessage":"'+initialWelcomeMessage+'"}');
-                }
-                
-                //[5.9]
-                function addUsersToGroup(){
-                    var isGroupOwner = document.getElementById("addUsersToGroupisGroupOwner").value;
-                    var groupId = document.getElementById("addUsersToGroupgroupId").value;
-                    var newmembers = document.getElementById("addUsersToGroupnewmembers").value;
-                    uexEasemob.addUsersToGroup('{"isGroupOwner":"'+isGroupOwner+'","groupId":"'+groupId+'","newmembers":"'+newmembers+'"}');
-                }
-                
-                //[5.10]
-                function removeUserFromGroup(){
-                    var groupId = document.getElementById("removeUserFromGroupgroupId").value;
-                    var username = document.getElementById("removeUserFromGroupusername").value;
-                    uexEasemob.removeUserFromGroup('{"groupId":"'+groupId+'","username":"'+username+'"}');
-                }
-                
-                //[5.11]
-                function joinGroup(){
-                    var groupId = document.getElementById("joinGroupgroupId").value;
-                    var reason = document.getElementById("joinGroupreason").value;
-                    var groupName = document.getElementById("joinGroupgroupName").value;
-                    uexEasemob.joinGroup('{"groupId":"'+groupId+'","reason":"'+reason+'","groupName":"'+groupName+'"}');
-                }
-                
-                //[5.12]
-                function exitFromGroup(){
-                    var groupId = document.getElementById("exitFromGroupgroupId").value;
-                    uexEasemob.exitFromGroup('{"groupId":"'+groupId+'"}');
-                }
-                
-                //[5.13]
-                function exitAndDeleteGroup(){
-                    var groupId = document.getElementById("exitAndDeleteGroupgroupId").value;
-                    uexEasemob.exitAndDeleteGroup('{"groupId":"'+groupId+'"}');
-                }
-                
-                //[5.14]
-                function getGroupsFromServer(){
-                    var loadCache = document.getElementById("getGroupsFromServerloadCache").value;
-                    uexEasemob.getGroupsFromServer('{"loadCache":"'+loadCache+'"}');
-                }
-                
-                //[5.16]
-                function getAllPublicGroupsFromServer(){
-                    uexEasemob.getAllPublicGroupsFromServer('');
-                }
-                
-                //[5.18]
-                function getGroup(){
-                    var groupId = document.getElementById("getGroupgroupId").value;
-                    var loadCache = document.getElementById("getGrouploadCache").value;
-                    uexEasemob.getGroup('{"groupId":"'+groupId+'","loadCache":"'+loadCache+'"}');
-                }
-                
-                //[5.20]
-                function blockGroupMessage(){
-                    var groupId = document.getElementById("blockGroupMessagegroupId").value;
-                    uexEasemob.blockGroupMessage('{"groupId":"'+groupId+'"}');
-                }
-                
-                //[5.21]
-                function unblockGroupMessage(){
-                    var groupId = document.getElementById("unblockGroupMessagegroupId").value;
-                    uexEasemob.unblockGroupMessage('{"groupId":"'+groupId+'"}');
-                }
-                
-                //[5.22]
-                function changeGroupName(){
-                    var groupId = document.getElementById("changeGroupNamegroupId").value;
-                    var changedGroupName = document.getElementById("changeGroupNamechangedGroupName").value;
-                    uexEasemob.changeGroupName('{"groupId":"'+groupId+'","changedGroupName":"'+changedGroupName+'"}');
-                }
-                
-                //[5.23]
-                function setReceiveNotNoifyGroup(){
-                    var groupIds = document.getElementById("setReceiveNotNoifyGroupgroupIds").value;
-                    uexEasemob.setReceiveNotNoifyGroup('{"groupIds":"'+groupIds+'"}');
-                }
-                
-                //[5.24]
-                function blockUser(){
-                    var groupId = document.getElementById("blockUsergroupId").value;
-                    var username = document.getElementById("blockUserusername").value;
-                    uexEasemob.blockUser('{"groupId":"'+groupId+'","username":"'+username+'"}');
-                }
-                
-                //[5.25]
-                function unblockUser(){
-                    var groupId = document.getElementById("unblockUsergroupId").value;
-                    var username = document.getElementById("unblockUserusername").value;
-                    uexEasemob.unblockUser('{"groupId":"'+groupId+'","username":"'+username+'"}');
-                }
-                
-                //[5.26]
-                function getBlockedUsers(){
-                    var groupId = document.getElementById("getBlockedUsersgroupId").value;
-                    uexEasemob.getBlockedUsers('{"groupId":"'+groupId+'"}');
-                }
-                
-                //[6.3]
-                function makeVoiceCall(){
-                    uexEasemob.makeVoiceCall('');
-                }
-                
-                //[6.4]
-                function answerCall(){
-                    uexEasemob.answerCall('');
-                }
-                
-                //[6.5]
-                function rejectCall(){
-                    uexEasemob.rejectCall('');
-                }
-                
-                //[6.6]
-                function endCall(){
-                    uexEasemob.endCall('');
-                }
-                
-                    </script>
-    </head>
-    <body>
-        <div class="tit">uexEasemob</div>
-        <div class="conbor">
-            <div class="consj">
-                
-                <div> </div><div>======PART0==========</div>
-                
-                <div>======回调区域==========</div>
-                <div id='TestCallBack0'>原本内容</div>
-                <div id='TestData0'>原本内容</div>
-                <div>======回调区域==========</div>
-                
-                <div> </div><div>======PART1==========</div>
-                
-                
-                <div> </div><span>[1.1]  initEasemob</span>
-                <div>appKey:</div><input class="textbox" type="text" id="initEasemobappKey" value="">
-                    <div>apnsCertName:</div><input class="textbox" type="text" id="initEasemobapnsCertName" value="">
-                        <input class='btn' type='button' value='调用接口' onclick='initEasemob()'>
-                            
-                            <div> </div><span>[1.2]  login</span>
-                            <div>username:</div><input class="textbox" type="text" id="loginusername" value="">
-                                <div>password:</div><input class="textbox" type="text" id="loginpassword" value="">
-                                    <input class='btn' type='button' value='调用接口' onclick='login()'>
-                                        
-                                        <div> </div><span>[1.4]  logout</span>
-                                        <input class='btn' type='button' value='调用接口' onclick='logout()'>
-                                            
-                                            <div> </div><span>[1.5]  registerUser</span>
-                                            <div>username:</div><input class="textbox" type="text" id="registerUserusername" value="">
-                                                <div>password:</div><input class="textbox" type="text" id="registerUserpassword" value="">
-                                                    <input class='btn' type='button' value='调用接口' onclick='registerUser()'>
-                                                        
-                                                        <div> </div><span>[1.7]  updateCurrentUserNickname</span>
-                                                        <div>nickname:</div><input class="textbox" type="text" id="updateCurrentUserNicknamenickname" value="">
-                                                            <input class='btn' type='button' value='调用接口' onclick='updateCurrentUserNickname()'>
-                                                                
-                                                                <div> </div><span>[1.8]  getLoginInfo</span>
-                                                                <input class='btn' type='button' value='调用接口' onclick='getLoginInfo()'>
-                                                                    <div>======回调区域==========</div>
-                                                                    <div id='TestCallBack1'>原本内容</div>
-                                                                    <div id='TestData1'>原本内容</div>
-                                                                    <div>======回调区域==========</div>
-                                                                    
-                                                                    <div> </div><div>======PART2==========</div>
-                                                                    
-                                                                    
-                                                                    <div> </div><span>[2.5]  sendText</span>
-                                                                    <div>username:</div><input class="textbox" type="text" id="sendTextusername" value="">
-                                                                        <div>chatType:</div><input class="textbox" type="text" id="sendTextchatType" value="">
-                                                                            <div>content:</div><input class="textbox" type="text" id="sendTextcontent" value="">
-                                                                                <input class='btn' type='button' value='调用接口' onclick='sendText()'>
-                                                                                    
-                                                                                    <div> </div><span>[2.6]  sendVoice</span>
-                                                                                    <div>username:</div><input class="textbox" type="text" id="sendVoiceusername" value="">
-                                                                                        <div>chatType:</div><input class="textbox" type="text" id="sendVoicechatType" value="">
-                                                                                            <div>filePath:</div><input class="textbox" type="text" id="sendVoicefilePath" value="">
-                                                                                                <div>length:</div><input class="textbox" type="text" id="sendVoicelength" value="">
-                                                                                                    <div>displayName:</div><input class="textbox" type="text" id="sendVoicedisplayName" value="">
-                                                                                                        <input class='btn' type='button' value='调用接口' onclick='sendVoice()'>
-                                                                                                            
-                                                                                                            <div> </div><span>[2.7]  sendPicture</span>
-                                                                                                            <div>username:</div><input class="textbox" type="text" id="sendPictureusername" value="">
-                                                                                                                <div>chatType:</div><input class="textbox" type="text" id="sendPicturechatType" value="">
-                                                                                                                    <div>filePath:</div><input class="textbox" type="text" id="sendPicturefilePath" value="">
-                                                                                                                        <div>displayName:</div><input class="textbox" type="text" id="sendPicturedisplayName" value="">
-                                                                                                                            <input class='btn' type='button' value='调用接口' onclick='sendPicture()'>
-                                                                                                                                
-                                                                                                                                <div> </div><span>[2.8]  sendLocationMsg</span>
-                                                                                                                                <div>username:</div><input class="textbox" type="text" id="sendLocationMsgusername" value="">
-                                                                                                                                    <div>chatType:</div><input class="textbox" type="text" id="sendLocationMsgchatType" value="">
-                                                                                                                                        <div>locationAddress:</div><input class="textbox" type="text" id="sendLocationMsglocationAddress" value="">
-                                                                                                                                            <div>latitude:</div><input class="textbox" type="text" id="sendLocationMsglatitude" value="">
-                                                                                                                                                <div>longitude:</div><input class="textbox" type="text" id="sendLocationMsglongitude" value="">
-                                                                                                                                                    <input class='btn' type='button' value='调用接口' onclick='sendLocationMsg()'>
-                                                                                                                                                        
-                                                                                                                                                        <div> </div><span>[2.9]  sendFile</span>
-                                                                                                                                                        <div>username:</div><input class="textbox" type="text" id="sendFileusername" value="">
-                                                                                                                                                            <div>chatType:</div><input class="textbox" type="text" id="sendFilechatType" value="">
-                                                                                                                                                                <div>filePath:</div><input class="textbox" type="text" id="sendFilefilePath" value="">
-                                                                                                                                                                    <div>displayName:</div><input class="textbox" type="text" id="sendFiledisplayName" value="">
-                                                                                                                                                                        <input class='btn' type='button' value='调用接口' onclick='sendFile()'>
-                                                                                                                                                                            
-                                                                                                                                                                            <div> </div><span>[2.10]  sendCmdMessage</span>
-                                                                                                                                                                            <div>chatType:</div><input class="textbox" type="text" id="sendCmdMessagechatType" value="">
-                                                                                                                                                                                <div>action:</div><input class="textbox" type="text" id="sendCmdMessageaction" value="">
-                                                                                                                                                                                    <div>toUsername:</div><input class="textbox" type="text" id="sendCmdMessagetoUsername" value="">
-                                                                                                                                                                                        <input class='btn' type='button' value='调用接口' onclick='sendCmdMessage()'>
-                                                                                                                                                                                            
-                                                                                                                                                                                            <div> </div><span>[2.11]  setNotifyBySoundAndVibrate</span>
-                                                                                                                                                                                            <div>enable:</div><input class="textbox" type="text" id="setNotifyBySoundAndVibrateenable" value="">
-                                                                                                                                                                                                <div>soundEnable:</div><input class="textbox" type="text" id="setNotifyBySoundAndVibratesoundEnable" value="">
-                                                                                                                                                                                                    <div>vibrateEnable:</div><input class="textbox" type="text" id="setNotifyBySoundAndVibratevibrateEnable" value="">
-                                                                                                                                                                                                        <div>userSpeaker:</div><input class="textbox" type="text" id="setNotifyBySoundAndVibrateuserSpeaker" value="">
-                                                                                                                                                                                                            <div>showNotificationInBackgroud:</div><input class="textbox" type="text" id="setNotifyBySoundAndVibrateshowNotificationInBackgroud" value="">
-                                                                                                                                                                                                                <div>acceptInvitationAlways:</div><input class="textbox" type="text" id="setNotifyBySoundAndVibrateacceptInvitationAlways" value="">
-                                                                                                                                                                                                                    <div>deliveryNotification:</div><input class="textbox" type="text" id="setNotifyBySoundAndVibratedeliveryNotification" value="">
-                                                                                                                                                                                                                        <input class='btn' type='button' value='调用接口' onclick='setNotifyBySoundAndVibrate()'>
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            <div> </div><span>[2.12]  getMessageById</span>
-                                                                                                                                                                                                                            <div>msgId:</div><input class="textbox" type="text" id="getMessageByIdmsgId" value="">
-                                                                                                                                                                                                                                <input class='btn' type='button' value='调用接口' onclick='getMessageById()'>
-                                                                                                                                                                                                                                    <div>======回调区域==========</div>
-                                                                                                                                                                                                                                    <div id='TestCallBack2'>原本内容</div>
-                                                                                                                                                                                                                                    <div id='TestData2'>原本内容</div>
-                                                                                                                                                                                                                                    <div>======回调区域==========</div>
-                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                    <div> </div><div>======PART3==========</div>
-                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                    <div> </div><span>[3.1]  getConversationByName</span>
-                                                                                                                                                                                                                                    <div>username:</div><input class="textbox" type="text" id="getConversationByNameusername" value="">
-                                                                                                                                                                                                                                        <div>isGroup:</div><input class="textbox" type="text" id="getConversationByNameisGroup" value="">
-                                                                                                                                                                                                                                            <input class='btn' type='button' value='调用接口' onclick='getConversationByName()'>
-                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                <div> </div><span>[3.3]  getMessageHistory</span>
-                                                                                                                                                                                                                                                <div>username:</div><input class="textbox" type="text" id="getMessageHistoryusername" value="">
-                                                                                                                                                                                                                                                    <div>chatType:</div><input class="textbox" type="text" id="getMessageHistorychatType" value="">
-                                                                                                                                                                                                                                                        <div>startMsgId:</div><input class="textbox" type="text" id="getMessageHistorystartMsgId" value="">
-                                                                                                                                                                                                                                                            <div>pagesize:</div><input class="textbox" type="text" id="getMessageHistorypagesize" value="">
-                                                                                                                                                                                                                                                                <input class='btn' type='button' value='调用接口' onclick='getMessageHistory()'>
-                                                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                                                    <div> </div><span>[3.5]  getUnreadMsgCount</span>
-                                                                                                                                                                                                                                                                    <div>username:</div><input class="textbox" type="text" id="getUnreadMsgCountusername" value="">
-                                                                                                                                                                                                                                                                        <div>isGroup:</div><input class="textbox" type="text" id="getUnreadMsgCountisGroup" value="">
-                                                                                                                                                                                                                                                                            <input class='btn' type='button' value='调用接口' onclick='getUnreadMsgCount()'>
-                                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                                <div> </div><span>[3.7]  resetUnreadMsgCount</span>
-                                                                                                                                                                                                                                                                                <div>username:</div><input class="textbox" type="text" id="resetUnreadMsgCountusername" value="">
-                                                                                                                                                                                                                                                                                    <div>isGroup:</div><input class="textbox" type="text" id="resetUnreadMsgCountisGroup" value="">
-                                                                                                                                                                                                                                                                                        <input class='btn' type='button' value='调用接口' onclick='resetUnreadMsgCount()'>
-                                                                                                                                                                                                                                                                                            
-                                                                                                                                                                                                                                                                                            <div> </div><span>[3.8]  resetAllUnreadMsgCount</span>
-                                                                                                                                                                                                                                                                                            <input class='btn' type='button' value='调用接口' onclick='resetAllUnreadMsgCount()'>
-                                                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                                                <div> </div><span>[3.9]  getMsgCount</span>
-                                                                                                                                                                                                                                                                                                <div>username:</div><input class="textbox" type="text" id="getMsgCountusername" value="">
-                                                                                                                                                                                                                                                                                                    <input class='btn' type='button' value='调用接口' onclick='getMsgCount()'>
-                                                                                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                                                        <div> </div><span>[3.11]  clearConversation</span>
-                                                                                                                                                                                                                                                                                                        <div>username:</div><input class="textbox" type="text" id="clearConversationusername" value="">
-                                                                                                                                                                                                                                                                                                            <input class='btn' type='button' value='调用接口' onclick='clearConversation()'>
-                                                                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                                                                <div> </div><span>[3.12]  deleteConversation</span>
-                                                                                                                                                                                                                                                                                                                <div>username:</div><input class="textbox" type="text" id="deleteConversationusername" value="">
-                                                                                                                                                                                                                                                                                                                    <div>isGroup:</div><input class="textbox" type="text" id="deleteConversationisGroup" value="">
-                                                                                                                                                                                                                                                                                                                        <input class='btn' type='button' value='调用接口' onclick='deleteConversation()'>
-                                                                                                                                                                                                                                                                                                                            
-                                                                                                                                                                                                                                                                                                                            <div> </div><span>[3.13]  removeMessage</span>
-                                                                                                                                                                                                                                                                                                                            <div>username:</div><input class="textbox" type="text" id="removeMessageusername" value="">
-                                                                                                                                                                                                                                                                                                                                <div>msgId:</div><input class="textbox" type="text" id="removeMessagemsgId" value="">
-                                                                                                                                                                                                                                                                                                                                    <div>isGroup:</div><input class="textbox" type="text" id="removeMessageisGroup" value="">
-                                                                                                                                                                                                                                                                                                                                        <input class='btn' type='button' value='调用接口' onclick='removeMessage()'>
-                                                                                                                                                                                                                                                                                                                                            
-                                                                                                                                                                                                                                                                                                                                            <div> </div><span>[3.14]  deleteAllConversation</span>
-                                                                                                                                                                                                                                                                                                                                            <input class='btn' type='button' value='调用接口' onclick='deleteAllConversation()'>
-                                                                                                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                                                                                                <div> </div><span>[3.15]  getChatterInfo</span>
-                                                                                                                                                                                                                                                                                                                                                <input class='btn' type='button' value='调用接口' onclick='getChatterInfo()'>
-                                                                                                                                                                                                                                                                                                                                                    <div>======回调区域==========</div>
-                                                                                                                                                                                                                                                                                                                                                    <div id='TestCallBack3'>原本内容</div>
-                                                                                                                                                                                                                                                                                                                                                    <div id='TestData3'>原本内容</div>
-                                                                                                                                                                                                                                                                                                                                                    <div>======回调区域==========</div>
-                                                                                                                                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                                                                                                                                    <div> </div><div>======PART4==========</div>
-                                                                                                                                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                                                                                                                                    <div> </div><span>[4.6]  getContactUserNames</span>
-                                                                                                                                                                                                                                                                                                                                                    <input class='btn' type='button' value='调用接口' onclick='getContactUserNames()'>
-                                                                                                                                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                                                                                                        <div> </div><span>[4.8]  addContact</span>
-                                                                                                                                                                                                                                                                                                                                                        <div>toAddUsername:</div><input class="textbox" type="text" id="addContacttoAddUsername" value="">
-                                                                                                                                                                                                                                                                                                                                                            <div>reason:</div><input class="textbox" type="text" id="addContactreason" value="">
-                                                                                                                                                                                                                                                                                                                                                                <input class='btn' type='button' value='调用接口' onclick='addContact()'>
-                                                                                                                                                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                                                                                                                                                    <div> </div><span>[4.9]  deleteContact</span>
-                                                                                                                                                                                                                                                                                                                                                                    <div>username:</div><input class="textbox" type="text" id="deleteContactusername" value="">
-                                                                                                                                                                                                                                                                                                                                                                        <input class='btn' type='button' value='调用接口' onclick='deleteContact()'>
-                                                                                                                                                                                                                                                                                                                                                                            
-                                                                                                                                                                                                                                                                                                                                                                            <div> </div><span>[4.10]  acceptInvitation</span>
-                                                                                                                                                                                                                                                                                                                                                                            <div>username:</div><input class="textbox" type="text" id="acceptInvitationusername" value="">
-                                                                                                                                                                                                                                                                                                                                                                                <input class='btn' type='button' value='调用接口' onclick='acceptInvitation()'>
-                                                                                                                                                                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                                                                                                                                                                    <div> </div><span>[4.11]  refuseInvitation</span>
-                                                                                                                                                                                                                                                                                                                                                                                    <div>username:</div><input class="textbox" type="text" id="refuseInvitationusername" value="">
-                                                                                                                                                                                                                                                                                                                                                                                        <div>reason:</div><input class="textbox" type="text" id="refuseInvitationreason" value="">
-                                                                                                                                                                                                                                                                                                                                                                                            <input class='btn' type='button' value='调用接口' onclick='refuseInvitation()'>
-                                                                                                                                                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                                                                                                                                                <div> </div><span>[4.12]  getBlackListUsernames</span>
-                                                                                                                                                                                                                                                                                                                                                                                                <input class='btn' type='button' value='调用接口' onclick='getBlackListUsernames()'>
-                                                                                                                                                                                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                                                                                                                                                                                    <div> </div><span>[4.14]  addUserToBlackList</span>
-                                                                                                                                                                                                                                                                                                                                                                                                    <div>username:</div><input class="textbox" type="text" id="addUserToBlackListusername" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                        <input class='btn' type='button' value='调用接口' onclick='addUserToBlackList()'>
-                                                                                                                                                                                                                                                                                                                                                                                                            
-                                                                                                                                                                                                                                                                                                                                                                                                            <div> </div><span>[4.15]  deleteUserFromBlackList</span>
-                                                                                                                                                                                                                                                                                                                                                                                                            <div>username:</div><input class="textbox" type="text" id="deleteUserFromBlackListusername" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                <input class='btn' type='button' value='调用接口' onclick='deleteUserFromBlackList()'>
-                                                                                                                                                                                                                                                                                                                                                                                                                    <div>======回调区域==========</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                    <div id='TestCallBack4'>原本内容</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                    <div id='TestData4'>原本内容</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                    <div>======回调区域==========</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                                                                                                                                                                                                    <div> </div><div>======PART5==========</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                                                                                                                                                                                                    <div> </div><span>[5.7]  createPrivateGroup</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                    <div>groupName:</div><input class="textbox" type="text" id="createPrivateGroupgroupName" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                        <div>desc:</div><input class="textbox" type="text" id="createPrivateGroupdesc" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                            <div>members:</div><input class="textbox" type="text" id="createPrivateGroupmembers" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                <div>allowInvite:</div><input class="textbox" type="text" id="createPrivateGroupallowInvite" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                    <div>maxUsers:</div><input class="textbox" type="text" id="createPrivateGroupmaxUsers" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                        <div>initialWelcomeMessage:</div><input class="textbox" type="text" id="createPrivateGroupinitialWelcomeMessage" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                            <input class='btn' type='button' value='调用接口' onclick='createPrivateGroup()'>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                                                                                                                                                                                                <div> </div><span>[5.8]  createPublicGroup</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                <div>groupName:</div><input class="textbox" type="text" id="createPublicGroupgroupName" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div>desc:</div><input class="textbox" type="text" id="createPublicGroupdesc" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div>members:</div><input class="textbox" type="text" id="createPublicGroupmembers" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div>needApprovalRequired:</div><input class="textbox" type="text" id="createPublicGroupneedApprovalRequired" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div>maxUsers:</div><input class="textbox" type="text" id="createPublicGroupmaxUsers" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div>initialWelcomeMessage:</div><input class="textbox" type="text" id="createPublicGroupinitialWelcomeMessage" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <input class='btn' type='button' value='调用接口' onclick='createPublicGroup()'>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div> </div><span>[5.9]  addUsersToGroup</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div>isGroupOwner:</div><input class="textbox" type="text" id="addUsersToGroupisGroupOwner" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div>groupId:</div><input class="textbox" type="text" id="addUsersToGroupgroupId" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div>newmembers:</div><input class="textbox" type="text" id="addUsersToGroupnewmembers" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <input class='btn' type='button' value='调用接口' onclick='addUsersToGroup()'>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div> </div><span>[5.10]  removeUserFromGroup</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div>groupId:</div><input class="textbox" type="text" id="removeUserFromGroupgroupId" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div>username:</div><input class="textbox" type="text" id="removeUserFromGroupusername" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <input class='btn' type='button' value='调用接口' onclick='removeUserFromGroup()'>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div> </div><span>[5.11]  joinGroup</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div>groupId:</div><input class="textbox" type="text" id="joinGroupgroupId" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div>reason:</div><input class="textbox" type="text" id="joinGroupreason" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div>groupName:</div><input class="textbox" type="text" id="joinGroupgroupName" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <input class='btn' type='button' value='调用接口' onclick='joinGroup()'>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div> </div><span>[5.12]  exitFromGroup</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div>groupId:</div><input class="textbox" type="text" id="exitFromGroupgroupId" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <input class='btn' type='button' value='调用接口' onclick='exitFromGroup()'>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div> </div><span>[5.13]  exitAndDeleteGroup</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div>groupId:</div><input class="textbox" type="text" id="exitAndDeleteGroupgroupId" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <input class='btn' type='button' value='调用接口' onclick='exitAndDeleteGroup()'>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div> </div><span>[5.14]  getGroupsFromServer</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div>loadCache:</div><input class="textbox" type="text" id="getGroupsFromServerloadCache" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <input class='btn' type='button' value='调用接口' onclick='getGroupsFromServer()'>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div> </div><span>[5.16]  getAllPublicGroupsFromServer</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <input class='btn' type='button' value='调用接口' onclick='getAllPublicGroupsFromServer()'>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div> </div><span>[5.18]  getGroup</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div>groupId:</div><input class="textbox" type="text" id="getGroupgroupId" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div>loadCache:</div><input class="textbox" type="text" id="getGrouploadCache" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <input class='btn' type='button' value='调用接口' onclick='getGroup()'>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div> </div><span>[5.20]  blockGroupMessage</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div>groupId:</div><input class="textbox" type="text" id="blockGroupMessagegroupId" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <input class='btn' type='button' value='调用接口' onclick='blockGroupMessage()'>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div> </div><span>[5.21]  unblockGroupMessage</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div>groupId:</div><input class="textbox" type="text" id="unblockGroupMessagegroupId" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <input class='btn' type='button' value='调用接口' onclick='unblockGroupMessage()'>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div> </div><span>[5.22]  changeGroupName</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div>groupId:</div><input class="textbox" type="text" id="changeGroupNamegroupId" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div>changedGroupName:</div><input class="textbox" type="text" id="changeGroupNamechangedGroupName" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <input class='btn' type='button' value='调用接口' onclick='changeGroupName()'>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div> </div><span>[5.23]  setReceiveNotNoifyGroup</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div>groupIds:</div><input class="textbox" type="text" id="setReceiveNotNoifyGroupgroupIds" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <input class='btn' type='button' value='调用接口' onclick='setReceiveNotNoifyGroup()'>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div> </div><span>[5.24]  blockUser</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div>groupId:</div><input class="textbox" type="text" id="blockUsergroupId" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div>username:</div><input class="textbox" type="text" id="blockUserusername" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <input class='btn' type='button' value='调用接口' onclick='blockUser()'>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div> </div><span>[5.25]  unblockUser</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div>groupId:</div><input class="textbox" type="text" id="unblockUsergroupId" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div>username:</div><input class="textbox" type="text" id="unblockUserusername" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <input class='btn' type='button' value='调用接口' onclick='unblockUser()'>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div> </div><span>[5.26]  getBlockedUsers</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div>groupId:</div><input class="textbox" type="text" id="getBlockedUsersgroupId" value="">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <input class='btn' type='button' value='调用接口' onclick='getBlockedUsers()'>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div>======回调区域==========</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div id='TestCallBack5'>原本内容</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div id='TestData5'>原本内容</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div>======回调区域==========</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div> </div><div>======PART6==========</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div> </div><span>[6.3]  makeVoiceCall</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <input class='btn' type='button' value='调用接口' onclick='makeVoiceCall()'>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div> </div><span>[6.4]  answerCall</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <input class='btn' type='button' value='调用接口' onclick='answerCall()'>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div> </div><span>[6.5]  rejectCall</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <input class='btn' type='button' value='调用接口' onclick='rejectCall()'>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div> </div><span>[6.6]  endCall</span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <input class='btn' type='button' value='调用接口' onclick='endCall()'>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div>======回调区域==========</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div id='TestCallBack6'>原本内容</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div id='TestData6'>原本内容</div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div>======回调区域==========</div>		</div></div>
-    </body>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport"
+   content="width=device-width, initial-scale=1, user-scalable=no,minimum-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<script type="text/javascript">
+	window.uexOnload = function(type){
+		//[1.10]
+		uexEasemob.onConnected= function(data){
+			document.getElementById('TestCallBack1').innerHTML="onConnected";
+			document.getElementById('TestData1').innerHTML=data;
+			alert('onConnected:'+data);
+		};
+
+		//[1.11]
+		uexEasemob.onDisconnected= function(data){
+			document.getElementById('TestCallBack1').innerHTML="onDisconnected";
+			document.getElementById('TestData1').innerHTML=data;
+			alert('onDisconnected:'+data);
+		};
+
+		//[1.3]
+		uexEasemob.cbLogin= function(data){
+			document.getElementById('TestCallBack1').innerHTML="cbLogin";
+			document.getElementById('TestData1').innerHTML=data;
+			alert('cbLogin:'+data);
+		};
+
+		//[1.6]
+		uexEasemob.cbRegisterUser= function(data){
+			document.getElementById('TestCallBack1').innerHTML="cbRegisterUser";
+			document.getElementById('TestData1').innerHTML=data;
+			alert('cbRegisterUser:'+data);
+		};
+
+		//[1.9]
+		uexEasemob.cbGetLoginInfo= function(data){
+			document.getElementById('TestCallBack1').innerHTML="cbGetLoginInfo";
+			document.getElementById('TestData1').innerHTML=data;
+			alert('cbGetLoginInfo:'+data);
+		};
+
+		//[2.1]
+		uexEasemob.onNewMessage= function(data){
+			document.getElementById('TestCallBack2').innerHTML="onNewMessage";
+			document.getElementById('TestData2').innerHTML=data;
+			alert('onNewMessage:'+data);
+		};
+
+		//[2.2]
+		uexEasemob.onCmdMessageReceive= function(data){
+			document.getElementById('TestCallBack2').innerHTML="onCmdMessageReceive";
+			document.getElementById('TestData2').innerHTML=data;
+			alert('onCmdMessageReceive:'+data);
+		};
+
+		//[2.3]
+		uexEasemob.onAckMessage= function(data){
+			document.getElementById('TestCallBack2').innerHTML="onAckMessage";
+			document.getElementById('TestData2').innerHTML=data;
+			alert('onAckMessage:'+data);
+		};
+
+		//[2.4]
+		uexEasemob.onDeliveryMessage= function(data){
+			document.getElementById('TestCallBack2').innerHTML="onDeliveryMessage";
+			document.getElementById('TestData2').innerHTML=data;
+			alert('onDeliveryMessage:'+data);
+		};
+
+		//[2.13]
+		uexEasemob.cbGetMessageById= function(data){
+			document.getElementById('TestCallBack2').innerHTML="cbGetMessageById";
+			document.getElementById('TestData2').innerHTML=data;
+			alert('cbGetMessageById:'+data);
+		};
+
+		//[3.2]
+		uexEasemob.cbGetConversationByName= function(data){
+			document.getElementById('TestCallBack3').innerHTML="cbGetConversationByName";
+			document.getElementById('TestData3').innerHTML=data;
+			alert('cbGetConversationByName:'+data);
+		};
+
+		//[3.4]
+		uexEasemob.cbGetMessageHistory= function(data){
+			document.getElementById('TestCallBack3').innerHTML="cbGetMessageHistory";
+			document.getElementById('TestData3').innerHTML=data;
+			alert('cbGetMessageHistory:'+data);
+		};
+
+		//[3.6]
+		uexEasemob.cbGetUnReadMsgCount= function(data){
+			document.getElementById('TestCallBack3').innerHTML="cbGetUnReadMsgCount";
+			document.getElementById('TestData3').innerHTML=data;
+			alert('cbGetUnReadMsgCount:'+data);
+		};
+
+		//[3.10]
+		uexEasemob.cbGetMsgCount= function(data){
+			document.getElementById('TestCallBack3').innerHTML="cbGetMsgCount";
+			document.getElementById('TestData3').innerHTML=data;
+			alert('cbGetMsgCount:'+data);
+		};
+
+		//[3.16]
+		uexEasemob.cbGetChatterInfo= function(data){
+			document.getElementById('TestCallBack3').innerHTML="cbGetChatterInfo";
+			document.getElementById('TestData3').innerHTML=data;
+			alert('cbGetChatterInfo:'+data);
+		};
+
+		//[4.1]
+		uexEasemob.onContactAdded= function(data){
+			document.getElementById('TestCallBack4').innerHTML="onContactAdded";
+			document.getElementById('TestData4').innerHTML=data;
+			alert('onContactAdded:'+data);
+		};
+
+		//[4.2]
+		uexEasemob.onContactDeleted= function(data){
+			document.getElementById('TestCallBack4').innerHTML="onContactDeleted";
+			document.getElementById('TestData4').innerHTML=data;
+			alert('onContactDeleted:'+data);
+		};
+
+		//[4.3]
+		uexEasemob.onContactInvited= function(data){
+			document.getElementById('TestCallBack4').innerHTML="onContactInvited";
+			document.getElementById('TestData4').innerHTML=data;
+			alert('onContactInvited:'+data);
+		};
+
+		//[4.4]
+		uexEasemob.onContactAgreed= function(data){
+			document.getElementById('TestCallBack4').innerHTML="onContactAgreed";
+			document.getElementById('TestData4').innerHTML=data;
+			alert('onContactAgreed:'+data);
+		};
+
+		//[4.5]
+		uexEasemob.onContactRefused= function(data){
+			document.getElementById('TestCallBack4').innerHTML="onContactRefused";
+			document.getElementById('TestData4').innerHTML=data;
+			alert('onContactRefused:'+data);
+		};
+
+		//[4.7]
+		uexEasemob.cbGetContactUserNames	= function(data){
+			document.getElementById('TestCallBack4').innerHTML="cbGetContactUserNames	";
+			document.getElementById('TestData4').innerHTML=data;
+			alert('cbGetContactUserNames	:'+data);
+		};
+
+		//[4.13]
+		uexEasemob.cbGetBlackListUsernames= function(data){
+			document.getElementById('TestCallBack4').innerHTML="cbGetBlackListUsernames";
+			document.getElementById('TestData4').innerHTML=data;
+			alert('cbGetBlackListUsernames:'+data);
+		};
+
+		//[5.1]
+		uexEasemob.onInvitationDeclined= function(data){
+			document.getElementById('TestCallBack5').innerHTML="onInvitationDeclined";
+			document.getElementById('TestData5').innerHTML=data;
+			alert('onInvitationDeclined:'+data);
+		};
+
+		//[5.2]
+		uexEasemob.onUserRemoved= function(data){
+			document.getElementById('TestCallBack5').innerHTML="onUserRemoved";
+			document.getElementById('TestData5').innerHTML=data;
+			alert('onUserRemoved:'+data);
+		};
+
+		//[5.3]
+		uexEasemob.onGroupDestroy= function(data){
+			document.getElementById('TestCallBack5').innerHTML="onGroupDestroy";
+			document.getElementById('TestData5').innerHTML=data;
+			alert('onGroupDestroy:'+data);
+		};
+
+		//[5.4]
+		uexEasemob.onApplicationReceived= function(data){
+			document.getElementById('TestCallBack5').innerHTML="onApplicationReceived";
+			document.getElementById('TestData5').innerHTML=data;
+			alert('onApplicationReceived:'+data);
+		};
+
+		//[5.5]
+		uexEasemob.onApplicationAccept= function(data){
+			document.getElementById('TestCallBack5').innerHTML="onApplicationAccept";
+			document.getElementById('TestData5').innerHTML=data;
+			alert('onApplicationAccept:'+data);
+		};
+
+		//[5.6]
+		uexEasemob.onApplicationDeclined= function(data){
+			document.getElementById('TestCallBack5').innerHTML="onApplicationDeclined";
+			document.getElementById('TestData5').innerHTML=data;
+			alert('onApplicationDeclined:'+data);
+		};
+
+		//[5.28]
+		uexEasemob.onGroupUpdateInfo= function(data){
+			document.getElementById('TestCallBack5').innerHTML="onGroupUpdateInfo";
+			document.getElementById('TestData5').innerHTML=data;
+			alert('onGroupUpdateInfo:'+data);
+		};
+
+		//[5.15]
+		uexEasemob.cbGetGroupsFromServer= function(data){
+			document.getElementById('TestCallBack5').innerHTML="cbGetGroupsFromServer";
+			document.getElementById('TestData5').innerHTML=data;
+			alert('cbGetGroupsFromServer:'+data);
+		};
+
+		//[5.17]
+		uexEasemob.cbGetAllPublicGroupsFromServer= function(data){
+			document.getElementById('TestCallBack5').innerHTML="cbGetAllPublicGroupsFromServer";
+			document.getElementById('TestData5').innerHTML=data;
+			alert('cbGetAllPublicGroupsFromServer:'+data);
+		};
+
+		//[5.19]
+		uexEasemob.cbGetGroup= function(data){
+			document.getElementById('TestCallBack5').innerHTML="cbGetGroup";
+			document.getElementById('TestData5').innerHTML=data;
+			alert('cbGetGroup:'+data);
+		};
+
+		//[5.27]
+		uexEasemob.cbGetBlockedUsers= function(data){
+			document.getElementById('TestCallBack5').innerHTML="cbGetBlockedUsers";
+			document.getElementById('TestData5').innerHTML=data;
+			alert('cbGetBlockedUsers:'+data);
+		};
+
+		//[6.1]
+		uexEasemob.onCallReceive= function(data){
+			document.getElementById('TestCallBack6').innerHTML="onCallReceive";
+			document.getElementById('TestData6').innerHTML=data;
+			alert('onCallReceive:'+data);
+		};
+
+		//[6.2]
+		uexEasemob.onCallStateChanged= function(data){
+			document.getElementById('TestCallBack6').innerHTML="onCallStateChanged";
+			document.getElementById('TestData6').innerHTML=data;
+			alert('onCallStateChanged:'+data);
+		};
+
+}
+
+	//[1.1]
+	function initEasemob(){
+		var appKey = document.getElementById("initEasemobappKey").value;
+		var apnsCertName = document.getElementById("initEasemobapnsCertName").value;
+		var isAutoLoginEnabled = document.getElementById("initEasemobisAutoLoginEnabled").value;
+		uexEasemob.initEasemob('{"appKey":"'+appKey+'","apnsCertName":"'+apnsCertName+'","isAutoLoginEnabled":"'+isAutoLoginEnabled+'"}');
+	}
+
+	//[1.2]
+	function login(){
+		var username = document.getElementById("loginusername").value;
+		var password = document.getElementById("loginpassword").value;
+		uexEasemob.login('{"username":"'+username+'","password":"'+password+'"}');
+	}
+
+	//[1.4]
+	function logout(){
+		uexEasemob.logout('');
+	}
+
+	//[1.5]
+	function registerUser(){
+		var username = document.getElementById("registerUserusername").value;
+		var password = document.getElementById("registerUserpassword").value;
+		uexEasemob.registerUser('{"username":"'+username+'","password":"'+password+'"}');
+	}
+
+	//[1.7]
+	function updateCurrentUserNickname(){
+		var nickname = document.getElementById("updateCurrentUserNicknamenickname").value;
+		uexEasemob.updateCurrentUserNickname('{"nickname":"'+nickname+'"}');
+	}
+
+	//[1.8]
+	function getLoginInfo(){
+		uexEasemob.getLoginInfo('');
+	}
+
+	//[2.5]
+	function sendText(){
+		var username = document.getElementById("sendTextusername").value;
+		var chatType = document.getElementById("sendTextchatType").value;
+		var content = document.getElementById("sendTextcontent").value;
+		uexEasemob.sendText('{"username":"'+username+'","chatType":"'+chatType+'","content":"'+content+'"}');
+	}
+
+	//[2.6]
+	function sendVoice(){
+		var username = document.getElementById("sendVoiceusername").value;
+		var chatType = document.getElementById("sendVoicechatType").value;
+		var filePath = document.getElementById("sendVoicefilePath").value;
+		var length = document.getElementById("sendVoicelength").value;
+		var displayName = document.getElementById("sendVoicedisplayName").value;
+		uexEasemob.sendVoice('{"username":"'+username+'","chatType":"'+chatType+'","filePath":"'+filePath+'","length":"'+length+'","displayName":"'+displayName+'"}');
+	}
+
+	//[2.7]
+	function sendPicture(){
+		var username = document.getElementById("sendPictureusername").value;
+		var chatType = document.getElementById("sendPicturechatType").value;
+		var filePath = document.getElementById("sendPicturefilePath").value;
+		var displayName = document.getElementById("sendPicturedisplayName").value;
+		uexEasemob.sendPicture('{"username":"'+username+'","chatType":"'+chatType+'","filePath":"'+filePath+'","displayName":"'+displayName+'"}');
+	}
+
+	//[2.8]
+	function sendLocationMsg(){
+		var username = document.getElementById("sendLocationMsgusername").value;
+		var chatType = document.getElementById("sendLocationMsgchatType").value;
+		var locationAddress = document.getElementById("sendLocationMsglocationAddress").value;
+		var latitude = document.getElementById("sendLocationMsglatitude").value;
+		var longitude = document.getElementById("sendLocationMsglongitude").value;
+		uexEasemob.sendLocationMsg('{"username":"'+username+'","chatType":"'+chatType+'","locationAddress":"'+locationAddress+'","latitude":"'+latitude+'","longitude":"'+longitude+'"}');
+	}
+
+	//[2.9]
+	function sendFile(){
+		var username = document.getElementById("sendFileusername").value;
+		var chatType = document.getElementById("sendFilechatType").value;
+		var filePath = document.getElementById("sendFilefilePath").value;
+		var displayName = document.getElementById("sendFiledisplayName").value;
+		uexEasemob.sendFile('{"username":"'+username+'","chatType":"'+chatType+'","filePath":"'+filePath+'","displayName":"'+displayName+'"}');
+	}
+
+	//[2.10]
+	function sendCmdMessage(){
+		var chatType = document.getElementById("sendCmdMessagechatType").value;
+		var action = document.getElementById("sendCmdMessageaction").value;
+		var toUsername = document.getElementById("sendCmdMessagetoUsername").value;
+		uexEasemob.sendCmdMessage('{"chatType":"'+chatType+'","action":"'+action+'","toUsername":"'+toUsername+'"}');
+	}
+
+	//[2.11]
+	function setNotifyBySoundAndVibrate(){
+		var enable = document.getElementById("setNotifyBySoundAndVibrateenable").value;
+		var soundEnable = document.getElementById("setNotifyBySoundAndVibratesoundEnable").value;
+		var vibrateEnable = document.getElementById("setNotifyBySoundAndVibratevibrateEnable").value;
+		var userSpeaker = document.getElementById("setNotifyBySoundAndVibrateuserSpeaker").value;
+		var showNotificationInBackgroud = document.getElementById("setNotifyBySoundAndVibrateshowNotificationInBackgroud").value;
+		var acceptInvitationAlways = document.getElementById("setNotifyBySoundAndVibrateacceptInvitationAlways").value;
+		var deliveryNotification = document.getElementById("setNotifyBySoundAndVibratedeliveryNotification").value;
+		uexEasemob.setNotifyBySoundAndVibrate('{"enable":"'+enable+'","soundEnable":"'+soundEnable+'","vibrateEnable":"'+vibrateEnable+'","userSpeaker":"'+userSpeaker+'","showNotificationInBackgroud":"'+showNotificationInBackgroud+'","acceptInvitationAlways":"'+acceptInvitationAlways+'","deliveryNotification":"'+deliveryNotification+'"}');
+	}
+
+	//[2.12]
+	function getMessageById(){
+		var msgId = document.getElementById("getMessageByIdmsgId").value;
+		uexEasemob.getMessageById('{"msgId":"'+msgId+'"}');
+	}
+
+	//[3.1]
+	function getConversationByName(){
+		var username = document.getElementById("getConversationByNameusername").value;
+		var isGroup = document.getElementById("getConversationByNameisGroup").value;
+		uexEasemob.getConversationByName('{"username":"'+username+'","isGroup":"'+isGroup+'"}');
+	}
+
+	//[3.3]
+	function getMessageHistory(){
+		var username = document.getElementById("getMessageHistoryusername").value;
+		var chatType = document.getElementById("getMessageHistorychatType").value;
+		var startMsgId = document.getElementById("getMessageHistorystartMsgId").value;
+		var pagesize = document.getElementById("getMessageHistorypagesize").value;
+		uexEasemob.getMessageHistory('{"username":"'+username+'","chatType":"'+chatType+'","startMsgId":"'+startMsgId+'","pagesize":"'+pagesize+'"}');
+	}
+
+	//[3.5]
+	function getUnreadMsgCount(){
+		var username = document.getElementById("getUnreadMsgCountusername").value;
+		var isGroup = document.getElementById("getUnreadMsgCountisGroup").value;
+		uexEasemob.getUnreadMsgCount('{"username":"'+username+'","isGroup":"'+isGroup+'"}');
+	}
+
+	//[3.7]
+	function resetUnreadMsgCount(){
+		var username = document.getElementById("resetUnreadMsgCountusername").value;
+		var isGroup = document.getElementById("resetUnreadMsgCountisGroup").value;
+		uexEasemob.resetUnreadMsgCount('{"username":"'+username+'","isGroup":"'+isGroup+'"}');
+	}
+
+	//[3.8]
+	function resetAllUnreadMsgCount(){
+		uexEasemob.resetAllUnreadMsgCount('');
+	}
+
+	//[3.9]
+	function getMsgCount(){
+		var username = document.getElementById("getMsgCountusername").value;
+		uexEasemob.getMsgCount('{"username":"'+username+'"}');
+	}
+
+	//[3.11]
+	function clearConversation(){
+		var username = document.getElementById("clearConversationusername").value;
+		uexEasemob.clearConversation('{"username":"'+username+'"}');
+	}
+
+	//[3.12]
+	function deleteConversation(){
+		var username = document.getElementById("deleteConversationusername").value;
+		var isGroup = document.getElementById("deleteConversationisGroup").value;
+		uexEasemob.deleteConversation('{"username":"'+username+'","isGroup":"'+isGroup+'"}');
+	}
+
+	//[3.13]
+	function removeMessage(){
+		var username = document.getElementById("removeMessageusername").value;
+		var msgId = document.getElementById("removeMessagemsgId").value;
+		var isGroup = document.getElementById("removeMessageisGroup").value;
+		uexEasemob.removeMessage('{"username":"'+username+'","msgId":"'+msgId+'","isGroup":"'+isGroup+'"}');
+	}
+
+	//[3.14]
+	function deleteAllConversation(){
+		uexEasemob.deleteAllConversation('');
+	}
+
+	//[3.15]
+	function getChatterInfo(){
+		uexEasemob.getChatterInfo('');
+	}
+
+	//[4.6]
+	function getContactUserNames(){
+		uexEasemob.getContactUserNames('');
+	}
+
+	//[4.8]
+	function addContact(){
+		var toAddUsername = document.getElementById("addContacttoAddUsername").value;
+		var reason = document.getElementById("addContactreason").value;
+		uexEasemob.addContact('{"toAddUsername":"'+toAddUsername+'","reason":"'+reason+'"}');
+	}
+
+	//[4.9]
+	function deleteContact(){
+		var username = document.getElementById("deleteContactusername").value;
+		uexEasemob.deleteContact('{"username":"'+username+'"}');
+	}
+
+	//[4.10]
+	function acceptInvitation(){
+		var username = document.getElementById("acceptInvitationusername").value;
+		uexEasemob.acceptInvitation('{"username":"'+username+'"}');
+	}
+
+	//[4.11]
+	function refuseInvitation(){
+		var username = document.getElementById("refuseInvitationusername").value;
+		var reason = document.getElementById("refuseInvitationreason").value;
+		uexEasemob.refuseInvitation('{"username":"'+username+'","reason":"'+reason+'"}');
+	}
+
+	//[4.12]
+	function getBlackListUsernames(){
+		uexEasemob.getBlackListUsernames('');
+	}
+
+	//[4.14]
+	function addUserToBlackList(){
+		var username = document.getElementById("addUserToBlackListusername").value;
+		uexEasemob.addUserToBlackList('{"username":"'+username+'"}');
+	}
+
+	//[4.15]
+	function deleteUserFromBlackList(){
+		var username = document.getElementById("deleteUserFromBlackListusername").value;
+		uexEasemob.deleteUserFromBlackList('{"username":"'+username+'"}');
+	}
+
+	//[5.7]
+	function createPrivateGroup(){
+		var groupName = document.getElementById("createPrivateGroupgroupName").value;
+		var desc = document.getElementById("createPrivateGroupdesc").value;
+		var members = document.getElementById("createPrivateGroupmembers").value;
+		var allowInvite = document.getElementById("createPrivateGroupallowInvite").value;
+		var maxUsers = document.getElementById("createPrivateGroupmaxUsers").value;
+		var initialWelcomeMessage = document.getElementById("createPrivateGroupinitialWelcomeMessage").value;
+		uexEasemob.createPrivateGroup('{"groupName":"'+groupName+'","desc":"'+desc+'","members":"'+members+'","allowInvite":"'+allowInvite+'","maxUsers":"'+maxUsers+'","initialWelcomeMessage":"'+initialWelcomeMessage+'"}');
+	}
+
+	//[5.8]
+	function createPublicGroup(){
+		var groupName = document.getElementById("createPublicGroupgroupName").value;
+		var desc = document.getElementById("createPublicGroupdesc").value;
+		var members = document.getElementById("createPublicGroupmembers").value;
+		var needApprovalRequired = document.getElementById("createPublicGroupneedApprovalRequired").value;
+		var maxUsers = document.getElementById("createPublicGroupmaxUsers").value;
+		var initialWelcomeMessage = document.getElementById("createPublicGroupinitialWelcomeMessage").value;
+		uexEasemob.createPublicGroup('{"groupName":"'+groupName+'","desc":"'+desc+'","members":"'+members+'","needApprovalRequired":"'+needApprovalRequired+'","maxUsers":"'+maxUsers+'","initialWelcomeMessage":"'+initialWelcomeMessage+'"}');
+	}
+
+	//[5.9]
+	function addUsersToGroup(){
+		var isGroupOwner = document.getElementById("addUsersToGroupisGroupOwner").value;
+		var groupId = document.getElementById("addUsersToGroupgroupId").value;
+		var newmembers = document.getElementById("addUsersToGroupnewmembers").value;
+		uexEasemob.addUsersToGroup('{"isGroupOwner":"'+isGroupOwner+'","groupId":"'+groupId+'","newmembers":"'+newmembers+'"}');
+	}
+
+	//[5.10]
+	function removeUserFromGroup(){
+		var groupId = document.getElementById("removeUserFromGroupgroupId").value;
+		var username = document.getElementById("removeUserFromGroupusername").value;
+		uexEasemob.removeUserFromGroup('{"groupId":"'+groupId+'","username":"'+username+'"}');
+	}
+
+	//[5.11]
+	function joinGroup(){
+		var groupId = document.getElementById("joinGroupgroupId").value;
+		var reason = document.getElementById("joinGroupreason").value;
+		var groupName = document.getElementById("joinGroupgroupName").value;
+		uexEasemob.joinGroup('{"groupId":"'+groupId+'","reason":"'+reason+'","groupName":"'+groupName+'"}');
+	}
+
+	//[5.12]
+	function exitFromGroup(){
+		var groupId = document.getElementById("exitFromGroupgroupId").value;
+		uexEasemob.exitFromGroup('{"groupId":"'+groupId+'"}');
+	}
+
+	//[5.13]
+	function exitAndDeleteGroup(){
+		var groupId = document.getElementById("exitAndDeleteGroupgroupId").value;
+		uexEasemob.exitAndDeleteGroup('{"groupId":"'+groupId+'"}');
+	}
+
+	//[5.14]
+	function getGroupsFromServer(){
+		var loadCache = document.getElementById("getGroupsFromServerloadCache").value;
+		uexEasemob.getGroupsFromServer('{"loadCache":"'+loadCache+'"}');
+	}
+
+	//[5.16]
+	function getAllPublicGroupsFromServer(){
+		uexEasemob.getAllPublicGroupsFromServer('');
+	}
+
+	//[5.18]
+	function getGroup(){
+		var groupId = document.getElementById("getGroupgroupId").value;
+		var loadCache = document.getElementById("getGrouploadCache").value;
+		uexEasemob.getGroup('{"groupId":"'+groupId+'","loadCache":"'+loadCache+'"}');
+	}
+
+	//[5.20]
+	function blockGroupMessage(){
+		var groupId = document.getElementById("blockGroupMessagegroupId").value;
+		uexEasemob.blockGroupMessage('{"groupId":"'+groupId+'"}');
+	}
+
+	//[5.21]
+	function unblockGroupMessage(){
+		var groupId = document.getElementById("unblockGroupMessagegroupId").value;
+		uexEasemob.unblockGroupMessage('{"groupId":"'+groupId+'"}');
+	}
+
+	//[5.22]
+	function changeGroupName(){
+		var groupId = document.getElementById("changeGroupNamegroupId").value;
+		var changedGroupName = document.getElementById("changeGroupNamechangedGroupName").value;
+		uexEasemob.changeGroupName('{"groupId":"'+groupId+'","changedGroupName":"'+changedGroupName+'"}');
+	}
+
+	//[5.23]
+	function setReceiveNotNoifyGroup(){
+		var groupIds = document.getElementById("setReceiveNotNoifyGroupgroupIds").value;
+		uexEasemob.setReceiveNotNoifyGroup('{"groupIds":"'+groupIds+'"}');
+	}
+
+	//[5.24]
+	function blockUser(){
+		var groupId = document.getElementById("blockUsergroupId").value;
+		var username = document.getElementById("blockUserusername").value;
+		uexEasemob.blockUser('{"groupId":"'+groupId+'","username":"'+username+'"}');
+	}
+
+	//[5.25]
+	function unblockUser(){
+		var groupId = document.getElementById("unblockUsergroupId").value;
+		var username = document.getElementById("unblockUserusername").value;
+		uexEasemob.unblockUser('{"groupId":"'+groupId+'","username":"'+username+'"}');
+	}
+
+	//[5.26]
+	function getBlockedUsers(){
+		var groupId = document.getElementById("getBlockedUsersgroupId").value;
+		uexEasemob.getBlockedUsers('{"groupId":"'+groupId+'"}');
+	}
+
+	//[6.3]
+	function makeVoiceCall(){
+		uexEasemob.makeVoiceCall('');
+	}
+
+	//[6.4]
+	function answerCall(){
+		uexEasemob.answerCall('');
+	}
+
+	//[6.5]
+	function rejectCall(){
+		uexEasemob.rejectCall('');
+	}
+
+	//[6.6]
+	function endCall(){
+		uexEasemob.endCall('');
+	}
+
+</script>
+</head>
+<body>
+	<div class="tit">uexEasemob</div>
+	<div class="conbor">
+    <div class="consj">
+
+		<div> </div><div>======PART0==========</div>
+
+		<div>======回调区域==========</div>
+		<div id='TestCallBack0'>原本内容</div>
+		<div id='TestData0'>原本内容</div>
+		<div>======回调区域==========</div>
+
+		<div> </div><div>======PART1==========</div>
+
+
+		<div> </div><span>[1.1]  initEasemob</span>
+		<div>appKey:</div><input class="textbox" type="text" id="initEasemobappKey" value="easemob-demo#chatdemoui">
+		<div>apnsCertName:</div><input class="textbox" type="text" id="initEasemobapnsCertName" value="chatdemoui">
+		<div>isAutoLoginEnabled:</div><input class="textbox" type="text" id="initEasemobisAutoLoginEnabled" value="">
+		<input class='btn' type='button' value='调用接口' onclick='initEasemob()'>
+
+		<div> </div><span>[1.2]  login</span>
+		<div>username:</div><input class="textbox" type="text" id="loginusername" value="">
+		<div>password:</div><input class="textbox" type="text" id="loginpassword" value="">
+		<input class='btn' type='button' value='调用接口' onclick='login()'>
+
+		<div> </div><span>[1.4]  logout</span>
+		<input class='btn' type='button' value='调用接口' onclick='logout()'>
+
+		<div> </div><span>[1.5]  registerUser</span>
+		<div>username:</div><input class="textbox" type="text" id="registerUserusername" value="">
+		<div>password:</div><input class="textbox" type="text" id="registerUserpassword" value="">
+		<input class='btn' type='button' value='调用接口' onclick='registerUser()'>
+
+		<div> </div><span>[1.7]  updateCurrentUserNickname</span>
+		<div>nickname:</div><input class="textbox" type="text" id="updateCurrentUserNicknamenickname" value="">
+		<input class='btn' type='button' value='调用接口' onclick='updateCurrentUserNickname()'>
+
+		<div> </div><span>[1.8]  getLoginInfo</span>
+		<input class='btn' type='button' value='调用接口' onclick='getLoginInfo()'>
+		<div>======回调区域==========</div>
+		<div id='TestCallBack1'>原本内容</div>
+		<div id='TestData1'>原本内容</div>
+		<div>======回调区域==========</div>
+
+		<div> </div><div>======PART2==========</div>
+
+
+		<div> </div><span>[2.5]  sendText</span>
+		<div>username:</div><input class="textbox" type="text" id="sendTextusername" value="">
+		<div>chatType:</div><input class="textbox" type="text" id="sendTextchatType" value="">
+		<div>content:</div><input class="textbox" type="text" id="sendTextcontent" value="">
+		<input class='btn' type='button' value='调用接口' onclick='sendText()'>
+
+		<div> </div><span>[2.6]  sendVoice</span>
+		<div>username:</div><input class="textbox" type="text" id="sendVoiceusername" value="">
+		<div>chatType:</div><input class="textbox" type="text" id="sendVoicechatType" value="">
+		<div>filePath:</div><input class="textbox" type="text" id="sendVoicefilePath" value="res://callRing.mp3">
+		<div>length:</div><input class="textbox" type="text" id="sendVoicelength" value="">
+		<div>displayName:</div><input class="textbox" type="text" id="sendVoicedisplayName" value="">
+		<input class='btn' type='button' value='调用接口' onclick='sendVoice()'>
+
+		<div> </div><span>[2.7]  sendPicture</span>
+		<div>username:</div><input class="textbox" type="text" id="sendPictureusername" value="">
+		<div>chatType:</div><input class="textbox" type="text" id="sendPicturechatType" value="">
+		<div>filePath:</div><input class="textbox" type="text" id="sendPicturefilePath" value="res://2.jpg">
+		<div>displayName:</div><input class="textbox" type="text" id="sendPicturedisplayName" value="2.jpg">
+		<input class='btn' type='button' value='调用接口' onclick='sendPicture()'>
+
+		<div> </div><span>[2.8]  sendLocationMsg</span>
+		<div>username:</div><input class="textbox" type="text" id="sendLocationMsgusername" value="">
+		<div>chatType:</div><input class="textbox" type="text" id="sendLocationMsgchatType" value="">
+		<div>locationAddress:</div><input class="textbox" type="text" id="sendLocationMsglocationAddress" value="麦当劳">
+		<div>latitude:</div><input class="textbox" type="text" id="sendLocationMsglatitude" value="30.51667">
+		<div>longitude:</div><input class="textbox" type="text" id="sendLocationMsglongitude" value="114.31667">
+		<input class='btn' type='button' value='调用接口' onclick='sendLocationMsg()'>
+
+		<div> </div><span>[2.9]  sendFile</span>
+		<div>username:</div><input class="textbox" type="text" id="sendFileusername" value="">
+		<div>chatType:</div><input class="textbox" type="text" id="sendFilechatType" value="">
+		<div>filePath:</div><input class="textbox" type="text" id="sendFilefilePath" value="">
+		<div>displayName:</div><input class="textbox" type="text" id="sendFiledisplayName" value="">
+		<input class='btn' type='button' value='调用接口' onclick='sendFile()'>
+
+		<div> </div><span>[2.10]  sendCmdMessage</span>
+		<div>chatType:</div><input class="textbox" type="text" id="sendCmdMessagechatType" value="">
+		<div>action:</div><input class="textbox" type="text" id="sendCmdMessageaction" value="">
+		<div>toUsername:</div><input class="textbox" type="text" id="sendCmdMessagetoUsername" value="">
+		<input class='btn' type='button' value='调用接口' onclick='sendCmdMessage()'>
+
+		<div> </div><span>[2.11]  setNotifyBySoundAndVibrate</span>
+		<div>enable:</div><input class="textbox" type="text" id="setNotifyBySoundAndVibrateenable" value="">
+		<div>soundEnable:</div><input class="textbox" type="text" id="setNotifyBySoundAndVibratesoundEnable" value="">
+		<div>vibrateEnable:</div><input class="textbox" type="text" id="setNotifyBySoundAndVibratevibrateEnable" value="">
+		<div>userSpeaker:</div><input class="textbox" type="text" id="setNotifyBySoundAndVibrateuserSpeaker" value="">
+		<div>showNotificationInBackgroud:</div><input class="textbox" type="text" id="setNotifyBySoundAndVibrateshowNotificationInBackgroud" value="">
+		<div>acceptInvitationAlways:</div><input class="textbox" type="text" id="setNotifyBySoundAndVibrateacceptInvitationAlways" value="">
+		<div>deliveryNotification:</div><input class="textbox" type="text" id="setNotifyBySoundAndVibratedeliveryNotification" value="">
+		<input class='btn' type='button' value='调用接口' onclick='setNotifyBySoundAndVibrate()'>
+
+		<div> </div><span>[2.12]  getMessageById</span>
+		<div>msgId:</div><input class="textbox" type="text" id="getMessageByIdmsgId" value="">
+		<input class='btn' type='button' value='调用接口' onclick='getMessageById()'>
+		<div>======回调区域==========</div>
+		<div id='TestCallBack2'>原本内容</div>
+		<div id='TestData2'>原本内容</div>
+		<div>======回调区域==========</div>
+
+		<div> </div><div>======PART3==========</div>
+
+
+		<div> </div><span>[3.1]  getConversationByName</span>
+		<div>username:</div><input class="textbox" type="text" id="getConversationByNameusername" value="">
+		<div>isGroup:</div><input class="textbox" type="text" id="getConversationByNameisGroup" value="">
+		<input class='btn' type='button' value='调用接口' onclick='getConversationByName()'>
+
+		<div> </div><span>[3.3]  getMessageHistory</span>
+		<div>username:</div><input class="textbox" type="text" id="getMessageHistoryusername" value="">
+		<div>chatType:</div><input class="textbox" type="text" id="getMessageHistorychatType" value="">
+		<div>startMsgId:</div><input class="textbox" type="text" id="getMessageHistorystartMsgId" value="">
+		<div>pagesize:</div><input class="textbox" type="text" id="getMessageHistorypagesize" value="">
+		<input class='btn' type='button' value='调用接口' onclick='getMessageHistory()'>
+
+		<div> </div><span>[3.5]  getUnreadMsgCount</span>
+		<div>username:</div><input class="textbox" type="text" id="getUnreadMsgCountusername" value="">
+		<div>isGroup:</div><input class="textbox" type="text" id="getUnreadMsgCountisGroup" value="">
+		<input class='btn' type='button' value='调用接口' onclick='getUnreadMsgCount()'>
+
+		<div> </div><span>[3.7]  resetUnreadMsgCount</span>
+		<div>username:</div><input class="textbox" type="text" id="resetUnreadMsgCountusername" value="">
+		<div>isGroup:</div><input class="textbox" type="text" id="resetUnreadMsgCountisGroup" value="">
+		<input class='btn' type='button' value='调用接口' onclick='resetUnreadMsgCount()'>
+
+		<div> </div><span>[3.8]  resetAllUnreadMsgCount</span>
+		<input class='btn' type='button' value='调用接口' onclick='resetAllUnreadMsgCount()'>
+
+		<div> </div><span>[3.9]  getMsgCount</span>
+		<div>username:</div><input class="textbox" type="text" id="getMsgCountusername" value="">
+		<input class='btn' type='button' value='调用接口' onclick='getMsgCount()'>
+
+		<div> </div><span>[3.11]  clearConversation</span>
+		<div>username:</div><input class="textbox" type="text" id="clearConversationusername" value="">
+		<input class='btn' type='button' value='调用接口' onclick='clearConversation()'>
+
+		<div> </div><span>[3.12]  deleteConversation</span>
+		<div>username:</div><input class="textbox" type="text" id="deleteConversationusername" value="">
+		<div>isGroup:</div><input class="textbox" type="text" id="deleteConversationisGroup" value="">
+		<input class='btn' type='button' value='调用接口' onclick='deleteConversation()'>
+
+		<div> </div><span>[3.13]  removeMessage</span>
+		<div>username:</div><input class="textbox" type="text" id="removeMessageusername" value="">
+		<div>msgId:</div><input class="textbox" type="text" id="removeMessagemsgId" value="">
+		<div>isGroup:</div><input class="textbox" type="text" id="removeMessageisGroup" value="">
+		<input class='btn' type='button' value='调用接口' onclick='removeMessage()'>
+
+		<div> </div><span>[3.14]  deleteAllConversation</span>
+		<input class='btn' type='button' value='调用接口' onclick='deleteAllConversation()'>
+
+		<div> </div><span>[3.15]  getChatterInfo</span>
+		<input class='btn' type='button' value='调用接口' onclick='getChatterInfo()'>
+		<div>======回调区域==========</div>
+		<div id='TestCallBack3'>原本内容</div>
+		<div id='TestData3'>原本内容</div>
+		<div>======回调区域==========</div>
+
+		<div> </div><div>======PART4==========</div>
+
+
+		<div> </div><span>[4.6]  getContactUserNames</span>
+		<input class='btn' type='button' value='调用接口' onclick='getContactUserNames()'>
+
+		<div> </div><span>[4.8]  addContact</span>
+		<div>toAddUsername:</div><input class="textbox" type="text" id="addContacttoAddUsername" value="">
+		<div>reason:</div><input class="textbox" type="text" id="addContactreason" value="">
+		<input class='btn' type='button' value='调用接口' onclick='addContact()'>
+
+		<div> </div><span>[4.9]  deleteContact</span>
+		<div>username:</div><input class="textbox" type="text" id="deleteContactusername" value="">
+		<input class='btn' type='button' value='调用接口' onclick='deleteContact()'>
+
+		<div> </div><span>[4.10]  acceptInvitation</span>
+		<div>username:</div><input class="textbox" type="text" id="acceptInvitationusername" value="">
+		<input class='btn' type='button' value='调用接口' onclick='acceptInvitation()'>
+
+		<div> </div><span>[4.11]  refuseInvitation</span>
+		<div>username:</div><input class="textbox" type="text" id="refuseInvitationusername" value="">
+		<div>reason:</div><input class="textbox" type="text" id="refuseInvitationreason" value="">
+		<input class='btn' type='button' value='调用接口' onclick='refuseInvitation()'>
+
+		<div> </div><span>[4.12]  getBlackListUsernames</span>
+		<input class='btn' type='button' value='调用接口' onclick='getBlackListUsernames()'>
+
+		<div> </div><span>[4.14]  addUserToBlackList</span>
+		<div>username:</div><input class="textbox" type="text" id="addUserToBlackListusername" value="">
+		<input class='btn' type='button' value='调用接口' onclick='addUserToBlackList()'>
+
+		<div> </div><span>[4.15]  deleteUserFromBlackList</span>
+		<div>username:</div><input class="textbox" type="text" id="deleteUserFromBlackListusername" value="">
+		<input class='btn' type='button' value='调用接口' onclick='deleteUserFromBlackList()'>
+		<div>======回调区域==========</div>
+		<div id='TestCallBack4'>原本内容</div>
+		<div id='TestData4'>原本内容</div>
+		<div>======回调区域==========</div>
+
+		<div> </div><div>======PART5==========</div>
+
+
+		<div> </div><span>[5.7]  createPrivateGroup</span>
+		<div>groupName:</div><input class="textbox" type="text" id="createPrivateGroupgroupName" value="">
+		<div>desc:</div><input class="textbox" type="text" id="createPrivateGroupdesc" value="">
+		<div>members:</div><input class="textbox" type="text" id="createPrivateGroupmembers" value="">
+		<div>allowInvite:</div><input class="textbox" type="text" id="createPrivateGroupallowInvite" value="">
+		<div>maxUsers:</div><input class="textbox" type="text" id="createPrivateGroupmaxUsers" value="">
+		<div>initialWelcomeMessage:</div><input class="textbox" type="text" id="createPrivateGroupinitialWelcomeMessage" value="">
+		<input class='btn' type='button' value='调用接口' onclick='createPrivateGroup()'>
+
+		<div> </div><span>[5.8]  createPublicGroup</span>
+		<div>groupName:</div><input class="textbox" type="text" id="createPublicGroupgroupName" value="">
+		<div>desc:</div><input class="textbox" type="text" id="createPublicGroupdesc" value="">
+		<div>members:</div><input class="textbox" type="text" id="createPublicGroupmembers" value="">
+		<div>needApprovalRequired:</div><input class="textbox" type="text" id="createPublicGroupneedApprovalRequired" value="">
+		<div>maxUsers:</div><input class="textbox" type="text" id="createPublicGroupmaxUsers" value="">
+		<div>initialWelcomeMessage:</div><input class="textbox" type="text" id="createPublicGroupinitialWelcomeMessage" value="">
+		<input class='btn' type='button' value='调用接口' onclick='createPublicGroup()'>
+
+		<div> </div><span>[5.9]  addUsersToGroup</span>
+		<div>isGroupOwner:</div><input class="textbox" type="text" id="addUsersToGroupisGroupOwner" value="">
+		<div>groupId:</div><input class="textbox" type="text" id="addUsersToGroupgroupId" value="">
+		<div>newmembers:</div><input class="textbox" type="text" id="addUsersToGroupnewmembers" value="">
+		<input class='btn' type='button' value='调用接口' onclick='addUsersToGroup()'>
+
+		<div> </div><span>[5.10]  removeUserFromGroup</span>
+		<div>groupId:</div><input class="textbox" type="text" id="removeUserFromGroupgroupId" value="">
+		<div>username:</div><input class="textbox" type="text" id="removeUserFromGroupusername" value="">
+		<input class='btn' type='button' value='调用接口' onclick='removeUserFromGroup()'>
+
+		<div> </div><span>[5.11]  joinGroup</span>
+		<div>groupId:</div><input class="textbox" type="text" id="joinGroupgroupId" value="">
+		<div>reason:</div><input class="textbox" type="text" id="joinGroupreason" value="">
+		<div>groupName:</div><input class="textbox" type="text" id="joinGroupgroupName" value="">
+		<input class='btn' type='button' value='调用接口' onclick='joinGroup()'>
+
+		<div> </div><span>[5.12]  exitFromGroup</span>
+		<div>groupId:</div><input class="textbox" type="text" id="exitFromGroupgroupId" value="">
+		<input class='btn' type='button' value='调用接口' onclick='exitFromGroup()'>
+
+		<div> </div><span>[5.13]  exitAndDeleteGroup</span>
+		<div>groupId:</div><input class="textbox" type="text" id="exitAndDeleteGroupgroupId" value="">
+		<input class='btn' type='button' value='调用接口' onclick='exitAndDeleteGroup()'>
+
+		<div> </div><span>[5.14]  getGroupsFromServer</span>
+		<div>loadCache:</div><input class="textbox" type="text" id="getGroupsFromServerloadCache" value="">
+		<input class='btn' type='button' value='调用接口' onclick='getGroupsFromServer()'>
+
+		<div> </div><span>[5.16]  getAllPublicGroupsFromServer</span>
+		<input class='btn' type='button' value='调用接口' onclick='getAllPublicGroupsFromServer()'>
+
+		<div> </div><span>[5.18]  getGroup</span>
+		<div>groupId:</div><input class="textbox" type="text" id="getGroupgroupId" value="">
+		<div>loadCache:</div><input class="textbox" type="text" id="getGrouploadCache" value="">
+		<input class='btn' type='button' value='调用接口' onclick='getGroup()'>
+
+		<div> </div><span>[5.20]  blockGroupMessage</span>
+		<div>groupId:</div><input class="textbox" type="text" id="blockGroupMessagegroupId" value="">
+		<input class='btn' type='button' value='调用接口' onclick='blockGroupMessage()'>
+
+		<div> </div><span>[5.21]  unblockGroupMessage</span>
+		<div>groupId:</div><input class="textbox" type="text" id="unblockGroupMessagegroupId" value="">
+		<input class='btn' type='button' value='调用接口' onclick='unblockGroupMessage()'>
+
+		<div> </div><span>[5.22]  changeGroupName</span>
+		<div>groupId:</div><input class="textbox" type="text" id="changeGroupNamegroupId" value="">
+		<div>changedGroupName:</div><input class="textbox" type="text" id="changeGroupNamechangedGroupName" value="">
+		<input class='btn' type='button' value='调用接口' onclick='changeGroupName()'>
+
+		<div> </div><span>[5.23]  setReceiveNotNoifyGroup</span>
+		<div>groupIds:</div><input class="textbox" type="text" id="setReceiveNotNoifyGroupgroupIds" value="">
+		<input class='btn' type='button' value='调用接口' onclick='setReceiveNotNoifyGroup()'>
+
+		<div> </div><span>[5.24]  blockUser</span>
+		<div>groupId:</div><input class="textbox" type="text" id="blockUsergroupId" value="">
+		<div>username:</div><input class="textbox" type="text" id="blockUserusername" value="">
+		<input class='btn' type='button' value='调用接口' onclick='blockUser()'>
+
+		<div> </div><span>[5.25]  unblockUser</span>
+		<div>groupId:</div><input class="textbox" type="text" id="unblockUsergroupId" value="">
+		<div>username:</div><input class="textbox" type="text" id="unblockUserusername" value="">
+		<input class='btn' type='button' value='调用接口' onclick='unblockUser()'>
+
+		<div> </div><span>[5.26]  getBlockedUsers</span>
+		<div>groupId:</div><input class="textbox" type="text" id="getBlockedUsersgroupId" value="">
+		<input class='btn' type='button' value='调用接口' onclick='getBlockedUsers()'>
+		<div>======回调区域==========</div>
+		<div id='TestCallBack5'>原本内容</div>
+		<div id='TestData5'>原本内容</div>
+		<div>======回调区域==========</div>
+
+		<div> </div><div>======PART6==========</div>
+
+
+		<div> </div><span>[6.3]  makeVoiceCall</span>
+		<input class='btn' type='button' value='调用接口' onclick='makeVoiceCall()'>
+
+		<div> </div><span>[6.4]  answerCall</span>
+		<input class='btn' type='button' value='调用接口' onclick='answerCall()'>
+
+		<div> </div><span>[6.5]  rejectCall</span>
+		<input class='btn' type='button' value='调用接口' onclick='rejectCall()'>
+
+		<div> </div><span>[6.6]  endCall</span>
+		<input class='btn' type='button' value='调用接口' onclick='endCall()'>
+		<div>======回调区域==========</div>
+		<div id='TestCallBack6'>原本内容</div>
+		<div id='TestData6'>原本内容</div>
+		<div>======回调区域==========</div>	</div></div>
+</body>
 </html>
