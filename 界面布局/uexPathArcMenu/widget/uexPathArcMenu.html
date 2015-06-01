@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+	content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<title>Demo</title>
+<script type="text/javascript">
+    window.uexOnload = function() {
+		uexWidgetOne.onError = function(opCode, errorCode, errorDesc) {
+			alert(errorCode + ":" + errorDesc);
+		}
+        uexPathArcMenu.onItemClick = CallBack;
+	}
+    function createBlack(){
+        var params = {
+            position:0,
+            bgColor:"#00000000",
+            icon:"res://black_icon.png",
+            data:[
+                "res://black_menu_1.png",
+                "res://black_menu_2.png",
+                "res://black_menu_3.png",
+                "res://black_menu_5.png",
+                "res://black_menu_4.png"
+            ]
+        };
+        var data = JSON.stringify(params);
+        uexPathArcMenu.open(data);
+    }
+
+    function setMode(index){
+        var params = {
+            position:index
+        };
+        uexPathArcMenu.setStyle(JSON.stringify(params));
+    }
+    function CallBack(data){
+        var index = JSON.parse(data).index;
+        alert("点击了第" + (index + 1) + "个元素");
+    }
+    function closeDemo(){
+        uexPathArcMenu.close();
+    }
+    
+</script>
+</head>
+
+<body>
+	<div class="tit">Demo</div>
+        <div class="conbor">
+            <div class="consj">
+                <input class="btn" type="button" value="打开Menu" onclick="createBlack();"/>
+                <input class="btn" type="button" value="切换模式1,左边" onclick="setMode(1);"/>
+
+                <input class="btn" type="button" value="切换模式2,中间" onclick="setMode(0);"/>
+
+                <input class="btn" type="button" value="关闭" onclick="closeDemo();"/>
+            </div>
+        </div>
+</body>
+</html>
