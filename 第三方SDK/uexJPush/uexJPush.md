@@ -6,7 +6,7 @@
 ```
 init（param）
 var param={
-	debug://是否开启debug，默认关闭，0-关闭，1-开启
+	
 };
 ```
 2.停止推送服务
