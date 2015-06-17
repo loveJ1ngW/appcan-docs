@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <script type="text/javascript">
+    function open(){
+        var params = {
+        };
+        var data = JSON.stringify(params);
+        uexProgressView.open(data);
+    }
+
+    function setProgress(){
+        var params = {
+        };
+        var data = JSON.stringify(params);
+        uexProgressView.setProgress(data);
+    }
+
+    function setViewStyle(){
+        var params = {
+        };
+        var data = JSON.stringify(params);
+        uexProgressView.setViewStyle(data);
+    }
+
+    function close(){
+        var params = {
+        };
+        var data = JSON.stringify(params);
+        uexProgressView.close(data);
+    }
+
+
+        window.uexOnload = function(type){
+            if(type == 0){
+            uexProgressView.onComplete = onComplete;
+
+            }
+        }
+    function onComplete(info){
+        alert(info);
+    }
+
+
+    </script>
+</head>
+
+<body>
+<div class="tit">uexProgressView</div>
+<div class="conbor">
+    <div class="consj">
+            <input class='btn' type='button' value='open' onclick='open()'>
+
+            <input class='btn' type='button' value='setProgress' onclick='setProgress()'>
+
+            <input class='btn' type='button' value='setViewStyle' onclick='setViewStyle()'>
+
+            <input class='btn' type='button' value='close' onclick='close()'>
+
+
+    </div>
+</div>
+</body>
+</html>
