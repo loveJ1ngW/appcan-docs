@@ -1,4 +1,6 @@
-
+<html>
+<head>
+<meta charset="utf-8">
 <title>uexEasemob插件接口文档</title>
 </head>
 <body>
@@ -76,19 +78,25 @@
 <li>iOS插件版本更新至3.0.8</li>
 <li>新增方法[2.14]sendVedio 发送视频消息；</li>
 <li>EMMessage回调中，添加length 长度（单位：秒，仅语音、视频消息）；</li>
-<li>EMMessage回调中，添加ext 扩展属性；发送消息的各个API也添加此项作为可选参数；（扩展属性为一个自定义的字符串，用以携带开发者可能需要的其他参数）</li>
+<li>EMMessage回调中，添加ext 扩展属性；发送消息的各个API也添加此项作为可选参数；（扩展属性为一个自定义的字典，用以携带开发者可能需要的其他参数）</li>
 <li>新增方法[2.15]sendHasReadResponseForMessage 发送已读回执;(对方会触发回调[2.3]，插件不再自动发送此回执)</li>
 <li>方法[2.12]根据消息id获取消息记录及其回调[2.13]也支持iOS了</li>
 </ul>
 
+<p data-anchor-id="bn5s">2015-6-18</p>
 
+<ul data-anchor-id="09ql">
+<li>iOS插件版本更新至3.0.9，用以支持新版SDK （iOS V2.1.7）</li>
+<li>Android插件版本更新至3.0.6 用以支持新版SDK（AndroidV2.1.9） </li>
+<li>方法[5.16]getAllPublicGroupsFromServer添加的参数，变得更加实用了（详情见接口说明）</li>
+<li>新增方法[3.17]getTotalUnreadMsgCount() 获取总计未读消息数 及其回调[3.18]</li>
+<li>开放Apns离线推送相关接口(仅限iOS)</li>
+<li>所有参数中的"isGroup"即将废弃，改用"chatType"(详见附录)</li>
+</ul>
 
-##API目录
+<p data-anchor-id="jyfc"><div class="toc">
 
-<p data-anchor-id="36wq"><div class="toc">
-
-<ul>
-
+<li><a href="#api">API</a><ul>
 <li><a href="#1initialization">[1]Initialization</a><ul>
 
 <li><a href="#11-initeasemobparam-初始化">[1.1] initEasemob(param) //初始化</a></li>
@@ -102,9 +110,8 @@
 <li><a href="#19cbgetlogininfoparam获取当前登陆信息的回调仅ios">[1.9]cbGetLoginInfo(param)//获取当前登陆信息的回调（仅iOS）</a></li>
 <li><a href="#110onconnected已连接上">[1.10]onConnected();//已连接上</a></li>
 <li><a href="#111ondisconnectedparam链接断开">[1.11]onDisconnected(param)//链接断开</a></li>
-</ul>
-</li>
 
+</ul>
 </li>
 <li><a href="#2message">[2]Message</a><ul>
 
@@ -123,14 +130,15 @@
 <li><a href="#213cbgetmessagebyidparam得到一条消息记录">[2.13]cbGetMessageById(param)//得到一条消息记录</a></li>
 <li><a href="#214sendvideoparam发送视频">[2.14]sendVideo(param)//发送视频</a></li>
 <li><a href="#215sendhasreadresponseformessageparam发送消息已读回执">[2.15]sendHasReadResponseForMessage(param)//发送消息已读回执</a></li>
+
 </ul>
 </li>
-</li>
 <li><a href="#3conversation">[3]Conversation</a><ul>
+
 <li><a href="#31getconversationbynameparam根据用户名获取conversation对象">[3.1]getConversationByName(param)//根据用户名获取conversation对象</a></li>
 <li><a href="#32cbgetconversationbynameparam回调">[3.2]cbGetConversationByName(param)//回调</a></li>
-<li><a href="#33getmessagehistoryparam获取聊天记录仅android可用">[3.3]getMessageHistory(param)//获取聊天记录(仅Android可用)</a></li>
-<li><a href="#34cbgetmessagehistoryparam获取聊天记录回调仅android">[3.4]cbGetMessageHistory(param)//获取聊天记录回调（仅Android）</a></li>
+<li><a href="#33getmessagehistoryparam获取聊天记录">[3.3]getMessageHistory(param)//获取聊天记录</a></li>
+<li><a href="#34cbgetmessagehistoryparam获取聊天记录回调">[3.4]cbGetMessageHistory(param)//获取聊天记录回调</a></li>
 <li><a href="#35getunreadmsgcountparam获取未读消息数量">[3.5]getUnreadMsgCount(param)//获取未读消息数量</a></li>
 <li><a href="#36cbgetunreadmsgcountparam获取未读消息数量回调">[3.6]cbGetUnReadMsgCount(param)//获取未读消息数量回调</a></li>
 <li><a href="#37resetunreadmsgcountparam指定会话未读消息数清零">[3.7]resetUnreadMsgCount(param)//指定会话未读消息数清零</a></li>
@@ -143,11 +151,13 @@
 <li><a href="#314deleteallconversation删除所有会话记录包括本地">[3.14]deleteAllConversation();//删除所有会话记录(包括本地)</a></li>
 <li><a href="#315getchatterinfo获取聊天对象信息">[3.15]getChatterInfo();//获取聊天对象信息</a></li>
 <li><a href="#316cbgetchatterinfoparam获取聊天对象信息回调">[3.16]cbGetChatterInfo(param);//获取聊天对象信息回调</a></li>
+<li><a href="#317gettotalunreadmsgcount获取总计未读消息数">[3.17]getTotalUnreadMsgCount();//获取总计未读消息数</a></li>
+<li><a href="#317cbgettotalunreadmsgcountparam获取总计未读消息数回调">[3.17]cbGetTotalUnreadMsgCount(param);//获取总计未读消息数回调</a></li>
+
 </ul>
 </li>
-
-</li>
 <li><a href="#4friend">[4]Friend</a><ul>
+
 <li><a href="#41oncontactaddedparam新增联系人监听仅android">[4.1]onContactAdded(param)//新增联系人监听（仅Android）</a></li>
 <li><a href="#42oncontactdeletedparam删除联系人监听仅android">[4.2]onContactDeleted(param)//删除联系人监听（仅Android）</a></li>
 <li><a href="#43oncontactinvitedparam接到好友申请">[4.3]onContactInvited(param)//接到好友申请</a></li>
@@ -163,9 +173,8 @@
 <li><a href="#413cbgetblacklistusernamesparam获取黑名单列表回调">[4.13]cbGetBlackListUsernames(param)//获取黑名单列表回调</a></li>
 <li><a href="#414addusertoblacklistparam把用户加入到黑名单">[4.14]addUserToBlackList(param)//把用户加入到黑名单</a></li>
 <li><a href="#415deleteuserfromblacklistparam把用户从黑名单中移除">[4.15]deleteUserFromBlackList(param)//把用户从黑名单中移除</a></li>
-</ul>
-</li>
 
+</ul>
 </li>
 <li><a href="#5group">[5]Group</a><ul>
 
@@ -184,7 +193,7 @@
 <li><a href="#513exitanddeletegroupparam解散群聊">[5.13]exitAndDeleteGroup(param)//解散群聊</a></li>
 <li><a href="#514getgroupsfromserverparam从服务器获取自己加入的和创建的群聊列表">[5.14]getGroupsFromServer(param)//从服务器获取自己加入的和创建的群聊列表</a></li>
 <li><a href="#515cbgetgroupsfromserverparam从服务器获取自己加入的和创建的群聊列表回调">[5.15]cbGetGroupsFromServer(param)//从服务器获取自己加入的和创建的群聊列表回调</a></li>
-<li><a href="#516getallpublicgroupsfromserver获取所有公开群列表">[5.16]getAllPublicGroupsFromServer();//获取所有公开群列表</a></li>
+<li><a href="#516getallpublicgroupsfromserverparam获取所有公开群列表">[5.16]getAllPublicGroupsFromServer(param);//获取所有公开群列表</a></li>
 <li><a href="#517cbgetallpublicgroupsfromserverparam获取所有公开群列表回调">[5.17]cbGetAllPublicGroupsFromServer(param)//获取所有公开群列表回调</a></li>
 <li><a href="#518getgroupparam获取单个群聊信息">[5.18]getGroup(param)//获取单个群聊信息</a></li>
 <li><a href="#519cbgetgroupparam获取单个群聊信息回调">[5.19]cbGetGroup(param)//获取单个群聊信息回调</a></li>
@@ -198,10 +207,10 @@
 <li><a href="#527cbgetblockedusersparam获取群组的黑名单用户列表回调仅android">[5.27]cbGetBlockedUsers(param)//获取群组的黑名单用户列表回调（仅Android）</a></li>
 <li><a href="#528ongroupupdateinfoparam群组信息更新的监听仅ios">[5.28]onGroupUpdateInfo(param)//群组信息更新的监听（仅iOS）</a></li>
 
-
 </ul>
 </li>
 <li><a href="#6call">[6]Call</a><ul>
+
 <li><a href="#61oncallreceiveparam-实时语音监听">[6.1]onCallReceive(param)// 实时语音监听</a></li>
 <li><a href="#62oncallstatechangedparam通话状态监听">[6.2]onCallStateChanged(param)//通话状态监听</a></li>
 <li><a href="#63makevoicecallparam拨打语音通话">[6.3]makeVoiceCall(param)//拨打语音通话</a></li>
@@ -210,11 +219,21 @@
 <li><a href="#66endcall挂断通话">[6.6]endCall();//挂断通话</a></li>
 </ul>
 </li>
+<li><a href="#7apns以下方法全部仅限ios">[7]Apns（以下方法全部仅限iOS）</a><ul>
+
+<li><a href="#71registerremotenotification注册apns推送">[7.1]registerRemoteNotification();//注册Apns推送</a></li>
+<li><a href="#72-cbregisterremotenotificationparam回调">[7.2] cbRegisterRemoteNotification(param);//回调</a></li>
+<li><a href="#73onapnslaunchparam">[7.3]onApnsLaunch(param);</a></li>
+<li><a href="#74updatepushoptionsparam设置apns全局属性">[7.4]updatePushOptions(param);//设置apns全局属性</a></li>
+<li><a href="#75cbupdatepushoptionsparam设置apns全局属性回调">[7.5]cbUpdatePushOptions(param);//设置apns全局属性回调</a></li>
+<li><a href="#76ignoregrouppushnotificationparam设置指定群组是否接收">[7.6]ignoreGroupPushNotification(param)://设置指定群组是否接收</a></li>
+<li><a href="#77cbignoregrouppushnotificationparam回调">[7.7]cbIgnoreGroupPushNotification(param)://回调</a></li>
+
 </ul>
 </li>
 </ul>
 </li>
-<ul><li><a href="#附录">附录</a><ul>
+<li><a href="#附录">附录</a><ul>
 
 <li><a href="#emmessage-json字符串返回值结构">EMMessage json字符串返回值结构</a><ul>
 <li><a href="#普通文本消息">普通文本消息</a></li>
@@ -225,11 +244,7 @@
 </li>
 <li><a href="#emconversation-json字符串返回值结构">EMConversation json字符串返回值结构</a></li>
 <li><a href="#emgroup-json字符串返回值结构">EMGroup json字符串返回值结构</a></li>
-</ul>
-</li>
-</ul>
-</li>
-
+<li><a href="#isgroup参数废弃-改用chattype的相关说明">"isGroup"参数废弃 改用“chatType”的相关说明</a></li>
 
 </ul>
 </li>
@@ -515,7 +530,7 @@ ext:,//扩展属性（可选参数，String)
 <pre data-anchor-id="u6zu"><code>enable:,//0-关闭，1-开启。默认为1 开启新消息提醒
 soundEnable:,// 0-关闭，1-开启。默认为1 开启声音提醒
 vibrateEnable:,// 0-关闭，1-开启。默认为1 开启震动提醒
-userSpeaker:,// 0-关闭，1-开启。默认为1 开启扬声器播放
+userSpeaker:,// 0-关闭，1-开启。默认为1 开启扬声器播放（仅Android可用）
 showNotificationInBackgroud:// 0-关闭，1-开启。默认为1。设置后台接收新消息时是否通过通知栏提示 （仅Android可用）
 acceptInvitationAlways:,// 0-关闭，1-开启。默认添加好友时为1，是不需要验证的，改成需要验证为0（仅Android可用）
 deliveryNotification:，// 0-关闭 1-开启  默认为1 开启消息送达通知   （仅iOS可用）
@@ -585,10 +600,8 @@ ext:,//扩展属性（可选参数，String)
 <p data-anchor-id="xelg">var param = {</p>
 
 <pre data-anchor-id="37ar"><code>username:,
-isGroup:,//是否为群组 1-是 2-否(仅iOS需要)
+chatType:,//聊天类别 0 - 个人 1 - 群组(仅iOS需要，默认0)
 </code></pre>
-
-<p data-anchor-id="ur8q">};</p>
 
 <div class="md-section-divider"></div>
 
@@ -603,7 +616,7 @@ isGroup:,//是否为群组 1-是 2-否(仅iOS需要)
 
 <div class="md-section-divider"></div>
 
-<h5 id="33getmessagehistoryparam获取聊天记录仅android可用" data-anchor-id="5zcv">[3.3]getMessageHistory(param)//获取聊天记录(仅Android可用)</h5>
+<h5 id="33getmessagehistoryparam获取聊天记录" data-anchor-id="5zcv">[3.3]getMessageHistory(param)//获取聊天记录</h5>
 
 <p data-anchor-id="qlqi">var param = {</p>
 
@@ -617,7 +630,7 @@ pagesize:,//分页大小，为0时获取所有消息，startMsgId可不传
 
 <div class="md-section-divider"></div>
 
-<h5 id="34cbgetmessagehistoryparam获取聊天记录回调仅android" data-anchor-id="55y5">[3.4]cbGetMessageHistory(param)//获取聊天记录回调（仅Android）</h5>
+<h5 id="34cbgetmessagehistoryparam获取聊天记录回调" data-anchor-id="55y5">[3.4]cbGetMessageHistory(param)//获取聊天记录回调</h5>
 
 <p data-anchor-id="l6lr">var param = {</p>
 
@@ -633,7 +646,7 @@ pagesize:,//分页大小，为0时获取所有消息，startMsgId可不传
 <p data-anchor-id="1sw4">var param = {</p>
 
 <pre data-anchor-id="586v"><code>username:,//username|groupid
-isGroup:,//是否为群组 1-是 2-否(仅iOS需要)
+chatType:,//聊天类别 0 - 个人 1 - 群组(仅iOS需要，默认0)
 </code></pre>
 
 <p data-anchor-id="lm5d">}</p>
@@ -656,7 +669,7 @@ isGroup:,//是否为群组 1-是 2-否(仅iOS需要)
 <p data-anchor-id="cb57">var param = {</p>
 
 <pre data-anchor-id="2mz7"><code>username:,//username|groupid
-isGroup:,//是否为群组 1-是 2-否(仅iOS需要)
+chatType:,//聊天类别 0 - 个人 1 - 群组(仅iOS需要，默认0)
 </code></pre>
 
 <p data-anchor-id="oqfd">}</p>
@@ -705,7 +718,7 @@ isGroup:,//是否为群组 1-是 2-否(仅iOS需要)
 <p data-anchor-id="dux5">var param = {</p>
 
 <pre data-anchor-id="e66f"><code>username:,//username|gr oupid
-isGroup:,//是否为群组 1-是 2-否(仅iOS需要)
+chatType:,//0-个人 1-群组（默认0，此参数仅iOS需要）
 </code></pre>
 
 <p data-anchor-id="9lwq">}</p>
@@ -718,7 +731,7 @@ isGroup:,//是否为群组 1-是 2-否(仅iOS需要)
 
 <pre data-anchor-id="apum"><code>username:,//username|groupid
 msgId:,
-isGroup:，//是否为群组 1-是 2-否(仅iOS需要)
+chatType:,//0-个人 1-群组（默认0，此参数仅iOS需要）
 </code></pre>
 
 <p data-anchor-id="ukcj">}</p>
@@ -742,12 +755,24 @@ isGroup:，//是否为群组 1-是 2-否(仅iOS需要)
 
 <pre data-anchor-id="qx4v"><code>chatter;// 联系人的username或群组的groupId
 groupName;// 群组名（仅群组有此值）
-isGroup;//是否为群组 1-是 2-否
+chatType:,//0-个人 1-群组
 unreadMsgCount;//未读消息数
 lastMsg;//EMMessage格式的json字符串，最后一条消息
 </code></pre>
 
 <p data-anchor-id="yvy8">}</p>
+
+<div class="md-section-divider"></div>
+
+<h5 id="317gettotalunreadmsgcount获取总计未读消息数" data-anchor-id="r6gg">[3.17]getTotalUnreadMsgCount();//获取总计未读消息数</h5>
+
+<div class="md-section-divider"></div>
+
+<h5 id="317cbgettotalunreadmsgcountparam获取总计未读消息数回调" data-anchor-id="ylz6">[3.17]cbGetTotalUnreadMsgCount(param);//获取总计未读消息数回调</h5>
+
+<p data-anchor-id="tc4g">var param ={ <br>
+    count:,//总计未读消息数 <br>
+}</p>
 
 <div class="md-section-divider"></div>
 
@@ -1115,7 +1140,14 @@ errorMsg:
 
 <div class="md-section-divider"></div>
 
-<h5 id="516getallpublicgroupsfromserver获取所有公开群列表" data-anchor-id="aumx">[5.16]getAllPublicGroupsFromServer();//获取所有公开群列表</h5>
+<h5 id="516getallpublicgroupsfromserverparam获取所有公开群列表" data-anchor-id="aumx">[5.16]getAllPublicGroupsFromServer(param);//获取所有公开群列表</h5>
+
+<p data-anchor-id="xd8i">var param = {</p>
+
+<pre data-anchor-id="fiht"><code>pageSize://期望结果的数量, 如果 &lt; 0 则一次返回所有结果
+cursor://获取公开群的cursor，首次调用传空即可
+}
+</code></pre>
 
 <div class="md-section-divider"></div>
 
@@ -1126,6 +1158,7 @@ errorMsg:
 <pre data-anchor-id="tsy0"><code>result://0-成功，1-失败
 grouplist:List&lt; EMGroup&gt; json格式 见附录
 errorMsg:
+cursor:,//
 </code></pre>
 
 <p data-anchor-id="fjuv">}</p>
@@ -1141,9 +1174,6 @@ loadCache://是否从本地加载缓存，（默认为false，从网络获取）
 </code></pre>
 
 <p data-anchor-id="i94u">}</p>
-
-<pre data-anchor-id="0lq0"><code>注：当系统为iOS时，loadCache参数无效只能从网络获取，
-</code></pre>
 
 <div class="md-section-divider"></div>
 
@@ -1274,7 +1304,7 @@ usernames:,// List&lt;String&gt; json格式
 
 <pre data-anchor-id="ypl0"><code>from;//拨打方username
 callType;//0-语音电话 1-视频电话
-callId;//新增参数 本次通话的EMSessionId
+callId;//本次通话的EMSessionId
 </code></pre>
 
 <p data-anchor-id="tr3i">}</p>
@@ -1315,6 +1345,90 @@ callId;//新增参数 本次通话的EMSessionId
 <div class="md-section-divider"></div>
 
 <h5 id="66endcall挂断通话" data-anchor-id="jmqj">[6.6]endCall();//挂断通话</h5>
+
+<div class="md-section-divider"></div>
+
+<h3 id="7apns以下方法全部仅限ios" data-anchor-id="9uny">[7]Apns（以下方法全部仅限iOS）</h3>
+
+<div class="md-section-divider"></div>
+
+<h5 id="71registerremotenotification注册apns推送" data-anchor-id="7xo6">[7.1]registerRemoteNotification();//注册Apns推送</h5>
+
+<div class="md-section-divider"></div>
+
+<h5 id="72-cbregisterremotenotificationparam回调" data-anchor-id="l08i">[7.2] cbRegisterRemoteNotification(param);//回调</h5>
+
+<p data-anchor-id="gii8">var param{</p>
+
+<pre data-anchor-id="x3zt"><code>result;//1-成功 2-失败
+errorInfo;//注册失败时的错误信息
+</code></pre>
+
+<p data-anchor-id="vkho">}</p>
+
+<div class="md-section-divider"></div>
+
+<h5 id="73onapnslaunchparam" data-anchor-id="5l8k">[7.3]onApnsLaunch(param);</h5>
+
+<pre data-anchor-id="50u0"><code>若APP是通过点击apns推送调起的，当插件初始化时会触发此回调。
+param为此条推送的内容，json格式。
+</code></pre>
+
+<div class="md-section-divider"></div>
+
+<h5 id="74updatepushoptionsparam设置apns全局属性" data-anchor-id="1c8p">[7.4]updatePushOptions(param);//设置apns全局属性</h5>
+
+<p data-anchor-id="w23n">var param{</p>
+
+<pre data-anchor-id="wvrr"><code>nickname;//昵称
+displayStyle;//推送显示类型 0-提示"您有一条新消息" 1- 显示详细消息内容 
+noDisturbingStyle;//是否开启免打扰模式 0-全天免打扰 1-自定义时段免打扰 2- 关闭免打扰
+noDisturbingStartH;//免打扰模式开始时间  小时（int）
+noDisturbingEndH;//免打扰模式结束时间  小时（int）
+</code></pre>
+
+<p data-anchor-id="tczd">}</p>
+
+<div class="md-section-divider"></div>
+
+<h5 id="75cbupdatepushoptionsparam设置apns全局属性回调" data-anchor-id="7kme">[7.5]cbUpdatePushOptions(param);//设置apns全局属性回调</h5>
+
+<p data-anchor-id="fcqv">var param{</p>
+
+<pre data-anchor-id="0gzx"><code>nickname;//昵称
+displayStyle;//推送显示类型 0-提示"您有一条新消息" 1- 显示详细消息内容 
+noDisturbingStyle;//是否开启免打扰模式 0-全天免打扰 1-自定义时段免打扰 2- 关闭免打扰
+noDisturbingStartH;//免打扰模式开始时间  小时（int）
+noDisturbingEndH;//免打扰模式结束时间  小时（int）
+</code></pre>
+
+<p data-anchor-id="i655">}</p>
+
+<pre data-anchor-id="ipvx"><code>说明：updatePushOptions全为可选参数，当传入空值时，即可通过回调获得当前apns全局属性
+</code></pre>
+
+<div class="md-section-divider"></div>
+
+<h5 id="76ignoregrouppushnotificationparam设置指定群组是否接收" data-anchor-id="8ipl">[7.6]ignoreGroupPushNotification(param)://设置指定群组是否接收</h5>
+
+<p data-anchor-id="6hdu">var param{</p>
+
+<pre data-anchor-id="rz99"><code>groupId;//指定的群组Id
+isIgnore;//1-屏蔽  2-取消屏蔽
+</code></pre>
+
+<p data-anchor-id="bq9q">}</p>
+
+<div class="md-section-divider"></div>
+
+<h5 id="77cbignoregrouppushnotificationparam回调" data-anchor-id="crxm">[7.7]cbIgnoreGroupPushNotification(param)://回调</h5>
+
+<p data-anchor-id="k7ys">var param{</p>
+
+<pre data-anchor-id="vd85"><code>groupIds;//已屏蔽接收推送消息的群列表
+</code></pre>
+
+<p data-anchor-id="6e8j">}</p>
 
 <div class="md-section-divider"></div>
 
@@ -1360,8 +1474,8 @@ callId;//新增参数 本次通话的EMSessionId
  <td>是否已读</td>
 </tr>
 <tr>
- <td>isGroup</td>
- <td>是否来源于群组</td>
+ <td>chatType:</td>
+ <td>聊天类别 0-个人 1-群组</td>
 </tr>
 <tr>
  <td>messageType</td>
@@ -1501,8 +1615,8 @@ callId;//新增参数 本次通话的EMSessionId
  <td>conversation识别名</td>
 </tr>
 <tr>
- <td>isGroup</td>
- <td>是否为群组</td>
+ <td>chatType</td>
+ <td>聊天类别 0-个人 1-群组</td>
 </tr>
 <tr>
  <td>messages</td>
@@ -1570,53 +1684,20 @@ callId;//新增参数 本次通话的EMSessionId
 
 <div class="md-section-divider"></div>
 
-<h2 id="android混淆配置" data-anchor-id="b0vj">android混淆配置</h2>
+<h4 id="isgroup参数废弃-改用chattype的相关说明" data-anchor-id="kumc">"isGroup"参数废弃 改用“chatType”的相关说明</h4>
 
-<p data-anchor-id="suuq">如果应用进行混淆，需要加上如下配置： <br>
-~~~</p>
+<p data-anchor-id="t9dm">由于环信插件即将添加<code>聊天室功能</code>，<strong>isGroup参数即将不能满足需求</strong>，因此做如下修改:</p>
 
-<div class="md-section-divider"></div>
+<ul data-anchor-id="ld7r">
+<li>所有的调用API中，入参里的isGroup改为chatType</li>
+<li>所有的回调API中，isGroup属性改为chatType</li>
+</ul>
 
-<h2 id="begin-proguard-configuration-for-gson" data-anchor-id="hzsz">---------------Begin: proguard configuration for Gson  ----------</h2>
+<p data-anchor-id="dich">考虑到有已经使用环信插件进行开发的用户，因此有如下<strong>兼容性支持</strong>:</p>
 
-<div class="md-section-divider"></div>
-
-<h1 id="gson-uses-generic-type-information-stored-in-a-class-file-when-working-with-fields-proguard" data-anchor-id="3trg">Gson uses generic type information stored in a class file when working with fields. Proguard</h1>
-
-<div class="md-section-divider"></div>
-
-<h1 id="removes-such-information-by-default-so-configure-it-to-keep-all-of-it" data-anchor-id="xml4">removes such information by default, so configure it to keep all of it.</h1>
-
-<p data-anchor-id="enp7">-keepattributes Signature</p>
-
-<div class="md-section-divider"></div>
-
-<h1 id="for-using-gson-expose-annotation" data-anchor-id="uzoc">For using GSON @Expose annotation</h1>
-
-<p data-anchor-id="59kg">-keepattributes <em>Annotation</em></p>
-
-<div class="md-section-divider"></div>
-
-<h1 id="gson-specific-classes" data-anchor-id="sz4g">Gson specific classes</h1>
-
-<p data-anchor-id="9f7d">-keep class sun.misc.Unsafe { *; }</p>
-
-<div class="md-section-divider"></div>
-
-<h1 id="keep-class-comgooglegsonstream" data-anchor-id="91rr">-keep class com.google.gson.stream.** { *; }</h1>
-
-<div class="md-section-divider"></div>
-
-<h1 id="application-classes-that-will-be-serializeddeserialized-over-gson" data-anchor-id="z60b">Application classes that will be serialized/deserialized over Gson</h1>
-
-<p data-anchor-id="sekt">-keep class org.zywx.wbpalmstar.widgetone.uexEasemob.vo.** { <em>; } <br>
--keep class com.google.gson.*</em> {*;} <br>
--keep class * implements java.io.Serializable {*;}</p>
-
-<div class="md-section-divider"></div>
-
-<h2 id="end-proguard-configuration-for-gson" data-anchor-id="jy6m">---------------End: proguard configuration for Gson  ----------</h2>
-
-<p data-anchor-id="kx0r">~~~</p>
+<ul data-anchor-id="q6rw">
+<li>调用API中所有的isGroup入参仍然可用，但若传值与chatType冲突，以chatType为准</li>
+<li>回调API中如包含isGroup项的，现在会同时包含isGroup项和chatType项</li>
+</ul>
 </body>
 </html>
