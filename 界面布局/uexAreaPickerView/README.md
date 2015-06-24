@@ -6,7 +6,7 @@
 * [close](#close)
 
 ### 监听方法：
-* [onConfirmClick](#onConfirmClick)
+* [onConfirmClick](https://github.com/AppCanOpenSource/appcan-docs/blob/master/%E7%95%8C%E9%9D%A2%E5%B8%83%E5%B1%80%2FuexAreaPickerView%2FREADME.md#onconfirmclick)
 
 ---
 
