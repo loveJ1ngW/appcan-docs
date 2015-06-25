@@ -152,7 +152,7 @@
 <li><a href="#315getchatterinfo获取聊天对象信息">[3.15]getChatterInfo();//获取聊天对象信息</a></li>
 <li><a href="#316cbgetchatterinfoparam获取聊天对象信息回调">[3.16]cbGetChatterInfo(param);//获取聊天对象信息回调</a></li>
 <li><a href="#317gettotalunreadmsgcount获取总计未读消息数">[3.17]getTotalUnreadMsgCount();//获取总计未读消息数</a></li>
-<li><a href="#317cbgettotalunreadmsgcountparam获取总计未读消息数回调">[3.17]cbGetTotalUnreadMsgCount(param);//获取总计未读消息数回调</a></li>
+<li><a href="#317cbgettotalunreadmsgcountparam获取总计未读消息数回调">[3.18]cbGetTotalUnreadMsgCount(param);//获取总计未读消息数回调</a></li>
 
 </ul>
 </li>
@@ -222,12 +222,12 @@
 <li><a href="#7apns以下方法全部仅限ios">[7]Apns（以下方法全部仅限iOS）</a><ul>
 
 <li><a href="#71registerremotenotification注册apns推送">[7.1]registerRemoteNotification();//注册Apns推送</a></li>
-<li><a href="#72-cbregisterremotenotificationparam回调">[7.2] cbRegisterRemoteNotification(param);//回调</a></li>
-<li><a href="#73onapnslaunchparam">[7.3]onApnsLaunch(param);</a></li>
+<li><a href="#72-cbregisterremotenotificationparam回调">[7.2] cbRegisterRemoteNotification(param);//注册Apns推送回调</a></li>
+<li><a href="#73onapnslaunchparam">[7.3]onApnsLaunch(param);//应用被Apns调起的监听</a></li>
 <li><a href="#74updatepushoptionsparam设置apns全局属性">[7.4]updatePushOptions(param);//设置apns全局属性</a></li>
 <li><a href="#75cbupdatepushoptionsparam设置apns全局属性回调">[7.5]cbUpdatePushOptions(param);//设置apns全局属性回调</a></li>
-<li><a href="#76ignoregrouppushnotificationparam设置指定群组是否接收">[7.6]ignoreGroupPushNotification(param)://设置指定群组是否接收</a></li>
-<li><a href="#77cbignoregrouppushnotificationparam回调">[7.7]cbIgnoreGroupPushNotification(param)://回调</a></li>
+<li><a href="#76ignoregrouppushnotificationparam设置指定群组是否接收">[7.6]ignoreGroupPushNotification(param)://设置指定群组是否接收Apns</a></li>
+<li><a href="#77cbignoregrouppushnotificationparam回调">[7.7]cbIgnoreGroupPushNotification(param)://设置指定群组是否接收Apns回调</a></li>
 
 </ul>
 </li>
@@ -768,7 +768,7 @@ lastMsg;//EMMessage格式的json字符串，最后一条消息
 
 <div class="md-section-divider"></div>
 
-<h5 id="317cbgettotalunreadmsgcountparam获取总计未读消息数回调" data-anchor-id="ylz6">[3.17]cbGetTotalUnreadMsgCount(param);//获取总计未读消息数回调</h5>
+<h5 id="317cbgettotalunreadmsgcountparam获取总计未读消息数回调" data-anchor-id="ylz6">[3.18]cbGetTotalUnreadMsgCount(param);//获取总计未读消息数回调</h5>
 
 <p data-anchor-id="tc4g">var param ={ <br>
     count:,//总计未读消息数 <br>
