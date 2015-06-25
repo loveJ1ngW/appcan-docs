@@ -3,11 +3,11 @@
 
 
 ##方法
-* [open](#open)
-* [close](#close)
+* [open](#open)打开评论输入
+* [close](#close)关闭评论输入
 
 ##回调方法
-* [onCommit](#oncommit)
+* [onCommit](#oncommit)点击评论按钮时的回调
 
 
 
@@ -15,7 +15,7 @@
 
 
 ###open
-打开打开评论输入
+打开评论输入
 
 	uexInputTextFieldView.open(json)
 	
