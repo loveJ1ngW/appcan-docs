@@ -3,11 +3,11 @@
 
 
 ##方法
-* ####[open](#open)
-* ####[close](#close)
+* [open](#open)
+* [close](#close)
 
 ##回调方法
-* ####[onCommit](#onCommit)
+* [onCommit](#oncommit)
 
 
 
@@ -22,25 +22,55 @@
 ###参数
 ```
 var json = {
-	"emojicons":,//emojicons.xml文件路径（详细说明见下）    "placeHold":,//输入框提示语
+	"emojicons":,//emojicons.xml文件路径（详细说明见下）
+    "placeHold":,//输入框提示语
 }
 ```
 
-	自定义表情的配置文件配置步骤：	1、在widget的wgtRes目录下创建emojicons目录；	2、在emojicons中放入表情以及删除的图片资源，表情的默认命名格式：	ace_emoji_1，删除的默认命名格式：ace_emoji_delete.png；	3、在emojicons中创建emojicons.xml文件，格式如下：
-			<?xml version="1.0" encoding="utf-8"?>		<emojicons delete="ace_emoji_delete.png ">  		<key>[微笑]</key>   		<string> ace_emoji_1.png</string>   		<key>[憋嘴]</key>   		<string> ace_emoji_2.png</string>		</emojicons>
-	
-		* delete:删除对应的图片名；	* key:表情对应的文字；	* string:表情对应的图片名    * 说明:表情目录、图片名以及配置文件名都可以自定义命名，但是必须保证配置文件中的图片名与资源图片对应。###平台支持
-	Android 2.2+
+	自定义表情的配置文件配置步骤：
+	1、在widget的wgtRes目录下创建emojicons目录；
+	2、在emojicons中放入表情以及删除的图片资源，表情的默认命名格式：
+	ace_emoji_1，删除的默认命名格式：ace_emoji_delete.png；
+	3、在emojicons中创建emojicons.xml文件，格式如下：
+
+	
+		<?xml version="1.0" encoding="utf-8"?>
+		<emojicons delete="ace_emoji_delete.png ">
+  		<key>[微笑]</key>
+   		<string> ace_emoji_1.png</string>
+   		<key>[憋嘴]</key>
+   		<string> ace_emoji_2.png</string>
+		</emojicons>
+
+	
+
+	
+	* delete:删除对应的图片名；
+	* key:表情对应的文字；
+	* string:表情对应的图片名
+    * 说明:表情目录、图片名以及配置文件名都可以自定义命名，但是必须保证配置文件中的图片名与资源图片对应。
+
+###平台支持
+
+	Android 2.2+
 	iOS 6.1+
-###版本支持
-	Android 3.0.0+
+
+###版本支持
+
+	Android 3.0.0+
 	iOS 3.0.0+
 
 ###示例
 ```
-var data ={    emojicons: "res://emojicons/emojicons.xml",    placeHold: "请输入内容"	};
-var jsonStr = JSON.stringify(data)uexInputTextFieldView.open(jsonStr);
-```###close
+var data ={
+    emojicons: "res://emojicons/emojicons.xml",
+    placeHold: "请输入内容"
+	};
+var jsonStr = JSON.stringify(data)
+uexInputTextFieldView.open(jsonStr);
+
+```
+###close
  关闭评论输入
 	
 	uexInputTextFieldView.close()
@@ -85,4 +115,4 @@ uexInputTextFieldView.onCommit = function(data){
 	alert(data);
 }
 
-```
+```
