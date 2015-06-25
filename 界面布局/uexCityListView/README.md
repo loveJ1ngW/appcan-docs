@@ -3,14 +3,14 @@
 
 ### 方法：
 * [open](#open)
-* [setLocalCity](#setLocalCity)
-* [setHotCity](#setHotCity)
-* [setAllCity](#setAllCity)
-* [setViewStyle](#setViewStyle)
+* [setLocalCity](#setlocalcity)
+* [setHotCity](#sethotcity)
+* [setAllCity](#setallcity)
+* [setViewStyle](#setviewstyle)
 * [close](#close)
 
 ### 监听方法：
-* [onItemClick](#onItemClick)
+* [onItemClick](#onitemclick)
 
 ---
 
