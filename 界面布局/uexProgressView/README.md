@@ -3,7 +3,7 @@
 
 ## 方法：
 ### open 打开进度条
-### setProgress 设置进度值
+### [setProgress](#setprogress) 设置进度值
 ### close 关闭进度条
 
 ## 监听方法：
