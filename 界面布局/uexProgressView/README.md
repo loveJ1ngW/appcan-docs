@@ -7,7 +7,7 @@
 ### [close](#close) 关闭进度条
 
 ## 监听方法：
-### onComplete 进度达到100%的监听方法
+### [onComplete](#oncomplete) 进度达到100%的监听方法
 
 ### open
   打开进度条
