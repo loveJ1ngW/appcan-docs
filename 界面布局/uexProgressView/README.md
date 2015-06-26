@@ -2,9 +2,9 @@
    进度条控件插件
 
 ## 方法：
-### open 打开进度条
+### [open](#open) 打开进度条
 ### [setProgress](#setprogress) 设置进度值
-### close 关闭进度条
+### [close](#close) 关闭进度条
 
 ## 监听方法：
 ### onComplete 进度达到100%的监听方法
