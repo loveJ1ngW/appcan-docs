@@ -2,51 +2,51 @@
   封装高德地图相关功能，包括放大缩小、移动和旋转等基本操作；标注；圆形、矩形和多边形覆盖物；定位、搜索、地理编码等功能。
 
 ## 方法：
-### open 打开地图
-### close 关闭地图
-### setMapType 设置地图类型
-### setTrafficEnabled 开启或关闭实时路况
-### setCenter 设置地图中心点
-### setZoomLevel 设置地图缩放级别
-### zoomIn 放大一个地图级别
-### zoomOut 缩小一个地图级别
-### rotate 旋转地图
-### overlook 倾斜地图
-### setZoomEnable 开启或关闭手势缩放
-### setRotateEnable 开启或关闭手势旋转及手势倾斜
-### setCompassEnable 开启或关闭指南针
-### setScrollEnable 开启或关闭手势移动
-### addMarkersOverlay 添加标注
-### setMarkerOverlay 修改标注
-### addPolylineOverlay 添加折线覆盖物
-### removeOverlay 移除覆盖物
-### addArcOverlay 添加弧形覆盖物
-### addCircleOverlay 添加圆形覆盖物
-### addPolygonOverlay 添加多边形覆盖物
-### addGroundOverlay 添加图片覆盖物
-### removeMarkersOverlay 移除标注
-### poiSearch 兴趣点搜索
-### geocode 地理编码
-### reverseGeocode 反地理编码
-### getCurrentLocation 获取当前位置
-### startLocation 开始连续定位
-### stopLocation 停止连续定位
-### setMyLocationEnable 显示或隐藏我的位置
-### setUserTrackingMode 设置连续定位模式
+### [open](#open) 打开地图
+### close[](#) 关闭地图
+### setMapType[](#) 设置地图类型
+### setTrafficEnabled[](#) 开启或关闭实时路况
+### setCenter[](#) 设置地图中心点
+### setZoomLevel[](#) 设置地图缩放级别
+### zoomIn[](#) 放大一个地图级别
+### zoomOut[](#) 缩小一个地图级别
+### rotate[](#) 旋转地图
+### overlook[](#) 倾斜地图
+### setZoomEnable[](#) 开启或关闭手势缩放
+### setRotateEnable[](#) 开启或关闭手势旋转及手势倾斜
+### setCompassEnable[](#) 开启或关闭指南针
+### setScrollEnable[](#) 开启或关闭手势移动
+### addMarkersOverlay[](#) 添加标注
+### setMarkerOverlay[](#) 修改标注
+### addPolylineOverlay[](#) 添加折线覆盖物
+### removeOverlay[](#) 移除覆盖物
+### addArcOverlay[](#) 添加弧形覆盖物
+### addCircleOverlay[](#) 添加圆形覆盖物
+### addPolygonOverlay[](#) 添加多边形覆盖物
+### addGroundOverlay[](#) 添加图片覆盖物
+### removeMarkersOverlay[](#) 移除标注
+### poiSearch[](#) 兴趣点搜索
+### geocode[](#) 地理编码
+### reverseGeocode[](#) 反地理编码
+### getCurrentLocation[](#) 获取当前位置
+### startLocation[](#) 开始连续定位
+### stopLocation[](#) 停止连续定位
+### setMyLocationEnable[](#) 显示或隐藏我的位置
+### setUserTrackingMode[](#) 设置连续定位模式
 
 ## 回调方法：
-### cbGetCurrentLocation 获取当前位置的回调方法
-### cbGeocode 地理编码的回调方法
-### cbReverseGeocode 反地理编码的回调方法
-### cbPoiSearch 兴趣点搜索的回调方法
+### cbGetCurrentLocation[](#) 获取当前位置的回调方法
+### cbGeocode[](#) 地理编码的回调方法
+### cbReverseGeocode[](#) 反地理编码的回调方法
+### cbPoiSearch[](#) 兴趣点搜索的回调方法
 
 ## 监听方法：
-### onMapLoadedListener 地图加载完成的监听方法
-### onMarkerClickListener 点击标注的监听方法
-### onMarkerBubbleClickListener 点击气泡的监听方法
-### onReceiveLocation 位置变化的监听方法
-### onMapClickListener 点击地图的监听方法
-### onMapLongClickListener 长按地图的监听方法
+### onMapLoadedListener[](#) 地图加载完成的监听方法
+### onMarkerClickListener[](#) 点击标注的监听方法
+### onMarkerBubbleClickListener[](#) 点击气泡的监听方法
+### onReceiveLocation[](#) 位置变化的监听方法
+### [onMapClickListener](#onMapClickListener) 点击地图的监听方法
+### [onMapLongClickListener](#onmaplongclicklistener) 长按地图的监听方法
 
 ### open
   打开地图
