@@ -3,49 +3,49 @@
 
 ## 方法：
 ### [open](#open) 打开地图
-### close[](#) 关闭地图
-### setMapType[](#) 设置地图类型
-### setTrafficEnabled[](#) 开启或关闭实时路况
-### setCenter[](#) 设置地图中心点
-### setZoomLevel[](#) 设置地图缩放级别
-### zoomIn[](#) 放大一个地图级别
-### zoomOut[](#) 缩小一个地图级别
-### rotate[](#) 旋转地图
-### overlook[](#) 倾斜地图
-### setZoomEnable[](#) 开启或关闭手势缩放
-### setRotateEnable[](#) 开启或关闭手势旋转及手势倾斜
-### setCompassEnable[](#) 开启或关闭指南针
-### setScrollEnable[](#) 开启或关闭手势移动
-### addMarkersOverlay[](#) 添加标注
-### setMarkerOverlay[](#) 修改标注
-### addPolylineOverlay[](#) 添加折线覆盖物
-### removeOverlay[](#) 移除覆盖物
-### addArcOverlay[](#) 添加弧形覆盖物
-### addCircleOverlay[](#) 添加圆形覆盖物
-### addPolygonOverlay[](#) 添加多边形覆盖物
-### addGroundOverlay[](#) 添加图片覆盖物
-### removeMarkersOverlay[](#) 移除标注
-### poiSearch[](#) 兴趣点搜索
-### geocode[](#) 地理编码
-### reverseGeocode[](#) 反地理编码
-### getCurrentLocation[](#) 获取当前位置
-### startLocation[](#) 开始连续定位
-### stopLocation[](#) 停止连续定位
-### setMyLocationEnable[](#) 显示或隐藏我的位置
-### setUserTrackingMode[](#) 设置连续定位模式
+### [close](#close) 关闭地图
+### [setMapType](#setmaptype) 设置地图类型
+### [setTrafficEnabled](#settrafficenabled) 开启或关闭实时路况
+### [setCenter](#setcenter) 设置地图中心点
+### [setZoomLevel](#setzoomlevel) 设置地图缩放级别
+### [zoomIn](#zoomin) 放大一个地图级别
+### [zoomOut](#zoomout) 缩小一个地图级别
+### [rotate](#rotate) 旋转地图
+### [overlook](#overlook) 倾斜地图
+### [setZoomEnable](#setzoomenable) 开启或关闭手势缩放
+### [setRotateEnable](#setrotateenable) 开启或关闭手势旋转及手势倾斜
+### [setCompassEnable](#setcompassenable) 开启或关闭指南针
+### [setScrollEnable](#setscrollenable) 开启或关闭手势移动
+### [addMarkersOverlay](#addmarkersoverlay) 添加标注
+### [setMarkerOverlay](#setmarkeroverlay) 修改标注
+### [addPolylineOverlay](#addpolylineoverlay) 添加折线覆盖物
+### [removeOverlay](#removeoverlay) 移除覆盖物
+### [addArcOverlay](#addarcoverlay) 添加弧形覆盖物
+### [addCircleOverlay](#addcircleoverlay) 添加圆形覆盖物
+### [addPolygonOverlay](#addpolygonoverlay) 添加多边形覆盖物
+### [addGroundOverlay](#addgroundoverlay) 添加图片覆盖物
+### [removeMarkersOverlay](#removemarkersoverlay) 移除标注
+### [poiSearch](#poisearch) 兴趣点搜索
+### [geocode](#geocode) 地理编码
+### [reverseGeocode](#reversegeocode) 反地理编码
+### [getCurrentLocation](#getcurrentlocation) 获取当前位置
+### [startLocation](#startlocation) 开始连续定位
+### [stopLocation](#stoplocation) 停止连续定位
+### [setMyLocationEnable](#setmylocationenable) 显示或隐藏我的位置
+### [setUserTrackingMode](#setusertrackingmode) 设置连续定位模式
 
 ## 回调方法：
-### cbGetCurrentLocation[](#) 获取当前位置的回调方法
-### cbGeocode[](#) 地理编码的回调方法
-### cbReverseGeocode[](#) 反地理编码的回调方法
-### cbPoiSearch[](#) 兴趣点搜索的回调方法
+### [cbGetCurrentLocation](#cbgetcurrentlocation) 获取当前位置的回调方法
+### [cbGeocode](#cbgeocode) 地理编码的回调方法
+### [cbReverseGeocode](#cbreversegeocode) 反地理编码的回调方法
+### [cbPoiSearch](#cbpoisearch) 兴趣点搜索的回调方法
 
 ## 监听方法：
-### onMapLoadedListener[](#) 地图加载完成的监听方法
-### onMarkerClickListener[](#) 点击标注的监听方法
-### onMarkerBubbleClickListener[](#) 点击气泡的监听方法
-### onReceiveLocation[](#) 位置变化的监听方法
-### [onMapClickListener](#onMapClickListener) 点击地图的监听方法
+### [onMapLoadedListener](#onmaploadedlistener) 地图加载完成的监听方法
+### [onMarkerClickListener](#onmarkerclicklistener) 点击标注的监听方法
+### [onMarkerBubbleClickListener](#onmarkerbubbleclicklistener) 点击气泡的监听方法
+### [onReceiveLocation](#onreceivelocation) 位置变化的监听方法
+### [onMapClickListener](#onmapclickListener) 点击地图的监听方法
 ### [onMapLongClickListener](#onmaplongclicklistener) 长按地图的监听方法
 
 ### open
