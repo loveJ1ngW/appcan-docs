@@ -1614,6 +1614,6 @@ Android 3.0.0+
 
 ### changelog
 2015-06-30
-- 新增**API**： `removeMarkersOverlays`、`removeOverlays`、`setScaleVisible`、`setMyLocationButtonVisible`、`setZoomVisible`；
-- 废弃**API**： `removeMarkersOverlay`、`removeOverlay`方法。
+- 新增**API**： `removeMarkersOverlays`、`removeOverlays`、`setScaleVisible`、`setMyLocationButtonVisible`、`setZoomVisible`;
+- 废弃**API**： `removeMarkersOverlay`、`removeOverlay`;
 - 以上**API** iOS 3.0.1版本，Android 3.0.2版本开始支持。
