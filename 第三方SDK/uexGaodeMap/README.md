@@ -19,12 +19,12 @@
 ### [addMarkersOverlay](#addmarkersoverlay) 添加标注
 ### [setMarkerOverlay](#setmarkeroverlay) 修改标注
 ### [addPolylineOverlay](#addpolylineoverlay) 添加折线覆盖物
-### [removeOverlay](#removeoverlay) 移除覆盖物
+### [removeOverlays](#removeoverlays) 移除覆盖物
 ### [addArcOverlay](#addarcoverlay) 添加弧形覆盖物
 ### [addCircleOverlay](#addcircleoverlay) 添加圆形覆盖物
 ### [addPolygonOverlay](#addpolygonoverlay) 添加多边形覆盖物
 ### [addGroundOverlay](#addgroundoverlay) 添加图片覆盖物
-### [removeMarkersOverlay](#removemarkersoverlay) 移除标注
+### [removeMarkersOverlays](#removemarkersoverlays) 移除标注
 ### [poiSearch](#poisearch) 兴趣点搜索
 ### [geocode](#geocode) 地理编码
 ### [reverseGeocode](#reversegeocode) 反地理编码
@@ -33,6 +33,9 @@
 ### [stopLocation](#stoplocation) 停止连续定位
 ### [setMyLocationEnable](#setmylocationenable) 显示或隐藏我的位置
 ### [setUserTrackingMode](#setusertrackingmode) 设置连续定位模式
+### [setScaleVisible](#setscalevisible) 设置地图是否显示比例尺
+### [setMyLocationButtonVisible](#setmylocationbuttonvisible) 设置是否显示回到我的位置按钮
+### [setZoomVisible](#setzoomvisible) 设置是否显示放大缩小按钮
 
 ## 回调方法：
 ### [cbGetCurrentLocation](#cbgetcurrentlocation) 获取当前位置的回调方法
@@ -614,16 +617,14 @@ iOS 3.0.0+
     uexGaodeMap.addPolylineOverlay(data);
 ```
 
-### removeOverlay
+### removeOverlays
   移除覆盖物
 ```
-uexGaodeMap.removeOverlay(json)
+uexGaodeMap.removeOverlays(json)
 ```
 ### 参数：
 ```
-var json = {
-    id://(必选) 唯一标识符
-}
+var json = []////(可选)覆盖物唯一标识符数组，不传时移除所有覆盖物。
 ```
 ### 平台支持：
 ```
@@ -632,16 +633,14 @@ var json = {
 ```
 ### 版本支持：
 ```
-Android 3.0.0+
-iOS 3.0.0+
+Android 3.0.2+
+iOS 3.0.1+
 ```
 ### 示例：
 ```
-    var idarr = {
-        id:"151"
-    };
+    var idarr = ["151"];
     var data = JSON.stringify(idarr);
-    uexGaodeMap.removeOverlay(data);
+    uexGaodeMap.removeOverlays(data);
 ```
 
 ### addArcOverlay
@@ -853,16 +852,14 @@ iOS 3.0.0+
     uexGaodeMap.addGroundOverlay(data);
 ```
 
-### removeMarkersOverlay
+### removeMarkersOverlays
   移除标注
 ```
-uexGaodeMap.removeMarkersOverlay(json)
+uexGaodeMap.removeMarkersOverlays(json)
 ```
 ### 参数：
 ```
-var json = {
-    id://(必选) 唯一标识符
-}
+var json = []//(可选)标注唯一标识符数组，不传时移除所有标注。
 ```
 ### 平台支持：
 ```
@@ -871,16 +868,14 @@ var json = {
 ```
 ### 版本支持：
 ```
-Android 3.0.0+
-iOS 3.0.0+
+Android 3.0.2+
+iOS 3.0.1+
 ```
 ### 示例：
 ```
-    var params = {
-        id:10001
-    };
+    var params = ['10001'];
     var data = JSON.stringify(params);
-    uexGaodeMap.removeMarkersOverlay(data);
+    uexGaodeMap.removeMarkersOverlays(data);
 ```
 
 ### poiSearch
@@ -1223,6 +1218,96 @@ iOS 3.0.0+
     }
     var data = JSON.stringify(params);
     uexGaodeMap.setUserTrackingMode(data);
+```
+
+### setScaleVisible
+  设置地图是否显示比例尺
+```
+uexGaodeMap.setScaleVisible(json)
+```
+### 参数：
+```
+var json = {
+    visible://(必选) 是否显示，true-显示；false-隐藏。
+}
+```
+### 平台支持：
+```
+  Android 2.2+
+  iOS 6.0+
+```
+### 版本支持：
+```
+Android 3.0.2+
+iOS 3.0.1+
+```
+### 示例：
+```
+    var params = {
+        visible:true
+    }
+    var data = JSON.stringify(params);
+    uexGaodeMap.setScaleVisible(data);
+```
+
+### setMyLocationButtonVisible
+  设置是否显示回到我的位置按钮，注意回到我的位置按钮点击生效的前提条件是开启定位。
+```
+uexGaodeMap.setMyLocationButtonVisible(json)
+```
+### 参数：
+```
+var json = {
+    visible://(必选) 是否显示，true-显示；false-隐藏。
+}
+```
+### 平台支持：
+```
+  Android 2.2+
+  iOS 6.0+
+```
+### 版本支持：
+```
+Android 3.0.2+
+iOS 3.0.1+
+```
+### 示例：
+```
+    var params = {
+        visible:true
+    }
+    var data = JSON.stringify(params);
+    uexGaodeMap.setMyLocationButtonVisible(data);
+```
+
+### setZoomVisible
+  设置是否显示放大缩小按钮
+```
+uexGaodeMap.setZoomVisible(json)
+```
+### 参数：
+```
+var json = {
+    visible://(必选) 是否显示，true-显示；false-隐藏。
+}
+```
+### 平台支持：
+```
+  Android 2.2+
+  iOS 6.0+
+```
+### 版本支持：
+```
+Android 3.0.2+
+iOS 3.0.1+
+```
+### 示例：
+```
+    var params = {
+        visible:true
+    }
+    var data = JSON.stringify(params);
+    uexGaodeMap.setZoomVisible(data);
 ```
 
 ### cbGetCurrentLocation
