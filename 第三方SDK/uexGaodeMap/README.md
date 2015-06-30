@@ -1,6 +1,8 @@
 # uexGaodeMap
   封装高德地图相关功能，包括放大缩小、移动和旋转等基本操作；标注；圆形、矩形和多边形覆盖物；定位、搜索、地理编码等功能。
 
+## [changelog](#changelog) 更新日志
+
 ## 方法：
 ### [open](#open) 打开地图
 ### [close](#close) 关闭地图
@@ -1609,3 +1611,9 @@ Android 3.0.0+
         alert("onMapLongClickListener: "+json);
     }
 ```
+
+### changelog
+2015-06-30
+- 新增**API**： `removeMarkersOverlays`、`removeOverlays`、`setScaleVisible`、`setMyLocationButtonVisible`、`setZoomVisible`；
+- 废弃**API**： `removeMarkersOverlay`、`removeOverlay`方法。
+- 以上**API** iOS 3.0.1版本，Android 3.0.2版本开始支持。
