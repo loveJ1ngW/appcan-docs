@@ -58,7 +58,7 @@ function createPrivateGroup(){
         var needApprovalRequired = document.getElementById("createPublicGroupneedApprovalRequired").value;
         var maxUsers = document.getElementById("createPublicGroupmaxUsers").value;
         var initialWelcomeMessage = document.getElementById("createPublicGroupinitialWelcomeMessage").value;
-        uexEasemob.createPublicGroup('{"groupName":"'+groupName+'","desc":"'+desc+'","members":"'+members+'","needApprovalRequired":"'+needApprovalRequired+'","maxUsers":"'+maxUsers+'","initialWelcomeMessage":"'+initialWelcomeMessage+'"}');
+        uexEasemob.createPublicGroup('{"groupName":"'+groupName+'","desc":"'+desc+'","members":'+members+',"needApprovalRequired":"'+needApprovalRequired+'","maxUsers":"'+maxUsers+'","initialWelcomeMessage":"'+initialWelcomeMessage+'"}');
     }
     
     //[5.9]
@@ -197,12 +197,12 @@ function createPrivateGroup(){
              <input class='btn' type='button' value='调用接口' onclick='createPrivateGroup()'></input>
              
              <div> </div><span>[5.8]  createPublicGroup</span>
-             <div>groupName:</div><input class="textbox" type="text" id="createPublicGroupgroupName" value=""></input>
-             <div>desc:</div><input class="textbox" type="text" id="createPublicGroupdesc" value=""></input>
-             <div>members:</div><input class="textbox" type="text" id="createPublicGroupmembers" value=""></input>
-             <div>needApprovalRequired:</div><input class="textbox" type="text" id="createPublicGroupneedApprovalRequired" value=""></input>
-             <div>maxUsers:</div><input class="textbox" type="text" id="createPublicGroupmaxUsers" value=""></input>
-             <div>initialWelcomeMessage:</div><input class="textbox" type="text" id="createPublicGroupinitialWelcomeMessage" value=""></input>
+             <div>groupName:</div><input class="textbox" type="text" id="createPublicGroupgroupName" value="testPublicGroup222"></input>
+             <div>desc:</div><input class="textbox" type="text" id="createPublicGroupdesc" value="uexEasemobPublicGroupTest"></input>
+             <div>members:</div><input class="textbox" type="text" id="createPublicGroupmembers" value='["appcanuser2"]'></input>
+             <div>needApprovalRequired:</div><input class="textbox" type="text" id="createPublicGroupneedApprovalRequired" value="1"></input>
+             <div>maxUsers:</div><input class="textbox" type="text" id="createPublicGroupmaxUsers" value="30"></input>
+             <div>initialWelcomeMessage:</div><input class="textbox" type="text" id="createPublicGroupinitialWelcomeMessage" value="A Public Group!"></input>
              <input class='btn' type='button' value='调用接口' onclick='createPublicGroup()'></input>
              
              <div> </div><span>[5.9]  addUsersToGroup</span>
