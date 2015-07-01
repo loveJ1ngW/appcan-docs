@@ -439,7 +439,7 @@ username:,//来源
 <p data-anchor-id="dywa">var param = {</p>
 
 <pre data-anchor-id="xycy"><code>username:,//单聊时聊天人的userid或者群聊时groupid
-chatType:,//1-单聊，2-群聊
+chatType:,//0-单聊，1-群聊
 content:,//文本内容
 ext:,//扩展属性（可选参数，String)
 </code></pre>
@@ -453,7 +453,7 @@ ext:,//扩展属性（可选参数，String)
 <p data-anchor-id="hyrx">var param = {</p>
 
 <pre data-anchor-id="2yel"><code>username:,//单聊时聊天人的userid或者群聊时groupid
-chatType:,//1-单聊，2-群聊
+chatType:,//0-单聊，1-群聊
 filePath:,//语音文件路径
 length:,//长度(Android必选，iOS可选)
 displayName：//对方接收时显示的文件名（仅iOS需要）
@@ -469,7 +469,7 @@ ext:,//扩展属性（可选参数，String)
 <p data-anchor-id="xq78">var param = {</p>
 
 <pre data-anchor-id="tti9"><code>username:,//单聊时聊天人的userid或者群聊时groupid
-chatType:,//1-单聊，2-群聊
+chatType:,//0-单聊，1-群聊
 filePath:,//图片文件路径
 displayName:,//对方接收时显示的文件名（仅iOS需要）
 ext:,//扩展属性（可选参数，String)
@@ -484,7 +484,7 @@ ext:,//扩展属性（可选参数，String)
 <p data-anchor-id="hpvl">var param = {</p>
 
 <pre data-anchor-id="vlfs"><code>username:,//单聊时聊天人的userid或者群聊时groupid
-chatType:,//1-单聊，2-群聊
+chatType:,//0-单聊，1-群聊
 locationAddress:,//图片文件路径
 latitude:,
 longitude:,
@@ -500,7 +500,7 @@ ext:,//扩展属性（可选参数，String)
 <p data-anchor-id="9vqf">var param = {</p>
 
 <pre data-anchor-id="2d6u"><code>username:,//单聊时聊天人的userid或者群聊时groupid
-chatType:,//1-单聊，2-群聊
+chatType:,//0-单聊，1-群聊
 filePath:,//文件路径
 displayName:,//对方接收时显示的文件名（仅iOS需要）
 ext:,//扩展属性（可选参数，String)
@@ -513,7 +513,7 @@ ext:,//扩展属性（可选参数，String)
 <h5 id="210sendcmdmessageparam发送透传消息" data-anchor-id="umui">[2.10]sendCmdMessage(param)//发送透传消息</h5>
 
 <pre data-anchor-id="5x4w"><code>var param = {
-chatType:,//1-单聊，2-群聊
+chatType:,//0-单聊，1-群聊
 action:,//
 toUsername:,//
 ext:,//扩展属性（可选参数，String)
@@ -567,7 +567,7 @@ deliveryNotification:，// 0-关闭 1-开启  默认为1 开启消息送达通�
 <p data-anchor-id="pr3a">var param = {</p>
 
 <pre data-anchor-id="qoh7"><code>username:,//单聊时聊天人的userid或者群聊时groupid
-chatType:,//1-单聊，2-群聊
+chatType:,//0-单聊，1-群聊
 filePath:,//视频文件路径
 length:,//长度(Android必选，iOS可选)
 displayName：//对方接收时显示的文件名（仅iOS需要）
@@ -600,7 +600,7 @@ ext:,//扩展属性（可选参数，String)
 <p data-anchor-id="xelg">var param = {</p>
 
 <pre data-anchor-id="37ar"><code>username:,
-chatType:,//聊天类别 0 - 个人 1 - 群组(仅iOS需要，默认0)
+chatType:,//聊天类别 0-单聊 1-群聊(仅iOS需要，默认0)
 </code></pre>
 
 <div class="md-section-divider"></div>
@@ -621,7 +621,7 @@ chatType:,//聊天类别 0 - 个人 1 - 群组(仅iOS需要，默认0)
 <p data-anchor-id="qlqi">var param = {</p>
 
 <pre data-anchor-id="fcqm"><code>username:,//单聊时聊天人的userName或者群聊时groupid
-chatType:,//1-单聊，2-群聊
+chatType:,//0-单聊，1-群聊
 startMsgId:,//获取startMsgId之前的pagesize条消息
 pagesize:,//分页大小，为0时获取所有消息，startMsgId可不传
 </code></pre>
@@ -646,7 +646,7 @@ pagesize:,//分页大小，为0时获取所有消息，startMsgId可不传
 <p data-anchor-id="1sw4">var param = {</p>
 
 <pre data-anchor-id="586v"><code>username:,//username|groupid
-chatType:,//聊天类别 0 - 个人 1 - 群组(仅iOS需要，默认0)
+chatType:,//聊天类别 0-单聊 1-群聊(仅iOS需要，默认0)
 </code></pre>
 
 <p data-anchor-id="lm5d">}</p>
