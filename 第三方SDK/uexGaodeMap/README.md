@@ -38,6 +38,7 @@
 ### [setScaleVisible](#setscalevisible) 设置地图是否显示比例尺
 ### [setMyLocationButtonVisible](#setmylocationbuttonvisible) 设置是否显示回到我的位置按钮
 ### [setZoomVisible](#setzoomvisible) 设置是否显示放大缩小按钮
+### [clear](#clear) 清除地图上所有的标注和覆盖物
 
 ## 回调方法：
 ### [cbGetCurrentLocation](#cbgetcurrentlocation) 获取当前位置的回调方法
@@ -1312,6 +1313,30 @@ iOS 3.0.1+
     uexGaodeMap.setZoomVisible(data);
 ```
 
+### clear
+  清除地图上所有的标注和覆盖物
+```
+uexGaodeMap.clear()
+```
+### 参数：
+```
+无
+```
+### 平台支持：
+```
+  Android 2.2+
+  iOS 6.0+
+```
+### 版本支持：
+```
+Android 3.0.2+
+iOS 3.0.1+
+```
+### 示例：
+```
+    uexGaodeMap.clear();
+```
+
 ### cbGetCurrentLocation
 获取当前位置的回调方法
 ```
@@ -1617,3 +1642,7 @@ Android 3.0.0+
 - 新增**API**： `removeMarkersOverlays`、`removeOverlays`、`setScaleVisible`、`setMyLocationButtonVisible`、`setZoomVisible`;
 - 废弃**API**： `removeMarkersOverlay`、`removeOverlay`;
 - 以上**API** iOS 3.0.1版本，Android 3.0.2版本开始支持。
+
+2015-0702
+- 新增**API**：`clear` 清除地图上所有标注和覆盖物。
+- iOS3.0.1版本，Android3.0.2版本开始支持。
