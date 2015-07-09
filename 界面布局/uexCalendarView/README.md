@@ -44,8 +44,8 @@ var json = {
 var data ={
     x:0,
 	y:0,
-    w:0,
-	h:0
+    w:300,
+	h:300
 	};
 var jsonStr = JSON.stringify(data)
 uexCalendarView.open(jsonStr);
