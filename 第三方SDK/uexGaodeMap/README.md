@@ -60,6 +60,7 @@
 
 ### [download](#download) 开始下载
 ### [cbDownload](#cbdownload) 开始下载的回调方法
+### [onDownload](#ondownload) 下载监听方法
 ### [pause](#pause) 暂停下载
 ### [restart](#restart) 继续下载
 ### [getAvailableCityList](#getavailablecitylist) 获取可下载离线地图的城市列表
@@ -74,8 +75,6 @@
 ### [cbIsUpdate](#cbisupdate) 已下载的离线地图数据是否需要更新的回调方法
 ### [delete](#delete) 删除已下载或者正在下载数据
 ### [cbDelete](#cbdelete) 删除已下载或者正在下载数据的回调方法
-
-### [onDownload](#ondownload) 下载监听方法
 
 
 ### open
