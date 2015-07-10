@@ -26,7 +26,7 @@
 ## 监听方法
 ### onReceiveNotification 收到通知的监听方法
 ### onReceiveMessage 收到自定义消息的监听方法
-### onReceiveNotificationOpen 用户点击通知打开APP的监听方法
+### onReceiveNotificationOpen 用户点击通知的监听方法
 ### onReceiveConnectionChange 连接状态的监听方法
 ### onReceiveRegistration App注册成功的监听方法
 
@@ -681,7 +681,7 @@ window.uexOnload=function(type){
 ```
 
 ### onReceiveNotificationOpen
-用户点击通知打开了App
+用户点击了通知
 
 ```
 uexJPush.onReceiveNotificationOpen(json)
