@@ -1741,7 +1741,7 @@ var json = {
     status://(可选) 下载状态，具体请参考附录onDownload Status。
 }
 ```
-注：status下载状态参见附录[onDownload Status](#ondownload-status)
+注：status下载状态参见附录[Download Status](#download-status)
 
 ### 平台支持：
 ```
