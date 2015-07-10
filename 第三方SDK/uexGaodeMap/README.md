@@ -2,6 +2,7 @@
   封装高德地图相关功能，包括放大缩小、移动和旋转等基本操作；标注；圆形、矩形和多边形覆盖物；定位、搜索、地理编码等功能。
 
 ## [changelog](#changelog) 更新日志
+## [appendix](#appendix) 附录
 
 ## 方法：
 ### [open](#open) 打开地图
@@ -53,6 +54,29 @@
 ### [onReceiveLocation](#onreceivelocation) 位置变化的监听方法
 ### [onMapClickListener](#onmapclickListener) 点击地图的监听方法
 ### [onMapLongClickListener](#onmaplongclicklistener) 长按地图的监听方法
+
+
+> [离线地图](#离线地图)
+
+### [download](#download) 开始下载
+### [cbDownload](#cbdownload) 开始下载的回调方法
+### [pause](#pause) 暂停下载
+### [restart](#restart) 继续下载
+### [getAvailableCityList](#getavailablecitylist) 获取可下载离线地图的城市列表
+### [cbGetAvailableCityList](#cbgetavailablecitylist) 获取可下载离线地图的城市列表的回调方法
+### [getAvailableProvinceList](#getavailableprovincelist) 获取可下载离线地图的省和城市列表
+### [cbGetAvailableProvinceList](#cbgetavailableprovincelist) 获取可下载离线地图的省和城市列表的回调方法
+### [getDownloadList](#getdownloadlist) 获取已下载列表
+### [cbGetDownloadList](#cbgetdownloadlist) 获取已下载列表的回调方法
+### [getDownloadingList](#getdownloadinglist) 获取正在下载列表
+### [cbGetDownloadingList](#cbgetdownloadinglist) 获取正在下载列表的回调方法
+### [isUpdate](#isupdate) 已下载的离线地图数据是否需要更新
+### [cbIsUpdate](#cbisupdate) 已下载的离线地图数据是否需要更新的回调方法
+### [delete](#delete) 删除已下载或者正在下载数据
+### [cbDelete](#cbdelete) 删除已下载或者正在下载数据的回调方法
+
+### [onDownload](#ondownload) 下载监听方法
+
 
 ### open
   打开地图
@@ -1633,12 +1657,575 @@ Android 3.0.0+
     }
 ```
 
+### 离线地图
+
+### download
+  开始下载，当前如果有正在下载的任务，添加到正在下载列表中。
+```
+uexGaodeMap.download(json)
+```
+### 参数：
+```
+var json = [//数组
+    {//city或province必须传一个，都传时只有city有效
+        city:,//(可选) 城市名称
+        province://(可选) 省或直辖市名称
+    }
+]
+```
+### 平台支持：
+```
+  Android 2.2+
+  iOS 6.0+
+```
+### 版本支持：
+```
+Android 3.0.3+
+iOS 3.0.2+
+```
+### 示例：
+```
+    var params = [
+        {
+            city:'武汉'
+        },
+        {
+            province:'广东省'
+        }
+    ];
+    var data = JSON.stringify(params);
+    uexGaodeMap.download(data);
+```
+
+### cbDownload
+  开始下载的回调方法
+```
+uexGaodeMap.cbDownload(json)
+```
+### 参数：
+```
+var json = {
+    name:,//(必选) 省或城市名称
+    errorCode:,//(必选) 状态码，0-加入列表成功，非0-失败。
+    errorStr://(可选) 错误描述，errorCode非0时，该值有效。
+}
+```
+
+### 平台支持：
+```
+  Android 2.2+
+  iOS 6.0+
+```
+### 版本支持：
+```
+Android 3.0.3+
+iOS 3.0.2+
+```
+### 示例：
+```
+    uexGaodeMap.cbDownload = function(json) {
+        alert("cbDownload: "+json);
+    }
+```
+
+### onDownload
+  下载监听方法
+```
+uexGaodeMap.onDownload(json)
+```
+### 参数：
+```
+var json = {
+    name:,//(必选) 省或城市名称
+    completeCode:,//(必选) 进度百分比。
+    status://(可选) 下载状态，具体请参考附录onDownload Status。
+}
+```
+注：status下载状态参见附录[onDownload Status](#ondownload-status)
+
+### 平台支持：
+```
+  Android 2.2+
+  iOS 6.0+
+```
+### 版本支持：
+```
+Android 3.0.3+
+iOS 3.0.2+
+```
+### 示例：
+```
+    uexGaodeMap.onDownload = function(json) {
+        var data = JSON.parse(info);
+        if(data.status == 0){
+            uexWindow.toast(1,5,data.name + " 正在下载...",0);
+        }
+        if(data.status == 1){
+            uexWindow.toast(1,5,data.name + " 正在解压...",0);
+        }
+        if(data.status == 4){
+            uexWindow.closeToast();
+            alert(data.name + " 离线地图下载成功！");
+        }
+        if(data.status == 3){
+            uexWindow.toast(0,5,data.name + " 暂停下载...",2000);
+        }
+        if(data.status == -1){
+            uexWindow.closeToast();
+            alert(data.name + " 下载失败！");
+        }
+    }
+```
+
+### pause
+  暂停下载
+```
+uexGaodeMap.pause(json)
+```
+### 参数：
+```
+var json = []//(必传) 省或城市名称数组
+```
+### 平台支持：
+```
+  Android 2.2+
+  iOS 6.0+
+```
+### 版本支持：
+```
+Android 3.0.3+
+iOS 3.0.2+
+```
+### 示例：
+```
+    var params = ["武汉","广东省"];
+    var data = JSON.stringify(params);
+    uexGaodeMap.pause(data);
+```
+
+### restart
+  继续下载
+```
+uexGaodeMap.restart(json)
+```
+### 参数：
+```
+var json = []//(必传) 省或城市名称数组
+```
+### 平台支持：
+```
+  Android 2.2+
+  iOS 6.0+
+```
+### 版本支持：
+```
+Android 3.0.3+
+iOS 3.0.2+
+```
+### 示例：
+```
+    var params = ["武汉","广东省"];
+    var data = JSON.stringify(params);
+    uexGaodeMap.restart(data);
+```
+
+### getAvailableCityList
+  获取可下载离线地图的城市列表
+```
+uexGaodeMap.getAvailableCityList()
+```
+### 参数：
+```
+无
+```
+### 平台支持：
+```
+  Android 2.2+
+  iOS 6.0+
+```
+### 版本支持：
+```
+Android 3.0.3+
+iOS 3.0.2+
+```
+### 示例：
+```
+    uexGaodeMap.getAvailableCityList();
+```
+
+### cbGetAvailableCityList
+  获取可下载离线地图的城市列表的回调方法
+```
+uexGaodeMap.cbGetAvailableCityList(json)
+```
+### 参数：
+```
+var json = [
+    {
+        city:,//(必选) 城市名称
+        url:,//(必选) 下载地址
+        version:,//(必选) 版本号
+        size:,//(必选) 包大小，单位字节
+        completeCode:,//(必选) 进度百分比
+        status://(可选) 下载状态
+    }
+]
+```
+
+### 平台支持：
+```
+  Android 2.2+
+  iOS 6.0+
+```
+### 版本支持：
+```
+Android 3.0.3+
+iOS 3.0.2+
+```
+### 示例：
+```
+    uexGaodeMap.cbGetAvailableCityList = function(json) {
+        alert("cbGetAvailableCityList: "+json);
+    }
+```
+
+### getAvailableProvinceList
+  获取可下载离线地图的省和城市列表
+```
+uexGaodeMap.getAvailableProvinceList()
+```
+### 参数：
+```
+无
+```
+### 平台支持：
+```
+  Android 2.2+
+  iOS 6.0+
+```
+### 版本支持：
+```
+Android 3.0.3+
+iOS 3.0.2+
+```
+### 示例：
+```
+    uexGaodeMap.getAvailableProvinceList();
+```
+
+### cbGetAvailableProvinceList
+  获取可下载离线地图的省和城市列表的回调方法
+```
+uexGaodeMap.cbGetAvailableProvinceList(json)
+```
+### 参数：
+```
+var json = [
+    {
+        cityList:[//(必选) 省包含的城市列表
+            {
+                city:,//(必选) 城市名称
+                url:,//(必选) 下载地址
+                version:,//(必选) 版本号
+                size:,//(必选) 包大小，单位字节
+                completeCode:,//(必选) 进度百分比
+                status://(可选) 下载状态
+            }
+        ],
+        province:,//(必选) 省或直辖市名称
+        url:,//(必选) 下载地址
+        version:,//(必选) 版本号
+        size:,//(必选) 包大小，单位字节
+        completeCode:,//(必选) 进度百分比
+        status://(可选) 下载状态
+    }
+]
+```
+
+### 平台支持：
+```
+  Android 2.2+
+  iOS 6.0+
+```
+### 版本支持：
+```
+Android 3.0.3+
+iOS 3.0.2+
+```
+### 示例：
+```
+    uexGaodeMap.cbGetAvailableProvinceList = function(json) {
+        alert("cbGetAvailableProvinceList: "+json);
+    }
+```
+
+### getDownloadList
+  获取已下载列表
+```
+uexGaodeMap.getDownloadList(json)
+```
+### 参数：
+```
+无
+```
+### 平台支持：
+```
+  Android 2.2+
+  iOS 6.0+
+```
+### 版本支持：
+```
+Android 3.0.3+
+iOS 3.0.2+
+```
+### 示例：
+```
+    uexGaodeMap.getDownloadList();
+```
+
+### cbGetDownloadList
+  获取已下载列表的回调方法
+```
+uexGaodeMap.cbGetDownloadList(json)
+```
+### 参数：
+```
+var json = [
+    {
+        name:,//(必选) 省或城市名称
+        type:,//(必选) 类型，1-城市，2-省
+        url:,//(必选) 下载地址
+        version:,//(必选) 版本号
+        size:,//(必选) 包大小，单位字节
+        completeCode:,//(必选) 进度百分比
+        status://(可选) 下载状态
+    }
+]
+```
+
+### 平台支持：
+```
+  Android 2.2+
+  iOS 6.0+
+```
+### 版本支持：
+```
+Android 3.0.3+
+iOS 3.0.2+
+```
+### 示例：
+```
+    uexGaodeMap.cbGetDownloadList = function(json) {
+        alert("cbGetDownloadList: "+json);
+    }
+```
+
+### getDownloadingList
+  获取正在下载列表
+```
+uexGaodeMap.getDownloadingList(json)
+```
+### 参数：
+```
+无
+```
+### 平台支持：
+```
+  Android 2.2+
+  iOS 6.0+
+```
+### 版本支持：
+```
+Android 3.0.3+
+iOS 3.0.2+
+```
+### 示例：
+```
+    uexGaodeMap.getDownloadingList();
+```
+
+### cbGetDownloadingList
+  获取正在下载列表的回调方法
+```
+uexGaodeMap.cbGetDownloadingList(json)
+```
+### 参数：
+```
+var json = [
+    {
+        name:,//(必选) 省或城市名称
+        type:,//(必选) 类型，1-城市，2-省
+        url:,//(必选) 下载地址
+        version:,//(必选) 版本号
+        size:,//(必选) 包大小，单位字节
+        completeCode:,//(必选) 进度百分比
+        status://(可选) 下载状态
+    }
+]
+```
+
+### 平台支持：
+```
+  Android 2.2+
+  iOS 6.0+
+```
+### 版本支持：
+```
+Android 3.0.3+
+iOS 3.0.2+
+```
+### 示例：
+```
+    uexGaodeMap.cbGetDownloadingList = function(json) {
+        alert("cbGetDownloadingList: "+json);
+    }
+```
+
+### isUpdate
+  已下载的离线地图数据是否需要更新
+```
+uexGaodeMap.isUpdate(json)
+```
+### 参数：
+```
+var json = {//city或province必须传一个，都传时只有city有效
+    city:,//(可选) 城市名称
+    province://(可选) 省或直辖市名称
+}
+```
+### 平台支持：
+```
+  Android 2.2+
+  iOS 6.0+
+```
+### 版本支持：
+```
+Android 3.0.3+
+iOS 3.0.2+
+```
+### 示例：
+```
+    var params = [
+        {
+            city:'武汉'
+        }
+    ];
+    var data = JSON.stringify(params);
+    uexGaodeMap.isUpdate(data);
+```
+
+### cbIsUpdate
+  已下载的离线地图数据是否需要更新的回调方法
+```
+uexGaodeMap.cbIsUpdate(json)
+```
+### 参数：
+```
+var json = {
+    name:,//(必选) 省或城市名称
+    result://(可选) 是否有更新，0-有更新，1-没有更新
+}
+```
+
+### 平台支持：
+```
+  Android 2.2+
+  iOS 6.0+
+```
+### 版本支持：
+```
+Android 3.0.3+
+iOS 3.0.2+
+```
+### 示例：
+```
+    uexGaodeMap.cbIsUpdate = function(json) {
+        alert("cbIsUpdate: "+json);
+    }
+```
+
+### delete
+  删除已下载或者正在下载数据
+```
+uexGaodeMap.delete(json)
+```
+### 参数：
+```
+var json = []//(必传) 省或城市名称数组
+```
+### 平台支持：
+```
+  Android 2.2+
+  iOS 6.0+
+```
+### 版本支持：
+```
+Android 3.0.3+
+iOS 3.0.2+
+```
+### 示例：
+```
+    var params = ["武汉"];
+    var data = JSON.stringify(params);
+    uexGaodeMap.delete(data);
+```
+
+### cbDelete
+  删除已下载或者正在下载数据的回调方法
+```
+uexGaodeMap.cbDelete(json)
+```
+### 参数：
+```
+var json = {
+    name:,//(必选) 省或城市名称
+    errorCode:,//(必选) 状态码，0-删除成功，非0-失败。
+    errorStr://(可选) 错误描述，errorCode非0时，该值有效。
+}
+```
+
+### 平台支持：
+```
+  Android 2.2+
+  iOS 6.0+
+```
+### 版本支持：
+```
+Android 3.0.3+
+iOS 3.0.2+
+```
+### 示例：
+```
+    uexGaodeMap.cbDelete = function(json) {
+        alert("cbDelete: "+json);
+    }
+```
+
+
 ### changelog
 2015-06-30
 - 新增**API**： `removeMarkersOverlays`、`removeOverlays`、`setScaleVisible`、`setMyLocationButtonVisible`、`setZoomVisible`;
 - 废弃**API**： `removeMarkersOverlay`、`removeOverlay`;
 - 以上**API** iOS 3.0.1版本，Android 3.0.2版本开始支持。
 
-2015-0702
+2015-07-02
 - 新增**API**：`clear` 清除地图上所有标注和覆盖物。
 - iOS3.0.1版本，Android3.0.2版本开始支持。
+
+2015-07-10
+- 新增**API**：[离线地图](#离线地图)相关接口
+- iOS3.0.2版本，Android3.0.3版本开始支持。
+
+### appendix
+#### Download Status
+| 状态码 | 描述 | 英文描述 |
+| ----- | ---- | ------- |
+|-1 | 下载失败 | ERROR |
+| 0 | 正在下载 | LOADING |
+| 1 | 正在解压 | UNZIP |
+| 2 | 等待下载 | WAITING |
+| 3 | 暂停下载 | PAUSE |
+| 4 | 下载成功 | SUCCESS |
+| 5 | 停止下载 | STOP |
+| 6 | 检查更新状态 | CHECKUPDATES |
+
