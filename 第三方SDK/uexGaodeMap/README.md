@@ -97,7 +97,7 @@ iOS 3.0.0+
 ### close
   关闭地图
 ```
-uexGaodeMap.close()
+uexGaodeMap.close()[open](#open)
 ```
 ### 参数：
 ```
