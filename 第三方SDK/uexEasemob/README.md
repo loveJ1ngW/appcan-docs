@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -18,7 +19,7 @@
 
 <p data-anchor-id="6194">本插件是基于环信API封装的AppCan平台的插件模块，用户可以使用本插件实现基本的即时通讯功能，包括——</p>
 
-<p data-anchor-id="q4bj">单聊功能：支持发送语音，图片，表情，文字，位置，附件；</p>
+<p data-anchor-id="q4bj">单聊功能：支持发送语音，图片，表情，文字，位置，名片，附件；</p>
 
 <p data-anchor-id="poue">群聊功能：支持500人到2000人大群，拥有完善的群组权限管理；</p>
 
@@ -94,13 +95,20 @@
 <li>所有参数中的"isGroup"即将废弃，改用"chatType"(详见附录)</li>
 </ul>
 
-<p data-anchor-id="jyfc"><div class="toc">
+<p data-anchor-id="4pcq">2015-7-7</p>
+
+<ul data-anchor-id="0zom">
+<li>iOS SDK更新至2.1.8；</li>
+<li>EMGroup中 groupSubject属性废弃，改用groupName和GroupDescription来获取相应信息；</li>
+</ul>
+
+<p data-anchor-id="xl7b"><div class="toc">
 
 <li><a href="#api">API</a><ul>
 <li><a href="#1initialization">[1]Initialization</a><ul>
 
 <li><a href="#11-initeasemobparam-初始化">[1.1] initEasemob(param) //初始化</a></li>
-<li><a href="#12loginparam-登陆">[1.2]login(param) //登陆</a></li>
+<li><a href="#12-loginparam-登录">[1.2] login(param) //登录</a></li>
 <li><a href="#13cbloginparam登陆回调">[1.3]cbLogin(param)//登陆回调</a></li>
 <li><a href="#14logout-退出登录">[1.4]logout() //退出登录</a></li>
 <li><a href="#15registeruserparam注册">[1.5]registerUser(param)//注册</a></li>
@@ -152,7 +160,7 @@
 <li><a href="#315getchatterinfo获取聊天对象信息">[3.15]getChatterInfo();//获取聊天对象信息</a></li>
 <li><a href="#316cbgetchatterinfoparam获取聊天对象信息回调">[3.16]cbGetChatterInfo(param);//获取聊天对象信息回调</a></li>
 <li><a href="#317gettotalunreadmsgcount获取总计未读消息数">[3.17]getTotalUnreadMsgCount();//获取总计未读消息数</a></li>
-<li><a href="#317cbgettotalunreadmsgcountparam获取总计未读消息数回调">[3.18]cbGetTotalUnreadMsgCount(param);//获取总计未读消息数回调</a></li>
+<li><a href="#317cbgettotalunreadmsgcountparam获取总计未读消息数回调">[3.17]cbGetTotalUnreadMsgCount(param);//获取总计未读消息数回调</a></li>
 
 </ul>
 </li>
@@ -217,17 +225,18 @@
 <li><a href="#64answercall接听通话">[6.4]answerCall();//接听通话</a></li>
 <li><a href="#65rejectcall拒绝接听">[6.5]rejectCall();//拒绝接听</a></li>
 <li><a href="#66endcall挂断通话">[6.6]endCall();//挂断通话</a></li>
+
 </ul>
 </li>
 <li><a href="#7apns以下方法全部仅限ios">[7]Apns（以下方法全部仅限iOS）</a><ul>
 
 <li><a href="#71registerremotenotification注册apns推送">[7.1]registerRemoteNotification();//注册Apns推送</a></li>
-<li><a href="#72-cbregisterremotenotificationparam回调">[7.2] cbRegisterRemoteNotification(param);//注册Apns推送回调</a></li>
-<li><a href="#73onapnslaunchparam">[7.3]onApnsLaunch(param);//应用被Apns调起的监听</a></li>
+<li><a href="#72-cbregisterremotenotificationparam回调">[7.2] cbRegisterRemoteNotification(param);//回调</a></li>
+<li><a href="#73onapnslaunchparam">[7.3]onApnsLaunch(param);</a></li>
 <li><a href="#74updatepushoptionsparam设置apns全局属性">[7.4]updatePushOptions(param);//设置apns全局属性</a></li>
 <li><a href="#75cbupdatepushoptionsparam设置apns全局属性回调">[7.5]cbUpdatePushOptions(param);//设置apns全局属性回调</a></li>
-<li><a href="#76ignoregrouppushnotificationparam设置指定群组是否接收">[7.6]ignoreGroupPushNotification(param)://设置指定群组是否接收Apns</a></li>
-<li><a href="#77cbignoregrouppushnotificationparam回调">[7.7]cbIgnoreGroupPushNotification(param)://设置指定群组是否接收Apns回调</a></li>
+<li><a href="#76ignoregrouppushnotificationparam设置指定群组是否接收">[7.6]ignoreGroupPushNotification(param)://设置指定群组是否接收</a></li>
+<li><a href="#77cbignoregrouppushnotificationparam回调">[7.7]cbIgnoreGroupPushNotification(param)://回调</a></li>
 
 </ul>
 </li>
@@ -283,7 +292,9 @@ isAutoLoginEnabled:,//可选参数 是否开启自动登录功能 1-开启 2-关
 
 <div class="md-section-divider"></div>
 
-<h5 id="12loginparam-登陆" data-anchor-id="hyoq">[1.2]login(param) //登陆</h5>
+<h5 id="12-loginparam-登录" data-anchor-id="hyoq">[1.2] login(param) //登录</h5>
+
+<p data-anchor-id="7p1l">login(param) //登陆</p>
 
 <p data-anchor-id="gaxn">var param = {</p>
 
@@ -600,7 +611,7 @@ ext:,//扩展属性（可选参数，String)
 <p data-anchor-id="xelg">var param = {</p>
 
 <pre data-anchor-id="37ar"><code>username:,
-chatType:,//聊天类别 0-单聊 1-群聊(仅iOS需要，默认0)
+chatType:,//聊天类别 0 - 个人 1 - 群组(仅iOS需要，默认0)
 </code></pre>
 
 <div class="md-section-divider"></div>
@@ -669,7 +680,7 @@ chatType:,//聊天类别 0-单聊 1-群聊(仅iOS需要，默认0)
 <p data-anchor-id="cb57">var param = {</p>
 
 <pre data-anchor-id="2mz7"><code>username:,//username|groupid
-chatType:,//聊天类别 0 - 个人 1 - 群组(仅iOS需要，默认0)
+chatType:,//聊天类别 0-单聊 1-群聊(仅iOS需要，默认0)
 </code></pre>
 
 <p data-anchor-id="oqfd">}</p>
@@ -768,7 +779,7 @@ lastMsg;//EMMessage格式的json字符串，最后一条消息
 
 <div class="md-section-divider"></div>
 
-<h5 id="317cbgettotalunreadmsgcountparam获取总计未读消息数回调" data-anchor-id="ylz6">[3.18]cbGetTotalUnreadMsgCount(param);//获取总计未读消息数回调</h5>
+<h5 id="317cbgettotalunreadmsgcountparam获取总计未读消息数回调" data-anchor-id="ylz6">[3.17]cbGetTotalUnreadMsgCount(param);//获取总计未读消息数回调</h5>
 
 <p data-anchor-id="tc4g">var param ={ <br>
     count:,//总计未读消息数 <br>
@@ -1640,8 +1651,12 @@ isIgnore;//1-屏蔽  2-取消屏蔽
 </tr>
 </thead>
 <tbody><tr>
- <td>groupSubject</td>
- <td>群组名</td>
+ <td>groupName</td>
+ <td>群组名称</td>
+</tr>
+<tr>
+ <td>groupDescription</td>
+ <td>群组描述</td>
 </tr>
 <tr>
  <td>members</td>
