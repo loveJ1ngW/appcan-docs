@@ -1709,6 +1709,7 @@ var json = {
     errorStr://(可选) 错误描述，errorCode非0时，该值有效。
 }
 ```
+注：errorCode及errorStr详情参见附录[cbDownload Status](#cbdownload-status)
 
 ### 平台支持：
 ```
@@ -2227,4 +2228,12 @@ iOS 3.0.2+
 | 4 | 下载成功 | SUCCESS |
 | 5 | 停止下载 | STOP |
 | 6 | 检查更新状态 | CHECKUPDATES |
+
+#### cbDownload Status
+| errorCode | 描述 | errorStr |
+| ----- | --------- | ------- |
+|0 | 加入列表成功 | "" |
+| -1 | 下载失败 | "城市或省名称错误！" |
+| -2 | 下载失败 | "已经存在列表中！" |
+| -3 | 下载失败 | "已经下载完成，请到已下载列表查看！" |
 
