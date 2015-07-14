@@ -855,7 +855,7 @@ reason:,//
 
 <h5 id="47cbgetcontactusernamesparam获取好友列表回调" data-anchor-id="58lm">[4.7]cbGetContactUserNames(param)//获取好友列表回调</h5>
 
-<p data-anchor-id="gyt5"><code>param是一个用户姓名字符串构成的数组</code></p>
+<p data-anchor-id="gyt5"><code>var param=list<string>是一个用户姓名字符串构成的数组</code></p>
 
 
 
