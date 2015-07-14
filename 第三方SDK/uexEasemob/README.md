@@ -855,11 +855,11 @@ reason:,//
 
 <h5 id="47cbgetcontactusernamesparam获取好友列表回调" data-anchor-id="58lm">[4.7]cbGetContactUserNames(param)//获取好友列表回调</h5>
 
-<p data-anchor-id="gyt5">param是一个用户姓名字符串构成的数组</p>
+<p data-anchor-id="gyt5"><code>param是一个用户姓名字符串构成的数组</code></p>
 
 
 
-<p data-anchor-id="ede1">}</p>
+<p data-anchor-id="ede1"></p>
 
 <div class="md-section-divider"></div>
 
