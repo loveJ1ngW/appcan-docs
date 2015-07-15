@@ -22,9 +22,9 @@
         var param = {
             id:1,
             left:50,
-            top:500,
-            width:800,
-            height:800,
+            top:200,
+            width:300,
+            height:200,
             bgColor:"#00000000",
             showUnit:true,
             unit:"cc",
@@ -36,39 +36,42 @@
             showLegend:true,
             legendPosition:"bottom",
             duration:800,
+            highlightIndicatorEnabled:false,
             xData:[2001,2002,2003,2004,2005,2006,2007,2008,2009,2010],
             minValue:-3,
             maxValue:12,
-            borderColor:"#ccc",
+            borderColor:"RGBA(255,50%,0,0.5)",
             extraLines:[
-                {
-                    yValue:6.5,
-                    lineName:"及格",
-                    lineColor:"#f00",
-                    textColor:"#f00",
-                    textSize:12,
-                    isSolid:false,
-                    lineWidth:4
-                },
-                {
-                    yValue:8.9,
-                    lineName:"优秀",
-                    lineColor:"#0f0",
-                    textColor:"#0f0",
-                    textSize:12,
-                    isSolid:false,
-                    lineWidth:4
-              	}
-           	],
+                        {
+                        yValue:6.5,
+                        lineName:"及格",
+                        lineColor:"#f00",
+                        textColor:"#f00",
+                        textSize:12,
+                        isSolid:false,
+                        lineWidth:4
+                        },
+                        {
+                        yValue:8.9,
+                        lineName:"优秀",
+                        lineColor:"#0f0",
+                        textColor:"#0f0",
+                        textSize:12,
+                        isSolid:false,
+                        lineWidth:4
+                        }
+                        ],
             lines:[
                 {
                     cubicIntensity:0.2,
+                    //fillColor:"#3300ff00",
                     lineName:"line1",
                     lineColor:"#ff0000",
                     lineWidth:2,
                     circleColor:"#ff6600",
                     circleSize:3,
                     isSolid:true,
+                   
                     data:[
                         {xValue:2001,yValue:1.01234},
                         {xValue:2002,yValue:3.03},
@@ -92,9 +95,9 @@
         var param = {
             id:2,
             left:0,
-            top:500,
-            width:800,
-            height:800,
+            top:400,
+            width:300,
+            height:200,
             bgColor:"#cccccc",
             showUnit:true,
             showValue:false,
@@ -167,6 +170,7 @@
     <div class="tit">LineChart</div>
     <div class="conbor">
         <div class="consj">
+            <input class="btn" type="button" value="返回" onclick="uexWindow.close(-1);"><br>
             <input class="btn" type="button" value="open(1)" onclick="openLineChart();">
             <input class="btn" type="button" value="close(1)" onclick="closeLineChart(1);"><br>
             <input class="btn" type="button" value="open(2)" onclick="openMultiLineChart();">

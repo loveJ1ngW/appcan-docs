@@ -16,12 +16,15 @@
         uexChart.onValueSelected = function(data){
             alert(data);
         }
+     
     }
+
     
     function openPieChart(index){
         var param1 = {
             id:index,
-            top:500,
+            top:400,
+            height:400,
             isScrollWithWeb:true,
             data:[
                 {
@@ -56,9 +59,9 @@
         var param2 = {
             id:index,
             left:0,
-            top:500,
-            width:800,
-            height:800,
+            top:200,
+            width:300,
+            height:300,
             bgColor:"#cccccc",
             showUnit:true,
             unit:"cc",
@@ -130,6 +133,7 @@
     <div class="tit">pieChart</div>
     <div class="conbor">
         <div class="consj">
+            <input class="btn" type="button" value="返回" onclick="uexWindow.close(-1);"><br>
             <input class="btn" type="button" value="open(1)" onclick="openPieChart(1);">
             <input class="btn" type="button" value="close(1)" onclick="closePieChart(1);"><br>
             <input class="btn" type="button" value="open(2)" onclick="openPieChart(2);">

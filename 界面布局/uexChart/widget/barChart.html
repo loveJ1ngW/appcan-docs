@@ -21,10 +21,10 @@
     function openMultiBarChart(){
         var param = {
             id:2,
-            left:10,
-            top:700,
-            width:800,
-            height:800,
+            left:0,
+            top:400,
+            width:400,
+            height:300,
             bgColor:"#cccccc",
             showUnit:true,
             unit:"cc",
@@ -32,15 +32,13 @@
             valueTextSize:15,
             showValue:false,
             desc:"测试柱状图功能",
-            descTextColor:"#050",
+            descTextColor:"#000000",
             descTextSize:12,
             showLegend:true,
-            legendPosition:"bottom",
-            maxValue:20,
-            minValue:-20,
+            legendPosition:"right",
             duration:1800,
             isScrollWithWeb:true,
-            borderColor:"#eee",
+            xData:[2001,2002,2003,2004,2005,2006],
             bars:
                 [
                     {
@@ -67,19 +65,8 @@
                             {xValue:2006,yValue:2}
                         ]
                     }
-                ],
-            extraLines:[
-                {
-                    yValue:3.5,
-                    lineName:"平均值",
-                    lineColor:"#f00",
-                    textColor:"#f00",
-                    textSize:12,
-                    isSolid:false,
-                    lineWidth:4
-                }
-            ]
-        };
+                ]
+            };
         var data1 = JSON.stringify(param);
         uexChart.openBarChart(data1);
         
@@ -88,16 +75,17 @@
     function openBarChart(){
         var param = {
             id:1,
-            left:0,
-            top:500,
-            width:800,
-            height:800,
+            left:50,
+            top:200,
+            width:300,
+            height:200,
             bgColor:"#00000000",
-            descTextColor:"#fff",
-            descTextSize:12,
+            showUnit:true,
+            unit:"cc",
             valueTextColor:"#000000",
             valueTextSize:15,
             duration:1800,
+            xData:[2001,2002,2003,2004,2005,2006],
             bars:[
                     {
                         barName:"bar1",
@@ -129,6 +117,7 @@
     <div class="tit">BarChart</div>
     <div class="conbor">
         <div class="consj">
+            <input class="btn" type="button" value="返回" onclick="uexWindow.close(-1);"><br>
             <input class="btn" type="button" value="open(1)" onclick="openBarChart();">
             <input class="btn" type="button" value="close(1)" onclick="closeBarChart(1);"><br>
             <input class="btn" type="button" value="open(2)" onclick="openMultiBarChart();">
