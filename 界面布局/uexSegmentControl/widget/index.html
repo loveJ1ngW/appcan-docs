@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	
+	<script type="text/javascript">
+
+	function show() {
+	var width = window.screen.width;
+	var height = window.screen.height - 300;
+		var obj={
+				left:0,
+				top:200,
+				width:width,
+				height:height,
+				dataInfo:{
+				    allData:["头条", "娱乐", "体育", "北京", "财经", "科技", "段子", "图片", "汽车", "时尚",
+				        "轻松一刻", "军事", "历史", "房产", "游戏", "彩票", "原创", "电台", "论坛", "博客",
+				        "社会", "电影", "NBA", "中国足球", "国际足球", "CBA", "跑步", "手机",
+                        "数码", "移动互联", "家居", "旅游", "健康", "读书", "酒香", "教育", "亲子", "葡萄酒",
+                        "暴雪游戏", "情感", "政务"],
+                    showData:["头条", "娱乐", "体育", "北京", "NBA","科技", "段子", "旅游", "汽车", "时尚"],
+                    maxShow:25
+			    }
+		};
+		uexSegmentControl.open(JSON.stringify(obj));
+	}
+	
+	function dismiss() {
+		uexSegmentControl.close();
+	}
+	
+	function ci() {
+		var ci = document.getElementById("ci").value;
+		var params = {
+		    index:ci
+		}
+		var data = JSON.stringify(params);
+		uexSegmentControl.setCurrentItem(data);
+	}
+	
+	window.uexOnload = function(){
+		
+		uexSegmentControl.onItemClick = function(data) {
+			alert(data);
+		}
+	    uexSegmentControl.onDataChange = function(data) {
+			alert(data);
+		}
+	}
+	
+</script>
+</head>
+
+<body>
+	<div class="tit">EUExSegmentControl</div>
+	<div class="conbor">
+		<div class="consj">
+			<input type="button" class="btn" value="open" onclick=show()>
+			<input type="button" class="btn" value="close" onclick=dismiss()>
+			<input id="ci" type="text" class="text" value="0" maxLength="3">
+			<input type="button" class="btn" value="setCurrentItem" onclick=ci()>
+		</div>
+	</div>
+</body>
+</html>
