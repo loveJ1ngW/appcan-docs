@@ -1863,11 +1863,8 @@ uexGaodeMap.cbGetAvailableCityList(json)
 var json = [
     {
         city:,//(必选) 城市名称
-        url:,//(必选) 下载地址
-        version:,//(必选) 版本号
         size:,//(必选) 包大小，单位字节
         completeCode:,//(必选) 进度百分比
-        status://(可选) 下载状态
     }
 ]
 ```
@@ -1925,19 +1922,15 @@ var json = [
         cityList:[//(必选) 省包含的城市列表
             {
                 city:,//(必选) 城市名称
-                url:,//(必选) 下载地址
-                version:,//(必选) 版本号
                 size:,//(必选) 包大小，单位字节
                 completeCode:,//(必选) 进度百分比
                 status://(可选) 下载状态
             }
         ],
         province:,//(必选) 省或直辖市名称
-        url:,//(必选) 下载地址
-        version:,//(必选) 版本号
         size:,//(必选) 包大小，单位字节
         completeCode:,//(必选) 进度百分比
-        status://(可选) 下载状态
+
     }
 ]
 ```
@@ -1994,11 +1987,9 @@ var json = [
     {
         name:,//(必选) 省或城市名称
         type:,//(必选) 类型，1-城市，2-省
-        url:,//(必选) 下载地址
-        version:,//(必选) 版本号
         size:,//(必选) 包大小，单位字节
         completeCode:,//(必选) 进度百分比
-        status://(可选) 下载状态
+
     }
 ]
 ```
@@ -2055,11 +2046,8 @@ var json = [
     {
         name:,//(必选) 省或城市名称
         type:,//(必选) 类型，1-城市，2-省
-        url:,//(必选) 下载地址
-        version:,//(必选) 版本号
         size:,//(必选) 包大小，单位字节
         completeCode:,//(必选) 进度百分比
-        status://(可选) 下载状态
     }
 ]
 ```
@@ -2151,8 +2139,17 @@ uexGaodeMap.delete(json)
 ```
 ### 参数：
 ```
-var json = []//(必传) 省或城市名称数组
+var json = []//(可选,仅Android) 省或城市名称数组
+
+
 ```
+
+注：
+
+* json不传时会清除所有数据；
+* 受iOS SDK所限制，iOS仅支持删除所有数据
+* iOS系统下若有传入参数json，则插件不会作任何处理
+
 ### 平台支持：
 ```
   Android 2.2+
@@ -2187,12 +2184,10 @@ var json = {
 ### 平台支持：
 ```
   Android 2.2+
-  iOS 6.0+
 ```
 ### 版本支持：
 ```
 Android 3.0.3+
-iOS 3.0.2+
 ```
 ### 示例：
 ```
@@ -2215,6 +2210,8 @@ iOS 3.0.2+
 2015-07-10
 - 新增**API**：[离线地图](#离线地图)相关接口
 - iOS3.0.2版本，Android3.0.3版本开始支持。
+
+
 
 ### appendix
 #### Download Status
