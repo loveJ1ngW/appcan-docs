@@ -7,17 +7,17 @@
 ###API概述
 
 ####方法
-#####[open](#open)
-#####[enqueue](#enqueue)
-添加下载任务 回调函数[cbEnqueue](#cbEnqueue)
-#####[close](#close)
+[open](#open)
+[enqueue](#enqueue)
+添加下载任务 回调函数[cbEnqueue](#cbenqueue)
+[close](#close)
 
 ####回调方法
-#####[onComplete](#onComplete)
+[onComplete](#oncomplete)
 下载完成回调
-#####[onTaskDetail](#onTaskDetail)
+[onTaskDetail](#ontaskdetail)
 任务详情回调函数
-#####[cbEnqueue](#cbEnqueue)
+[cbEnqueue](#cbenqueue)
 enqueue回调函数
 
 >###open
