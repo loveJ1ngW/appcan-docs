@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <script type="text/javascript">
+    function openMenu(){
+        var params = {
+            left:0,
+            top:500,
+            width:237,
+            height:135,
+            menuItems:[
+                {
+                    buttonImg:"res://s1.png",
+                    bgImg:"res://bg.png"
+                },
+                {
+                    buttonImg:"res://s2.png",
+                    bgImg:"res://bg.png"
+                },
+                {
+                    buttonImg:"res://s3.png",
+                    bgImg:"res://bg.png"
+                },
+                {
+                    buttonImg:"res://s4.png",
+                    bgImg:"res://bg.png"
+                },
+                {
+                    buttonImg:"res://s5.png",
+                    bgImg:"res://bg.png"
+                }
+            ]
+        };
+        var data = JSON.stringify(params);
+        uexSideMenu.open(data);
+    }
+
+    function closeMenu(){
+        uexSideMenu.close();
+    }
+
+
+        window.uexOnload = function(type){
+            if(type == 0){
+            uexSideMenu.onItemClick = onItemClick;
+
+            }
+        }
+    function onItemClick(info){
+        alert(info);
+    }
+
+
+    </script>
+</head>
+
+<body  style="background-color:#ffffff">
+<div class="tit">uexSideMenu</div>
+<div class="conbor">
+    <div class="consj">
+        <input class='btn' type='button' value='open' onclick='openMenu()'>
+
+        <input class='btn' type='button' value='close' onclick='closeMenu()'>
+
+
+    </div>
+</div>
+</body>
+</html>
