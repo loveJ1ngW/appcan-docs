@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <script type="text/javascript">
+    function openManagerView(){
+        var params = {
+        };
+        var data = JSON.stringify(params);
+        uexMultiDownloader.openManagerView(data);
+    }
+
+    function closeManagerView(){
+        var params = {
+        };
+        var data = JSON.stringify(params);
+        uexMultiDownloader.closeManagerView(data);
+    }
+
+    function enqueue(){
+        var jsonStr1 = '{url:"http://xiazai.zol.com.cn/down.php?nn=f4afd4327335fd3a1&softid=325408&subcateid=103&site=10&server=10&rand=3331525",savePath:"/sdcard/360/a3.exe"}';
+        var jsonStr2 = '{url:"http://img.byecity.com.cn/fs/brs/imgs/menpiao/2014-12/94-12112Q43226_middle.jpg",savePath:"/sdcard/360/b.jpg"}';
+        var jsonStr3 = '{url:"http://down.360safe.com/360mobilemgr/360box_web.apk",savePath:"/sdcard/360/360box_web.apk",name:"360box_web.apk"}';
+        var jsonStr4 = '{url:"http://dlsw.baidu.com/sw-search-sp/soft/4f/20605/BaiduType_Setup_Light.1413528566.exe",savePath:"/sdcard/360/BaiduType_Setup_Light.1413528566.exe"}';
+        var jsonStr5 = '{url:"http://dlsw.baidu.com/sw-search-sp/soft/4e/16671/freewb10th.322658870.exe",savePath:"/sdcard/360/freewb10th.322658870.exe"}';
+       var jsonStr6 = '{url:"http://dlsw.baidu.com/sw-search-sp/soft/50/15251/zzbihua_V7.0.7.4_Setup.1422241616.exe",savePath:"/sdcard/360/zzbihua_V7.0.7.4_Setup.1422241616.exe"}';
+         uexMultiDownloader.enqueue(jsonStr1);
+        uexMultiDownloader.enqueue(jsonStr2);
+        uexMultiDownloader.enqueue(jsonStr3);
+        uexMultiDownloader.enqueue(jsonStr4);
+        uexMultiDownloader.enqueue(jsonStr5);
+        uexMultiDownloader.enqueue(jsonStr6);
+    }
+
+    function closeView(){
+        var params = {
+        };
+        var data = JSON.stringify(params);
+        uexMultiDownloader.close(data);
+    }
+
+    function openView(){
+        var params = {
+            x:"0",
+            y:"500",
+            w:"1000",
+            h:"1000"
+        };
+        var data = JSON.stringify(params);
+        uexMultiDownloader.open(data);
+    }
+
+
+        window.uexOnload = function(type){
+            if(type == 0){
+            uexMultiDownloader.cbEnqueue = cbEnqueue;
+            uexMultiDownloader.onComplete = onComplete;
+            uexMultiDownloader.onTaskDetail = onTaskDetail;
+            }
+        }
+    function cbEnqueue(info){
+     //   alert(info);
+    }
+
+    function onComplete(info){
+        alert(info);
+    }
+
+    function onTaskDetail(info){
+        alert(info);
+    }
+
+    </script>
+</head>
+
+<body>
+<div class="tit">uexMultiDownloader</div>
+<div class="conbor">
+    <div class="consj">
+        <input class='btn' type='button' value='open' onclick='openView()'>
+            <input class='btn' type='button' value='enqueue' onclick='enqueue()'>
+
+            <input class='btn' type='button' value='close' onclick='closeView()'>
+
+
+
+    </div>
+</div>
+</body>
+</html>
