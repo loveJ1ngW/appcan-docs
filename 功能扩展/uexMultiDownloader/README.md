@@ -7,9 +7,12 @@
 ###API概述
 
 ####方法
+
 [open](#open)
+
 [enqueue](#enqueue)
 添加下载任务 回调函数[cbEnqueue](#cbenqueue)
+
 [close](#close)
 
 ####回调方法
