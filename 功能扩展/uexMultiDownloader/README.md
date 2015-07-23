@@ -16,11 +16,17 @@
 [close](#close)
 
 ####回调方法
+
 [onComplete](#oncomplete)
+
 下载完成回调
+
 [onTaskDetail](#ontaskdetail)
+
 任务详情回调函数
+
 [cbEnqueue](#cbenqueue)
+
 enqueue回调函数
 
 >###open
