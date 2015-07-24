@@ -66,7 +66,7 @@ function createPrivateGroup(){
         var isGroupOwner = document.getElementById("addUsersToGroupisGroupOwner").value;
         var groupId = document.getElementById("addUsersToGroupgroupId").value;
         var newmembers = document.getElementById("addUsersToGroupnewmembers").value;
-        uexEasemob.addUsersToGroup('{"isGroupOwner":"'+isGroupOwner+'","groupId":"'+groupId+'","newmembers":"'+newmembers+'"}');
+        uexEasemob.addUsersToGroup('{"isGroupOwner":"'+isGroupOwner+'","groupId":"'+groupId+'","newmembers":'+newmembers+'}');
     }
     
     //[5.10]
