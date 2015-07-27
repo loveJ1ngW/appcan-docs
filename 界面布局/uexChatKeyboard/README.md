@@ -45,4 +45,4 @@ uexChatKeyboard. onVoiceAction (data)
 该字符串为JSON格式。如下：{    "status": 1}各字段含义如下:
 |参数 |是否必须|说明|
 |----|-------|---||status|是  |录音按钮的状态，0--开始录音，1--录音完成，-1--取消录音|
-版本支持： 3.0.0+  #### getInputBarHeight获取输入工具条高度uexChatKeyboard.getInputBarHeight();参数:无回调函数 cbGetInputBarHeight示例```uexChatKeyboard.cbGetInputBarHeight = function(json) {	alert(json); //json格式为{"height": "100"}}``` 版本支持： 3.0.7+
+版本支持： 3.0.0+  #### getInputBarHeight获取输入工具条高度  uexChatKeyboard.getInputBarHeight();  参数:无回调函数 cbGetInputBarHeight  示例```uexChatKeyboard.cbGetInputBarHeight = function(json) {	alert(json); //json格式为{"height": "100"}}``` 版本支持： 3.0.7+
