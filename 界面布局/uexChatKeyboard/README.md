@@ -1,4 +1,4 @@
-#uexChatKeyboard###提供聊天输入相关的功能，集成了表情、拍照、从相册选取图片等分享功能，只需简单的widget配置即可实现自定义表情集和分享选项内容。方法:	open 打开聊天输入	close 关闭聊天输入监听方法：	onCommit  点击发送的监听方法	onShareMenuItem  点击分享里选项的监听方法	onVoiceAction  录音按钮的监听方法#### open  打开聊天输入  
+#uexChatKeyboard###提供聊天输入相关的功能，集成了表情、拍照、从相册选取图片等分享功能，只需简单的widget配置即可实现自定义表情集和分享选项内容。## 方法:### [open](#open) 打开聊天输入###	[close](#close) 关闭聊天输入### [getInutBarHeight](getinputbarheight) 获取输入工具条高度## 监听方法：### [onCommit](#oncommit)  点击发送的监听方法### [onShareMenuItem](#onsharemenuitem)  点击分享里选项的监听方法### [onVoiceAction](#onvoiceaction)  录音按钮的监听方法#### open  打开聊天输入  
 `uexChatKeyboard.open(viewInfo) `  
 说明:   在界面的底部打开聊天输入框界面参数:  
 viewInfo: (String类型) 必选  聊天输入的信息  
@@ -45,4 +45,4 @@ uexChatKeyboard. onVoiceAction (data)
 该字符串为JSON格式。如下：{    "status": 1}各字段含义如下:
 |参数 |是否必须|说明|
 |----|-------|---||status|是  |录音按钮的状态，0--开始录音，1--录音完成，-1--取消录音|
-版本支持： 3.0.0+
+版本支持： 3.0.0+  #### getInutBarHeight获取输入工具条高度uexChatKeyboard.getInputBarHeight();参数:无回调函数 cbGetInputBarHeight示例```uexChatKeyboard.cbGetInputBarHeight = function(json) {	alert(json); //json格式为{"height": "100"}}``` 版本支持： 3.0.7+
