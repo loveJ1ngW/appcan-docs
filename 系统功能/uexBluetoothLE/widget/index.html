@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+	content="target-densitydpi=device-dpi,width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+    <script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript">
+        
+    var peripheralUUID="D4497530-D0B5-ED3E-3FC4-4667DC5A575B";
+   
+    var serviceUUID="1804";
+    var characteristicUUID="2A07";
+    var descriptorUUID="";
+        window.uexOnload = function(type){
+            uexBluetoothLE.onLeScan=function(data){
+                alert(data);
+            }
+            uexBluetoothLE.cbConnect=function(data){
+                alert(data);
+            }
+            uexBluetoothLE.onConnectionStateChange=function(data){
+                alert(data);
+            }
+            uexBluetoothLE.cbSearchForCharacteristic=function(data){
+                alert(data);
+            }
+            uexBluetoothLE.cbReadCharacteristic=function(data){
+                document.getElementById('222').innerHTML=data;
+                alert(data);
+            }
+            uexBluetoothLE.cbWriteCharacteristic=function(data){
+                alert(data);
+            }
+            uexBluetoothLE.onCharacteristicChanged=function(data){
+                alert(data);
+            }
+            uexBluetoothLE.log=function(data){
+                console.log(data);
+            }
+
+            
+        }
+    function init(){
+        uexBluetoothLE.init();
+    }
+    function scanDevice(){
+        var data=["1802"];
+        var json=JSON.stringify(data);
+        uexBluetoothLE.scanDevice(json);
+        //uexBluetoothLE.scanDevice();
+    }
+    function stopScanDevice(){
+        uexBluetoothLE.stopScanDevice();
+    }
+    function connect(){
+        var data={
+            address:peripheralUUID
+        };
+        var json=JSON.stringify(data);
+        uexBluetoothLE.connect(json);
+    }
+    function disconnect(){
+        uexBluetoothLE.disconnect();
+    }
+    function searchForCharacteristic(){
+        var data={
+            serviceUUID:serviceUUID
+        };
+        var json=JSON.stringify(data);
+        uexBluetoothLE.searchForCharacteristic(json);
+    }
+    function readCharacteristic(){
+        var data={
+            serviceUUID:serviceUUID,
+            characteristicUUID:characteristicUUID
+        };
+        var json=JSON.stringify(data);
+        uexBluetoothLE.readCharacteristic(json);
+    }
+    
+        	</script>
+</head>
+
+<body>
+	<div class="tit">平台插件汇总</div>
+		<div class="conbor">
+			<div class="consj">
+			
+<!--			<div onclick="openTest('system/system')" class="testbtn">系统插件</div><br>-->
+<!--                <div onclick="openTest('UI/UI')" class="testbtn">UI界面插件</div><br>-->
+<!--                <div onclick="openTest('network/network')" class="testbtn">网络插件</div><br>-->
+<!--                <div onclick="openTest('media/media')" class="testbtn">多媒体插件</div><br>-->
+<!--                <div onclick="openTest('other/other')" class="testbtn">第三方插件</div><br>-->
+                <div id="222">****</div><br>
+                <div onclick="init();" class="testbtn">init</div><br>
+                <div onclick="scanDevice()" class="testbtn">scanDevice</div>
+                <div onclick="stopScanDevice()" class="testbtn">stopScanDevice</div><br>
+                <div onclick="connect()" class="testbtn">connect</div>
+                <div onclick="disconnect()" class="testbtn">disconnect</div><br>
+                 <div onclick="searchForCharacteristic()" class="testbtn">searchForCharacteristic</div><br>
+                 <div onclick="readCharacteristic()" class="testbtn">readCharacteristic</div><br>
+                
+                
+<!--                <div onclick="openTest('wintestNav/uexWindow')" class="testbtn">打开导航视图窗口</div><br>-->
+<!--                <div onclick="openTest('wintestNav/uexWindow')" class="testbtn">打开导航视图窗口</div><br>-->
+<!--                <div onclick="openTest('wintestNav/uexWindow')" class="testbtn">打开导航视图窗口</div><br>-->
+<!--                <div onclick="openTest('wintestNav/uexWindow')" class="testbtn">打开导航视图窗口</div><br>-->
+<!--                <div onclick="openTest('wintestNav/uexWindow')" class="testbtn">打开导航视图窗口</div><br>-->
+<!--                <div onclick="openTest('wintestNav/uexWindow')" class="testbtn">打开导航视图窗口</div><br>-->
+<!--                <div onclick="openTest('wintestNav/uexWindow')" class="testbtn">打开导航视图窗口</div><br>-->
+<!--                <div onclick="openTest('wintestNav/uexWindow')" class="testbtn">打开导航视图窗口</div><br>-->
+<!--                <div onclick="openTest('wintestNav/uexWindow')" class="testbtn">打开导航视图窗口</div><br>-->
+<!--                <div onclick="openTest('wintestNav/uexWindow')" class="testbtn">打开导航视图窗口</div><br>-->
+<!--                <div onclick="openTest('wintestNav/uexWindow')" class="testbtn">打开导航视图窗口</div><br>-->
+<!--                <div onclick="openTest('wintestNav/uexWindow')" class="testbtn">打开导航视图窗口</div><br>-->
+
+			</div>
+		</div>
+</body>
+</html>
