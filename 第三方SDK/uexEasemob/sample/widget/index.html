@@ -311,6 +311,13 @@ uexEasemob.cbInit= function(data){
  uexEasemob.onApnsLaunch=function(data){
      postToFront('onApnsLaunch:',data);
  }
+ uexEasemob.cbGetRecentChatters=function(data){
+     postToFront('cbGetRecentChatters:',data);
+ }
+ uexEasemob.onMessageSent=function(data){
+     postToFront('onMessageSent:',data);
+ }
+
             
         }
     var cPage="1";
