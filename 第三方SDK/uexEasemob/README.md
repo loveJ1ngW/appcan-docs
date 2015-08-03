@@ -1,27 +1,39 @@
 [TOC]
 #1、简介 [![](http://appcan-download.oss-cn-beijing.aliyuncs.com/%E5%85%AC%E6%B5%8B%2Fgf.png)]()
 环信插件
-##1.1、 业务限制资源规格限制说明
+##1.1、 说明
 本插件是基于环信API封装的AppCan平台的插件模块，用户可以使用本插件实现基本的即时通讯功能，包括——
 单聊功能：支持发送语音，图片，表情，文字，位置，附件；
 群聊功能：支持500人到2000人大群，拥有完善的群组权限管理；
 实时语音 ：基于IP网络的点对点实时语音，适应低带宽要求；
-> **使用前说明：**本插件为单例插件 ——
+
+> **使用前说明：**
+
+本插件为单例插件 ——
+
 * 在任何网页调用本插件，调用的是同一个插件实例;
 * 所有的API都是异步方法，不会直接返回值;
-* 所有的回调都会传到root页面（config.xml中配置的App起始页面，本Demo中就为本页面）
-以上内容非常重要，
+* 所有的回调都会传到root页面（config.xml中配置的App起始页面）
+
+**以上内容非常重要**
+
 root页面收到回调后，可以通过uexWindow的相关方法传递到各个网页去，
 以下方法是您可能要用到的——
+
  传递给某个窗口:
-    * uexWindow.evaluateScript;
-    * uexWindow.evaluatePopoverScript
-    * uexWindow.evaluateMultiPopoverScript
+ 
+* uexWindow.evaluateScript;
+* uexWindow.evaluatePopoverScript
+* uexWindow.evaluateMultiPopoverScript
+
  传递给某些窗口:
-    * uexWindow.publishChannelNotification
-    * uexWindow.subscribeChannelNotification
-  这些方法具体用法在文档 http://newdocx.appcan.cn/newdocx/ejsTemplate?type=1318_1249 内有描述
- 当然，也可参考本[开源源码](http://plugin.appcan.cn/details.html?id=406_index)  下载Demo内的调用。
+ 
+* uexWindow.publishChannelNotification
+* uexWindow.subscribeChannelNotification
+
+这些方法具体用法在[uexWindow文档](http://newdocx.appcan.cn/newdocx/ejsTemplate?type=1318_1249) 内有描述
+
+当然，也可[下载Demo](http://plugin.appcan.cn/details.html?id=406_index) 参考Demo内的调用。
  
 ##1.2、 UI展示
 暂无
@@ -911,66 +923,79 @@ lastMsg|最后一条消息 EMMessage格式的json字符串
 
 
 #4、更新历史
-API 版本：uexEasemob-3.0.9(iOS) uexEasemob-3.0.8（Android）
-最近更新时间：2015-06-19
+API 版本：uexEasemob-3.0.11(iOS) uexEasemob-3.0.10（Android）
+最近更新时间：2015-08-03
 
 |  历史发布版本 | iOS更新  | 安卓更新  |
 | ------------ | ------------ | ------------ |
- | 3.0.9  |   SDK更新，代码优化等，详见文档|   |
-  | 3.0.8  |   新增方法 发送视频消息等，详见文档|getGroup添加groupName,groupDescription 字段   |
-   | 3.0.7  |   优化了本地数据库的相关设置|  getChatterInfo增加返回新加好友的聊天记录 |
-   | 3.0.6  |   自动登录功能改在 初始化 中进行设置|  添加getTotalUnreadMsgCount接口 |
-   | 3.0.5  | 针对新版本做了一些代码优化|  升级环信SDK |
+|3.0.11|新增API:getRecentChatters，onMessageSent|   |
+|3.0.10|SDK更新；EMGroup回调结构优化；支持IDE打包|  添加getRecentChatters接口|
+| 3.0.9  |   SDK更新，代码优化等，详见文档| 支持离线消息  |
+| 3.0.8  |   新增方法 发送视频消息等，详见文档|getGroup添加groupName,groupDescription 字段   |
+| 3.0.7  |优化了本地数据库的相关设置|  getChatterInfo增加返回新加好友的聊天记录 |
+| 3.0.6  |自动登录功能改在 初始化 中进行设置|  添加getTotalUnreadMsgCount接口 |
+| 3.0.5  | 针对新版本做了一些代码优化|  升级环信SDK |
 | 3.0.4 |支持自动登录，更新环信iOS SDK版本至V2.1.6 | 升级环信SDK  |
 | 3.0.3  |  新增了一个获取聊天对象信息的方法 | 发送语音添加length参数  |
- | 3.0.2  |  修复了回调信息不全引起程序崩溃的bug | 添加sendHasReadResponseForMessage 等接口  |
+| 3.0.2  |  修复了回调信息不全引起程序崩溃的bug | 添加sendHasReadResponseForMessage 等接口  |
 | 3.0.1  | 修正了多次初始化会导致程序卡死的bug| 添加getChatterInfo接口|
 | 3.0.0  | 环信(Easemob)插件 for iOS  | 环信插件|
 
 ## 文档更新
 
 **   2015-8-3**
+
 - 新增了如下API:
-> * onMessageSent 消息已发送的监听
-> * getRecentChatters 获取最近联系人
-> * cbGetRecentChatters 获取最近联系人回调
+  * onMessageSent 消息已发送的监听
+  * getRecentChatters 获取最近联系人
+  * cbGetRecentChatters 获取最近联系人回调
 
 **   2015-7-7**   
+
 - iOS SDK更新至2.1.8；
 - EMGroup中 groupSubject属性废弃，改用groupName和GroupDescription来获取相应信息；
 
 **   2015-6-18**   
+
 - iOS插件版本更新至3.0.9，用以支持新版SDK （iOS V2.1.7）
 - Android插件版本更新至3.0.6 用以支持新版SDK（AndroidV2.1.9）
-- 方法[5.16]getAllPublicGroupsFromServer添加的参数，变得更加实用了（详情见接口说明）
-- 新增方法[3.17]getTotalUnreadMsgCount() 获取总计未读消息数 及其回调[3.18]
+- 方法getAllPublicGroupsFromServer添加的参数，变得更加实用了（详情见接口说明）
+- 新增方法getTotalUnreadMsgCount() 获取总计未读消息数 及其回调
 - 开放Apns离线推送相关接口(仅限iOS)
 - 所有参数中的"isGroup"即将废弃，改用"chatType"(详见附录)
 
 **   2015-5-25**   
+
 - iOS插件版本更新至3.0.8
-- 新增方法[2.14]sendVedio 发送视频消息；
+- 新增方法sendVedio 发送视频消息；
 - EMMessage回调中，添加length 长度（单位：秒，仅语音、视频消息）；
 - EMMessage回调中，添加ext 扩展属性；发送消息的各个API也添加此项作为可选参数；（扩展属性为一个自定义的字符串，用以携带开发者可能需要的其他参数）
-- 新增方法[2.15]sendHasReadResponseForMessage 发送已读回执;(对方会触发回调[2.3]，插件不再自动发送此回执)
-- 方法[2.12]根据消息id获取消息记录及其回调[2.13]也支持iOS了
+- 新增方法sendHasReadResponseForMessage 发送已读回执;(对方会触发回调onAckMessage，插件不再自动发送此回执)
+- 方法getMessageById根据消息id获取消息记录及其回调也支持iOS了
 
-**   2015-05-06**   
-- 删去方法 [1.12]设置是否自动登录 ，改为在 [1.1]初始化 中添加相关参数
+**   2015-05-06**  
+ 
+- 删去方法 设置是否自动登录 ，改为在 init初始化 中添加相关参数
 
-**   2015-05-05**   
+**   2015-05-05**  
+ 
 - 更新环信iOS SDK版本至V2.1.6(2015-04-30版)，部分代码做了优化以支持此新版本;
-- 现在所有的回调函数都会返回给进行 [1.1]初始化 操作的那个网页了。
-- [1.9]现在也会返回 是否开启自动登录 的信息了。
-**   2015-05-04**   
-- 新增方法[1.12]设置是否自动登录;
+- 现在所有的回调函数都会返回给进行 init初始化 操作的那个网页了。
+- cbGetLoginInfo现在也会返回 是否开启自动登录 的信息了。
+
+**   2015-05-04** 
+  
+- 新增方法 设置是否自动登录;
 - 现在iOS也支持回调 [1.10]onConnected 了。
-**   2015-04-28**   
-- 新增方法[3.15]获取聊天对象信息及其回调[3.16];
-- [4.6][5.14]改用异步方法获得回调。
-**   2015-04-20**   
-- 新增[2.12][2.13]方法;
-- 修改了[2.1]的回调值的结构;
+**   2015-04-28**
+   
+- 新增方法getChatterInfo获取聊天对象信息及其回调;
+
+**   2015-04-20**
+   
+- 新增 getMessageById 方法及回调;
+- 修改了onNewMessage的回调值的结构;
 - 统一了Android和iOS返回的json对象的结构，对附录做了大量修订。
+
 **   2015-04-17**   
 - 初稿
