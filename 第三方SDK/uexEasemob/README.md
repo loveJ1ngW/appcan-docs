@@ -558,8 +558,14 @@ var param = {
   	initialWelcomeMessage://群组创建时发送给每个初始成员的欢迎信息（仅iOS需要）
 }
 
+>###onGroupCreated(param)//群组建立监听
 
+var param = {
 
+	isSuccess:,//群组是否创建成功 true/false
+	errorStr:,//创建失败的原因 仅isSuccess传false时会有此参数
+	group:,//EMGroup的json字符串，被建立的群组信息
+}
 
 >###addUsersToGroup(param)//群聊加人
 var param = {
@@ -583,7 +589,7 @@ var param = {
 } 
 
 	只有owner才有权限进行此操作
->###]joinGroup(param)//加入某个群聊，只能用于加入公开群
+>###joinGroup(param)//加入某个群聊，只能用于加入公开群
 
 var param = {
 
@@ -620,6 +626,7 @@ var param = {
 }
 
 
+
 >###getAllPublicGroupsFromServer(param);//获取所有公开群列表
 
 var param = {
@@ -638,7 +645,7 @@ var param = {
 }
 
 
->###getGroup(param)//获取单个群聊信息
+>###getGroup(param)//获取群详情
 
 var param = {
 
@@ -648,7 +655,7 @@ var param = {
 
 
 
->###cbGetGroup(param)//获取单个群聊信息回调
+>###cbGetGroup(param)//获取群详情回调
 
 var param = {
 
@@ -862,13 +869,8 @@ thumbnailSecretKey|预览图文件的密钥(仅视频/图片消息)
  
 
 
-`注`：由于`Android SDK`不能获取`已发送消息`的`remotePath`和`thumbnailRemotePath`，改用`本地文件路径`（file://开头）代替
-
-
-
-
-
-	返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略
+* 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略
+* 由于`Android SDK`不能获取`已发送消息`的`remotePath`和`thumbnailRemotePath`，因此改用`本地文件路径`（file://开头）代替
 
 >###EMConversation json字符串返回值结构 
 
@@ -880,10 +882,10 @@ chatType	|聊天类别 0-个人 1-群组
 messages	|"conversation所包含的message列表，表内元素为EMMessage的json字符串"
 	
 	
+* 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略
 
 
-
-	返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略
+	
 >###EMGroup json字符串返回值结构 
 
 
@@ -900,6 +902,11 @@ groupId	|群组Id
 isPublic|群组类型
 allowInvites|是否允许群成员邀请人进群
 membersOnly|需要申请和验证才能加入
+
+* 返回的json数据中会包含除上述属性之外的一些其他信息，均可以忽略
+* 受SDK所限，部分接口的members属性会有误
+	* 群组的members属性以cbGetGroup回调为准
+	* **`Android的members包含群组的owner，而iOS并不包含`**，此问题已反馈给环信官方，待解决中
 
 >###EMChatterInfo json字符串返回值结构 
 
