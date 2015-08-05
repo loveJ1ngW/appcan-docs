@@ -740,6 +740,7 @@ var json = {
     fillColor:,//(可选) 填充颜色
     strokeColor:,//(可选) 边框颜色
     lineWidth://(可选) 边框线宽
+    lineDash://（可选，仅iOS）边框是否为虚线 请传true或者false
 }
 ```
 ### 平台支持：
@@ -750,7 +751,7 @@ var json = {
 ### 版本支持：
 ```
 Android 3.0.0+
-iOS 3.0.0+
+iOS 3.0.2+
 ```
 ### 示例：
 ```
@@ -2210,6 +2211,15 @@ Android 3.0.3+
 2015-07-10
 - 新增**API**：[离线地图](#离线地图)相关接口
 - iOS3.0.2版本，Android3.0.3版本开始支持。
+
+2015-08-05
+
+- 修复如下bugs:
+	* 极端情况下调用clear接口会闪退的bug；
+	* 手机完全静止时getCurrentLocation不敏感的bug；
+	* 覆盖物设置透明色可能会失效的bug
+- iOS下圆形覆盖物默认边框改为实线，与Android保持一致
+	* 用户可以添加lineDash可选参数将边框重新设置为虚线 （仅iOS）
 
 
 
