@@ -10,17 +10,21 @@
 
 	window.uexOnload = function(){
 		
-		uexSearchBarView.onItemClick = function(index, keyword) {
-			alert(keyword);
+		uexSearchBarView.onItemClick = function(keyword) {
+			alert("onItemClick: "+keyword);
 		}
+        
+        uexSearchBarView.onSearch=function(keyword){
+            alert("onSearch: "+keyword)
+        }
 	}
 
 	function show() {
 		var wid = window.screen.width;
 		var hei = window.screen.height - 300;
 		var param = {
-			x:200,
-			y:0,
+			x:0,
+			y:200,
 			w:wid,
 			h:hei,
 			searchBar:{

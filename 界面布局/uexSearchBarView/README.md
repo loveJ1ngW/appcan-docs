@@ -9,6 +9,7 @@
 
 ## 监听方法：
 ### [onItemClick](#onitemclick) item被点击的监听方法
+### [onSearch](#onsearch) 用户点击搜索之后的回调
 
 ### open
   打开搜索框
@@ -147,6 +148,33 @@ iOS 3.0.0+
 ### 示例：
 ```
     uexSearchBarView.onItemClick = function(data){
+        alert(data);
+    }
+```
+### onSearch 
+用户点击搜索之后的回调
+```
+uexSearchBarView.onSearch(json);
+```
+### 参数：
+```
+var json = {
+    keyword://(必选) 关键字
+}
+```
+### 平台支持：
+```
+Android 2.2+
+iOS 6.0+
+```
+### 版本支持：
+```
+Android 3.0.0+
+iOS 3.0.0+
+```
+### 示例：
+```
+    uexSearchBarView.onSearch = function(data){
         alert(data);
     }
 ```
